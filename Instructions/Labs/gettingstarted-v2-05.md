@@ -46,9 +46,9 @@ Once the environment is provisioned, a virtual machine (JumpVM) and lab guide wi
 
 ## Accessing Your Lab Environment
 
-1. Once you're ready to dive in, your virtual machine and the **Guide** will be right at your fingertips within your web browser.
+Once you're ready to dive in, your virtual machine and the **Guide** will be right at your fingertips within your web browser.
 
-   ![](../media/getting-started1.png "Lab Environment")
+![](../media/getting-started1.png "Lab Environment")
 
 ## Virtual Machine & Lab Guide
  
@@ -56,15 +56,15 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
 
 ## Lab Guide Zoom In/Zoom Out
 
-1. To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
+To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
 
-   ![Manage Your Virtual Machine](../media/zoominout1.png)
+![Manage Your Virtual Machine](../media/zoominout1.png)
 
 ## Exploring Your Lab Resources
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
 
-   ![](../media/env1.png)
+![](../media/env1.png)
 
 ## Utilizing the Split Window Feature
  
