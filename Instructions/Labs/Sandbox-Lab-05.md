@@ -69,7 +69,7 @@ In this task, you will use the gpt-image-1-mini playground in the Microsoft Foun
 
       ![](../media/l1-12-01.png)
 
-2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab06-<inject key="Deployment-id" enableCopy="false"></inject>(2)**
+2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab05-<inject key="Deployment-id" enableCopy="false"></inject>(2)**
 
       ![](../media/l5-12-11.png)
 
@@ -142,6 +142,9 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
    ![](../media/classic-cloudshell1.png)
 
+   **Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+   
+
 1. Run the below commands:
 
     ```
@@ -187,7 +190,7 @@ In this task, you will use a configuration file in the application to store the 
 
     > **Tip:** You can adjust the split at the top of the cloud shell pane to see the Azure portal and get the endpoint and key values from the **Keys and Endpoint** page for your Azure OpenAI service.
 
-3. If you are using **Python**, you'll also need to install the **python-dotenv** package used to read the configuration file. In the console prompt pane, ensure the current folder is **~/azure-openai/Labfiles/05-image-generation/Python**. Then enter this command:
+3. If you are using **Python**, you'll also need to install the **python-dotenv** package used to read the configuration file. In the console prompt pane, ensure the current folder is **~/mslearn-openai/Labfiles/05-image-generation/Python**. Then enter this command:
 
     ```bash
    pip install python-dotenv
