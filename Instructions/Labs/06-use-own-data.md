@@ -27,7 +27,7 @@ In this task, you will observe how the base model responds to queries without an
 
 1. From the left navigation pane, select **Chat (1)** and ensure that your model deployment **my-gpt-model (2)** is selected.
 
-   ![](../media/chatmodelv.png)
+   ![](../media/MDV.png)
 
 1. In the **Setup** area, for the **Give the model instructions and context (1)**, provide the following message and click on **Apply changes (2)**.
 
@@ -37,7 +37,7 @@ In this task, you will observe how the base model responds to queries without an
     You are an AI assistant that helps people find information.
     ```
 
-   ![](../media/findinfoo.png)
+   ![](../media/hihlp.png)
 
 1. In the **Update system message?** window, click on **Continue**.
 
@@ -49,13 +49,13 @@ In this task, you will observe how the base model responds to queries without an
     I'd like to take a trip to New York. Where should I stay?
     ```
 
-   ![](../media/new/t1.png)
+   ![](../media/nycst.png)
 
     ```
     What are some facts about New York?
     ```
 
-   ![](../media/new/t2.png)
+   ![](../media/nycfac.png)
 
     Try similar questions about tourism and places to stay for other locations that will be included in our grounding data, such as London or San Francisco. You'll likely get complete responses about areas or neighbourhoods, and some general facts about the city.
 
@@ -65,7 +65,7 @@ In this task, you will observe how the base model responds to queries without an
    
 1. On the **Azure portal**, search for **Storage account (1)** in the search box and select **Storage accounts (2)** from the results.
 
-   ![](../media/strgact.png)
+   ![](../media/strsr.png)
 
 1. From the left navigation pane, expand **Object Storage (1)** and select **Blob Storage (2)** and then click on **+ Create (3)**.
 
@@ -82,7 +82,7 @@ In this task, you will observe how the base model responds to queries without an
    | **Primary Service** | Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)** |
    | **Redundancy** | Locally-redundant storage (LRS) **(6)** |
   
-    ![](../media/strgcreatenext.png)
+    ![](../media/strnxt.png)
 
 1. Under the **Advanced** tab, provide the following details and click on **Review + create (2)**
 
@@ -90,11 +90,11 @@ In this task, you will observe how the base model responds to queries without an
    | -- | -- |
    | **Allow enable anonymous access on individual containers (1)** | Check in the box. |
 
-    ![](../media/advstrg.png)
+    ![](../media/rc.png)
 
 1.  Then, click on **Create** to create a new blob storage. 
 
-    ![](../media/new/t3.png)
+    ![](../media/crst.png)
 
 1. Wait until the storage account is created before you proceed to the next task. This should take about a minute.
 
@@ -102,7 +102,7 @@ In this task, you will observe how the base model responds to queries without an
 
     ![](../media/gtr.png)
 
-1. On **Storage Account**, go to **Container (1)** section under Data Storage and click on **+ Add Container (2)** to create a new container.
+1. On **Storage Account**, go to **Container (1)** section under **Data Storage** and click on **+ Add Container (2)** to create a new container.
 
     ![](../media/new/t4.png)
 
@@ -124,7 +124,7 @@ In this task, you will observe how the base model responds to queries without an
 
 1. Search for and go to location `C:\AllFiles\mslearn-openai-main\Labfiles\06-use-own-data\data` **(1)**. Select all the **PDF files (2)** and click on **Open (3)**.
 
-    ![](../media/L6T2S9-0205-3.png)
+    ![](../media/filopn.png)
 
 1. Then click on **Upload** to upload all PDF files. 
 
@@ -136,7 +136,7 @@ In this task, you will observe how the base model responds to queries without an
 
 1. On the Azure portal, search for **AI Search (1)** in the search bar and select **AI Search (2)** from the results.
 
-    ![](../media/aisrchportal.png)
+    ![](../media/aisr.png)
 
 1. On **Microsoft Foundry | AI search** blade, ensure **AI Search (1)** is selected, then click on **+ Create (2)**.
 
@@ -152,11 +152,13 @@ In this task, you will observe how the base model responds to queries without an
    | **Location** | Select **<inject key="Region" enableCopy="false" /> (3)** |
    | **Pricing tier** | Change the Pricing tier to **Basic (4)** |
 
-   ![](../media/new/t9.png)
+    >**Note:** If you’re unable to switch the pricing tier to Basic, please change the location to Central US or West US and try again.
+
+   ![](../media/css.png)
 
 1. Then click on **Create**.
 
-   ![](../media/new/t11.png)
+   ![](../media/upt11.png)
 
 1. Once the deployment is successful, click on **Go to resource** to go to the deployed search service. 
 
@@ -168,7 +170,7 @@ In this task, you will observe how the base model responds to queries without an
 
 1. From the left navigation pane, expand **Settings (1)** click on **Keys (2)** and **copy the primary key (3)** and paste it into a notepad for later use.
 
-    ![](../media/cogkeys.png)
+    ![](../media/PAK.png)
 
 1. In **Microsoft Foundry** portal, navigate to the **Chat (1)** section, expand the **Add your data (2)** option and click on **+ Add a data source (3)**.
 
@@ -243,7 +245,7 @@ In this task, you will use a short command-line application running in Cloud She
 
 3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
 
-   ![](../media/classic.png)
+   ![](../media/gtcv.png)
 
 4. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise.
 
@@ -252,7 +254,7 @@ In this task, you will use a short command-line application running in Cloud She
      git clone https://github.com/microsoftlearning/mslearn-openai mslearn-openai
      ```
 
-5. After the repo has been cloned, navigate to the folder containing the chat application code files
+5. After the repo has been cloned, navigate to the folder containing the chat application code files.
    
     ```bash
     cd mslearn-openai/Labfiles/02-use-own-data
@@ -326,24 +328,35 @@ In this task, you will complete key parts of the application to enable it to use
 
 1. Navigate to the **CSharp** folder and install the necessary packages. These commands set up the environment for a local installation of the .NET SDK in Cloud Shell.
 
+   For **C#:**
+
     ```
     cd CSharp
+    ```
+
+    ```
     export DOTNET_ROOT=$HOME/.dotnet
-    export PATH=$DOTNET_ROOT:$PATH
     mkdir -p $DOTNET_ROOT
-    ```   
+    ```
 
-    - `DOTNET_ROOT` specifies where your .NET runtime and SDK are located (in your `$HOME/.dotnet directory).
-    - `PATH=$DOTNET_ROOT:$PATH` ensures that the locally installed .NET SDK can be accessed globally by your terminal.
-    - `mkdir -p $DOTNET_ROOT` This creates the directory where the .NET runtime and SDK will be installed.
+     >**Note:** Azure Cloud Shell often does not have admin privileges, so you need to install .NET in your home directory. So here you are creating a separate `.dotnet` directory under your home directory to isolate your configuration.
+     - `DOTNET_ROOT` specifies where your .NET runtime and SDK are located (in your `$HOME/.dotnet directory`).
+     - `mkdir -p $DOTNET_ROOT` This creates the directory where the .NET runtime and SDK will be installed.
 
-1. Run the following command to install the required SDK version locally. These commands download and prepare the official `.NET` installation script, grant it execute permissions, and install the required .NET SDK version (8.0.404) in the `$DOTNET_ROOT` directory, as we don't have the admin privileges to install it globally.    
+1. Run the following command to install the required SDK version locally:     
 
-     ```
-     wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
-     chmod +x dotnet-install.sh
-     ./dotnet-install.sh --version 8.0.404 --install-dir $DOTNET_ROOT
-     ``` 
+    ```
+    curl -fsSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+    chmod +x dotnet-install.sh
+    ``` 
+
+    ```
+    ./dotnet-install.sh --channel 8.0 --install-dir $DOTNET_ROOT
+    ```
+
+    ```
+    export PATH=$DOTNET_ROOT:$PATH
+    ```
 
 1. Enter the following command to restore any required workloads for your project, such as additional tools or libraries that are part of the .NET SDK.
 
@@ -457,4 +470,4 @@ In this lab, you connected your own data to the Azure OpenAI Service for Retriev
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      
-![](../media/new/next.png)
+![](../media/7nct.png)

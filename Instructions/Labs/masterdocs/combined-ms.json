@@ -25,11 +25,11 @@
         "Order": 5
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/ms-innovation/Instructions/Labs/05-generate-images.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/ms-innovation/Instructions/Labs/05-generate-images-new.md",
         "Order": 6
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/ms-innovation/Instructions/Labs/06-use-own-data.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/ms-innovation/Instructions/Labs/06-useowndata-new.md",
         "Order": 7
       },
       {

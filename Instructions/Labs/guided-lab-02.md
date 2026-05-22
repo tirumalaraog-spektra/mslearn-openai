@@ -24,7 +24,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)** from the result.
 
-   ![](../media/azureai.png)
+   ![](../media/img-01-18.png)
 
 1. On  **Microsoft Foundry | Azure OpenAI** blade, select **Azure OpenAI (1)** from the left menu, click on **+ Create (2)** and select **Azure OpenAI (3)**
 
@@ -56,15 +56,13 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 1. To capture the Keys and Endpoints values, on **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
 
-    - Navigate to **Keys and Endpoint (2)** under **Resource Management (1)**.
+    - On the left navigation menu, expand **Resource Management (1)** and select **Keys and Endpoint (2)**.
     
-    - Click on **Show Keys (3)**.
+    - Copy **Key 1 (3)** and ensure to paste it in a text editor such as notepad for future reference.
     
-    - Copy **Key 1 (4)** and ensure to paste it in a text editor such as notepad for future reference.
+    - Finally copy the **Endpoint (4)** API URL by clicking on copy to clipboard. Paste it in a text editor such as notepad for later use.
     
-    - Finally copy the **Endpoint (5)** API URL by clicking on copy to clipboard. Paste it in a text editor such as notepad for later use.
-    
-        ![](../media/e1t1p5a.png "Keys and Endpoints")
+        ![](../media/img-01-19.png "Keys and Endpoints")
 
 <validation step="b6d08e8e-f2a3-4066-a698-2a324f4493dd" />
 
@@ -77,7 +75,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 In this task, you'll deploy a specific AI model instance within your Azure OpenAI resource to integrate advanced language capabilities into your applications.
 
-1. In the Azure OpenAI resource pane, click on **Go to Foundry portal**, which will navigate to **Microsoft Foundry**.
+1. In the Azure OpenAI resource pane, navigate back to the **Overview** page and click **Go to Foundry portal**. This will take you to **Microsoft Foundry**.
 
     ![](../media/va2.png)
 
@@ -116,33 +114,38 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 <validation step="69a18560-a442-467a-be09-b5663806dd0a" />
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide. 
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
     > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-4.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 ## Task 3: Set up an application in Cloud Shell
 
 In this task, you will set up a development environment using Azure Cloud Shell. You will clone the sample application repository, prepare the workspace, and open the code editor to begin integrating Azure OpenAI services.
 
-1. In the [Azure portal](https://portal.azure.com?azure-portal=true), select the **[>_]** (*Cloud Shell*) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
+1. Open [Azure portal](https://portal.azure.com?azure-portal=true), select the **[>_]** (*Cloud Shell*) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
-    ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/L2T2S1.png)
+     ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/L2T2S1.png)
 
-    >**Note:** If you can't find Cloud Shell, click on the **ellipsis (...) (1)** and then select **Cloud Shell (2)** from the menu.
+     >**Note:** If you can't find Cloud Shell, click on the **ellipsis (...) (1)** and then select **Cloud Shell (2)** from the menu.
 
-    ![](../media/180625(14).png)
+     ![](../media/180625(14).png)
 
-1. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**. If you don't see this option, skip the step.
+2. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**. If you don't see this option, skip the step.
 
     ![](../media/bash.png)
 
-1. Within the **Getting started** page, select **Mount storage account (1)**, select your **Subscription (2)** from the dropdown and click **Apply (3)**.
+3. Within the **Getting started** page, select **Mount storage account (1)**, select your **Subscription (2)** from the dropdown and click **Apply (3)**.
 
    ![](../media/mountstrg.png)
 
-1. Within the **Mount storage account** page, select **I want to create a storage account (1)** and click **Next (2)**.
+4. Within the **Mount storage account** page, select **I want to create a storage account (1)** and click **Next (2)**.
 
    ![](../media/csanext.png)
 
-1. Within the **Create storage account** page, enter the following details:
+5. Within the **Create storage account** page, enter the following details:
 
     - Subscription: Choose the **Default subscription (1)**.
 
@@ -158,13 +161,13 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
         ![](../media/csacreate.png)
 
-1. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
+6. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-1. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
+7. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
 
     ![](../media/classic.png)
 
-1. Once the terminal starts, enter the below-mentioned command to download the sample application and save it to a folder called `azure-openai`.
+8. Once the terminal starts, enter the below-mentioned command to download the sample application and save it to a folder called `azure-openai`.
 
     ```bash
    rm -r mslearn-openai -f
@@ -173,7 +176,7 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
     ![](../media/L2T2S8-1507.png)    
   
-1. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this exercise using the following command.
+9. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this exercise using the following command.
 
     ```bash
    cd mslearn-openai/Labfiles/01-app-develop
@@ -181,7 +184,7 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
     >**Note**: Applications for both **C#** and **Python** have been provided, as well as a sample text file you'll use to test the summarization. Both apps feature the same functionality.
 
-1. Open the built-in code editor, and observe the text file that you'll be summarizing with your model. Use the following command to open the lab files in the code editor.
+10. Open the built-in code editor, and observe the text file that you'll be summarizing with your model. Use the following command to open the lab files in the code editor.
 
     ```bash
     code .
@@ -312,7 +315,7 @@ In this task, you will configure the application to connect with the Azure OpenA
 
      ![](../media/L2T3S7-py.png)   
 
-      >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
+      >**Note:** Ensure the code is properly indented by removing any extra whitespace after pasting it into the code editor.
 
     Save the files by right-clicking on the blank space in the file text editor and hit **Save** or use **Ctrl+S**.
 
@@ -544,14 +547,9 @@ In this task, you will configure the application to connect with the Azure OpenA
           asyncio.run(main())
       ```
     
-1. To save the changes made to the file, right-click on the blank space in the file text editor and hit **Save**.
+1. To save the changes made to the file, right-click on the blank space in the file text editor and hit **Save**, or use **Ctrl+S**.
 
-   >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+   >**Note:** Ensure the code is properly indented by removing any extra whitespace after pasting it into the code editor.
 
 ## Task 5: Test your application
 
@@ -565,17 +563,13 @@ In this task, you will run the application and interact with the Azure OpenAI mo
 
     - **C#:** `dotnet run`
 
-    ![](../media/pydir.png) 
+        ![](../media/pydir.png) 
     
     - **Python:** `python application.py`
 
       > **Tip:** You can use the **Maximize panel size** (**^**) icon in the terminal toolbar to see more of the console text.
 
-1. In the terminal, it will ask you to enter a key to continue.
-
-    ![](../media/170725(08).png)
-
-1. For the first iteration, navigate to `System.txt` file **(1)**, enter the following prompts **(2)** and save the file:
+1. For the first iteration, navigate to `System.txt` **(1)** file, and then enter the following message and **Save** the file :
 
    **System message:**
    
@@ -583,9 +577,13 @@ In this task, you will run the application and interact with the Azure OpenAI mo
    You are an AI assistant
    ```
 
-    ![](../media/va7.png)   
+    ![](../media/img-01-22.png)   
    
      >**Note:** System message should given in system.txt in C# or Python. Follow the same steps for the remaining prompts.
+
+1. In the terminal, press **Enter** a key to continue.
+
+    ![](../media/img-01-23.png) 
    
 1. In the Enter User message, give the following message.
 
@@ -595,7 +593,7 @@ In this task, you will run the application and interact with the Azure OpenAI mo
    Write an intro for a new wildlife Rescue 
    ```
 
-    ![](../media/va8.png)   
+    ![](../media/new/w1.png)   
 
     >**Note:** User message should given in terminal in C# or Python. Follow the same steps for the remaining prompts.
 
@@ -651,12 +649,10 @@ In this task, you will run the application and interact with the Azure OpenAI mo
 
 1. Close the Cloudshell.
 
-    ![](../media/va9.png)
+    ![](../media/new/w2.png)
 
 ## Summary
 
 In this lab, you used your Azure OpenAI resource to build and test an application with the Azure OpenAI SDK by configuring the development environment, integrating required credentials, and running the sample app to observe how different prompts influence AI-generated responses.
 
-### Congratulations on completing the lab!
-
-   ![](../media/next3.png)
+### You have successfully completed the Hands-on lab!

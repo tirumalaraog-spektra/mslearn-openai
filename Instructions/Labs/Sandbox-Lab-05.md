@@ -1,56 +1,58 @@
-# Lab 05: Generate images with a DALL-E model
+# Lab 05: Generate images with a gpt-image-1-mini model
 
 ## Estimated Duration: 60 minutes
 
 ## Lab scenario
-The Azure OpenAI Service includes an image-generation model named DALL-E. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
+The Azure OpenAI Service includes an image-generation model named gpt-image-1-mini. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
 
-In this exercise, you'll use a DALL-E version 3 model to generate images based on natural language prompts.
+In this exercise, you'll use a gpt-image-1-mini model to generate images based on natural language prompts.
 
 ## Lab objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Provision an Azure OpenAI resource
-- Task 2: Explore image-generation in the DALL-E playground
-- Task 3: Use the REST API to generate images
+- Task 2: Explore image-generation in the gpt-image-1-mini playground 
+- Task 3: Use the REST API to generate images 
 - Task 3.1: Prepare the app environment
 - Task 3.2: Configure your application
 - Task 3.3: View application code
-- Task 4: Run the app
+- Task 4: Run the app 
 
 ### Task 1:  Provision an Azure OpenAI resource
 
 In this task , you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
-1. In the **[Azure portal](https://portal.azure.com/)**, search for **Azure OpenAI** and select **Azure OpenAI**.
+1. In the **[Azure portal](https://portal.azure.com/)**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)**.
 
-      ![](../media/tel-11.png)
+      ![](../media/l1-12-01.png)
 
 2. On the **Microsoft Foundry | Azure OpenAI** page, select **Azure OpenAI (1)** from the left pane, click **+ Create (2)** drop-down and click on **Azure OpenAI (3)**.
 
-      ![](../media/tel-10.png)
+     ![](../media/va11.png)
 
-3. Create an **Azure OpenAI** resource with the following settings, click on **Next** thrice and subsequently click on **Create**:
+3. Create an **Azure OpenAI** resource with the following settings, click on **Next (6)** thrice and subsequently click on **Create**:
    
-      - **Subscription**: Default - Pre-assigned subscription.
-      - **Resource group**: openai-<inject key="Deployment-ID" enableCopy="false"></inject>
-      - **Region**: Select <inject key="Region" enableCopy="false" />
-      - **Name**: OpenAI-Lab05-<inject key="Deployment-ID" enableCopy="false"></inject>
-      - **Pricing tier**: Standard S0
+      - **Subscription:** Default - Pre-assigned subscription. **(1)**
+      - **Resource group:** **openai-<inject key="Deployment-id" enableCopy="false"></inject> (2)**
+      - **Region:** Select **East US 2 (3)**
+      - **Name:** **OpenAI-Lab05-<inject key="Deployment-id" enableCopy="false"></inject> (4)**
+      - **Pricing tier**: Standard S0 **(5)**
 
-        ![](../media/azopenai123.png "Create Azure OpenAI resource")
+        ![](../media/l3-12-01.png)
 
-        >**Note:** DALL-E 3 models are only available in Azure OpenAI service resources in the **East US** and **Sweden Central** regions.
+        > **Note:** The **gpt-image-1-mini** model is only available in Azure OpenAI Service resources in the **East US 2**, **Poland Central**, **Sweden Central**, and **West US 3** regions.
 
-4. Wait for deployment to complete. Then go to the deployed **Azure OpenAI** resource in the Azure portal.
+1. Wait for deployment to complete. Click on **Go to resource** to navigate to the deployed Azure OpenAI resource in the Azure portal.
 
-5. To capture the Keys and Endpoints values, on **openai-<inject key="Deployment-ID" enableCopy="false"></inject>** blade:
+     ![](../media/l1-12-21.png)
+
+5. To capture the Keys and Endpoints values, on **openai-<inject key="Deployment-id" enableCopy="false"></inject>** blade:
       - Select **Keys and Endpoint (1)** under **Resource Management**.
       - Click on **Show Keys (2)**.
       - Copy **Key 1 (3)** and ensure to paste it into a text editor such as Notepad for future reference.
       - Finally, copy the **Endpoint (4)** API URL by clicking on copy to clipboard. Paste it in a text editor such as Notepad for later use.
 
-        ![](../media/ui3.png "Keys and Endpoints")
+        ![](../media/e1t1p5a1.png "Keys and Endpoints")
 
 <validation step="d1fdf614-83d8-4c1a-b9c7-c9adf003d03f" />
 
@@ -59,54 +61,49 @@ In this task , you'll create an Azure resource in the Azure portal, selecting th
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
+## Task 2: Explore image generation in the gpt-image-1-mini playground 
 
-## Task 2: Explore image generation in the DALL-E playground
+In this task, you will use the gpt-image-1-mini playground in the Microsoft Foundry portal to experiment with image generation.
 
-In this task, you will use the DALL-E playground in the Microsoft Foundry portal to experiment with image generation.
+1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)**.
 
-> **Note:** This task relies on the DALL·E quota limit available in your Azure OpenAI resource. If the deployment fails, it may be due to quota restrictions on the existing resource. 
+      ![](../media/l1-12-01.png)
 
-> To resolve this, create a new Azure OpenAI resource (as done in **Lab 01**) in a supported region such as **East US** or **Australia East**, and then attempt to deploy the DALL·E model again.
+2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab06-<inject key="Deployment-id" enableCopy="false"></inject>(2)**
 
-1. In the **Azure portal**, search for **Azure OpenAI** and select **Azure OpenAI**.
-
-      ![](../media/tel-11.png)
-
-2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab05-<inject key="DeploymentID" enableCopy="false"></inject>(2)**
-
-      ![](../media/update07-1.png)
+      ![](../media/l5-12-11.png)
 
 3. In the Azure OpenAI resource pane, click on **Go to Foundry portal**, which will navigate to the **Microsoft Foundry portal**.
 
-      ![](../media/dev-genai-june-1.png)
+      ![](../media/l5-12-21.png)
 
 4. On the **Microsoft Foundry portal** page, select **Deployments (1)** under **Shared Resources** from the left pane. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)**.
 
-      ![](../media/ui1.png)
+      ![](../media/l5-12-31.png)
 
-5. In the **Select a model** page, search for **dall-e-3 (1)**, select **dall-e-3 (Text to image) (2)** model, and click on **Confirm (3)**
+5. In the **Select a model** page, search for **gpt-image-1-mini (1)**, select **gpt-image-1-mini (Text to image) (2)** model, and click on **Confirm (3)**
 
-      ![](../media/L5T1S5-1807.png)
+      ![](../media/dall1.png)
 
-6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **Dalle3 (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
+6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
 
-      ![](../media/L5T1S6.1-1807.png)
+      ![](../media/dall6.png)
 
-      ![](../media/L5T1S6.2-1807.png)
+      ![](../media/dall7.png)
               
 4. From the left navigation pane, select **Images (1)**, enter a description of an image you'd like to generate in the **Describe the image you want to generate (2)** box (for example, `An elephant on a skateboard`), and then select **Generate (3)** to view the **resulting image (4)**.
    
-      ![The DALL-E Playground in Azure OpenAI Studio with a generated image.](../media/dev-genai-june-8.png)
+      ![The gpt-image-1-mini Playground in Azure OpenAI Studio with a generated image.](../media/dall4.png)
 
 5. Modify the prompt to provide a more specific description. For example, `An elephant on a skateboard in the style of Picasso`. Then generate the new image and review the results.
 
-      ![The DALL-E Playground in Azure OpenAI Studio with two generated images.](../media/dev-genai-june-9.png)
+      ![The gpt-image-1-mini Playground in Azure OpenAI Studio with two generated images.](../media/dall5.png)
 
       > **Note:** The image may appear differently than shown in the screenshot. 
 
-## Task 3: Use the REST API to generate images
+## Task 3: Use the REST API to generate images 
 
-The Azure OpenAI service provides a REST API that you can use to submit prompts for content generation, including images generated by a DALL-E model.
+The Azure OpenAI service provides a REST API that you can use to submit prompts for content generation, including images generated by a gpt-image-1-mini model.
 
 ### Task 3.1: Prepare the app environment
 
@@ -118,39 +115,39 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
     > **Note:** If a **Cloud Shell timed out** pop-up appears, click **Reconnect**.
 
-1. Select **Bash (1)** as the Cloud Shell, choose **Mount storage account (2)** and click on **Apply (3)**.
+1. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (*Bash* or *PowerShell*). Select **Bash**. If you don't see this option, skip the step.
 
-    ![](../media/bashselect.png)
+     ![](../media/bash11.png)
 
-    ![](../media/bashselect-1.png)
+1. Within the **Getting started** page, select **Mount storage account (1)**, select your **Subscription (2)** from the dropdown and click **Apply (3)**.
+
+     ![](../media/mountstrg1.png)
 
 1. On the **Mount storage account** screen, select **I want to create a storage account (1)** and click on **Next (2)**.
 
-    ![](../media/bashselect-2.png)
+    ![](../media/csanext1.png)
 
 1. Provide the following details:
 
-    - **Subscription**: Default - Pre-assigned subscription.
-    - **Resource group**: openai-<inject key="Deployment-ID" enableCopy="false"></inject>
-    - **Region**: Select <inject key="Region" enableCopy="false" />
-    - **Storage account name**: storage<inject key="Deployment-ID" enableCopy="false"></inject>
-    - **File share**: file
+    - **Subscription**: Default - Pre-assigned subscription **(1)**.
+    - **Resource group**: **openai-<inject key="Deployment-id" enableCopy="false"></inject> (2)**
+    - **Region**: Select **East US 2 (3)**
+    - **Storage account name**: **storage<inject key="Deployment-id" enableCopy="false"></inject> (4)**
+    - **File share**: none **(5)**
+    - Click **Create (6)**
 
-    ![](../media/bashselect-3.png)
+      ![](../media/l5-12-st1.png)
     
-    >**Note**: After the storage account is created and mounted, make sure the type of shell indicated on the top left of the Cloud Shell pane is **Switch to PowerShell**. If it's *Bash*, select **Switch to Bash** and choose **Confirm** from the pop-up box.
-    
-    ![](../media/dev-genai-june-4.png)
-
 1. Once the terminal opens, click on **Settings** and select **Go to Classic Version**.
 
-   ![](../media/classic-cloudshell.png)
+   ![](../media/classic-cloudshell1.png)
 
 1. Run the below commands:
 
     ```
     rm -r mslearn-openai -f
     git clone https://github.com/CloudLabs-MOC/mslearn-openai
+
     ```
 
 1. Navigate to the folder for the language of your preference by running the appropriate command.
@@ -159,21 +156,23 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
     ```bash
     cd mslearn-openai/Labfiles/05-image-generation/CSharp
+
     ```
 
     **Python**
 
     ```bash
     cd mslearn-openai/Labfiles/05-image-generation/Python
+
     ```
 
 1. Use the following command to open the built-in code editor and see the code files you will be working with.
 
     ```bash
    code .
-    ```
+   ```
 
-    ![](../media/bashcodeview.png)
+    ![](../media/l5-12-91.png)
 
 ### Task 3.2: Configure your application
 
@@ -184,7 +183,7 @@ In this task, you will use a configuration file in the application to store the 
     - C#: `appsettings.json`
     - Python: `.env`
     
-2. Update the configuration values to include the **Endpoint**, **Key1** and **Deployment name: Dalle3** for your Azure OpenAI service. Then, save the file by right-clicking the file in the left pane.
+2. Update the configuration values to include the **Endpoint**, **Key1** and **Deployment name: gpt-image-1-mini** for your Azure OpenAI service. Then, save the file by right-clicking the file in the left pane.
 
     > **Tip:** You can adjust the split at the top of the cloud shell pane to see the Azure portal and get the endpoint and key values from the **Keys and Endpoint** page for your Azure OpenAI service.
 
@@ -206,7 +205,7 @@ In this task, you will use a configuration file in the application to store the 
 
     <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -226,7 +225,7 @@ In this task, you will use a configuration file in the application to store the 
     </Project>
     ```    
 
-     ![](../media/u47-1.png)    
+     ![](../media/l5-12-101.png)    
 
 1. Navigate to the folder for your preferred language and install the necessary packages.
 
@@ -310,7 +309,7 @@ In this task, you will explore the code used to call the REST API and generate a
 
 <validation step="46dc5a95-0801-4085-b021-c775e7b1b06b" />
 
-## Task 4: Run the app
+## Task 4: Run the app 
 
 In this task, you will run the reviewed code to generate some images.
 
@@ -329,20 +328,37 @@ In this task, you will run the reviewed code to generate some images.
     ```bash
     python generate-image.py
     ```
-1. When prompted, enter a description for an image. For example, *A giraffe flying a kite*.
     
-1. Wait for the image to be generated - a hyperlink will be displayed in the console pane. Then select the hyperlink to open a new browser tab and review the image that was generated.
+1. In the **terminal**, when prompted with **Enter a prompt to request an image**, type the prompt **“A giraffe flying a kite” (1)** and press **Enter**.  Once the request is processed, the generated image file will be saved automatically and the **file path of the generated image (2)** will be displayed.
 
-   ![](../media/link.jpg "Keys and Endpoints")
+    - **Python :**
 
-   ![](../media/dev-genai-june-10.png)
+         ![](../media/Dallpy.png)   
 
-1. Close the tab containing the generated image and re-run the app to generate a new image with a different prompt.
+    - **C# :**
+
+         ![](../media/DallCS01.png)  
+
+1. In the **Download a file** window, verify the generated file path **(4)** and click **Download (5)** to download the image file to your system.
+
+    ![](../media/Dall11.png)  
+
+1. After the download begins, click **Click here to download your file (6)** to open the downloaded image from the browser.
+
+    ![](../media/Dall12.png)  
+
+1. In the **browser Downloads panel**, locate the downloaded file and click **Open file (7)** to view the generated image.
+
+    ![](../media/Dall13.png)  
+
+1. The generated image will open in the viewer, displaying the result based on the prompt **“A giraffe flying a kite.”**
+
+    ![](../media/Dall15.png)  
 
 ## Summary
 
 In this lab, you have accomplished the following:
--   Understand the concepts of image generation via the DALL-E model.
+-   Understand the concepts of image generation via the  model.
 -   Implement image generation into your applications using this model
 
 ### You have successfully completed the lab.

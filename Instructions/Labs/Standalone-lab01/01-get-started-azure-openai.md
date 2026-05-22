@@ -77,7 +77,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       ![](./media/e1t2p2(1).png)
    
-1. Within the **Deploy model gpt-4o-mini** pop-up interface, click on **Customize**.
+1. Within the **Deploy gpt-4o-mini** pop-up interface, click on **Customize**.
 
    ![](./media/customize.png)
 
@@ -85,7 +85,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       - Deployment name: **my-gpt-model (1)**
 
-      - Deployment type: **Standard (2)**
+      - Deployment type: **Global Standard (2)**
 
       - Model version:**2024-07-18 (Default) (3)**
 
@@ -93,11 +93,9 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       - Content filter: **DefaultV2 (5)**
 
-      - Enable dynamic quota: **Enabled (6)**
+      - Click on **Deploy (6)**
 
-      - Click on **Deploy (7)**
-
-        ![](./media/e1t2p5.png)
+        ![](./media/deploy-gpt-4o-mini.png)
       
         >**Note:** gpt-4o-mini is supported only for chat completions, and it is not supported for the completions API.
         

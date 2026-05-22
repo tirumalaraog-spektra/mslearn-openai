@@ -23,7 +23,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
 
 1. Navigate back to [Microsoft Foundry](https://ai.azure.com/) portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
 
-   ![](../media/chatmodelv.png)
+   ![](../media/MDV.png)
    
 1. In the **Chat session** section, enter the following prompt and press *Enter*.
 
@@ -31,7 +31,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
     Write a function in Python that takes a character and a string as input, and returns how many times that character appears in the string
     ```
     
-   ![](../media/new/e1.png)
+   ![](../media/charstr.png)
 
 1. Observe the output. The model will likely respond with a function, with some explanation of what the function does and how to call it.
 
@@ -40,7 +40,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
    Do the same thing, but this time write it in C#.
    ```
 
-   ![](../media/new/e2.png)
+   ![](../media/cop.png)
 
 1. Observe the output. The model likely responded very similarly as the first time, but this time coding in C#. You can ask it again for a different language of your choice, or a function to complete a different task, such as reversing the input string.
 
@@ -60,7 +60,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
     end
     ```
 
-   ![](../media/new/e3.png)
+   ![](../media/funcdo.png)
 
 1. Observe the output, which explains what the function does.
 
@@ -70,7 +70,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
    Can you simplify the function?
    ```   
 
-   ![](../media/new/e4.png)
+   ![](../media/fnsimp.png)
 
 1. Submit the below-mentioned prompt to add comments to the code.
 
@@ -78,7 +78,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
       Add some comments to the function.
       ```
 
-      ![](../media/new/e5.png)
+      ![](../media/comnts.png)
 
 1. Observe the output, which includes comments explaining what each part of the function does. 
 
@@ -96,12 +96,12 @@ In this task, you will use a short command-line application running in Cloud She
 
 3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
 
-   ![](../media/classic.png)
+   ![](../media/gtcv.png)
 
 5. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this task using the following command.
 
     ```bash
-    cd mslearn-openai/Labfiles/04-code-generation
+    cd mslearn-openai/Labfiles/04-code-generation-new
     ```
 
    > **Note:** Applications for both C# and Python have been provided, as well as sample code we'll be using in this lab.
@@ -184,19 +184,19 @@ In this task, you will run your configured app to generate code for each use cas
 
 1. Choose option **1** to add comments to your code. Note, the response might take a few seconds for each of these tasks.
 
-   ![](../media/option1.png)
+   ![](../media/1com.png)
 
 1. In the response, you will see that OpenAI has added comments to your sample code provided from the function file. 
 
 1. Next, choose option **2** to write unit tests for that same function.
 
-   ![](../media/option2.png)
+   ![](../media/2com.png)
 
 1. In the response, you will notice that the unit tests are added to your sample code.
 
 1. Next, choose option **3** to fix bugs in an app for playing Go Fish. 
 
-   ![](../media/option3.png)
+   ![](../media/3com.png)
 
 1. This time, OpenAI would use the go fish file and fix the code in it and respond with the updated code. 
 
@@ -233,4 +233,4 @@ In this lab, you explored how to use Azure OpenAI Service to generate, explain, 
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      
-![](../media/new/next.png)
+![](../media/5nct.png)
