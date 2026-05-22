@@ -1,4 +1,5 @@
 # Lab 01: Utilize prompt engineering in your app
+## Estimated time: 60 minutes
 
 ## Lab scenario
 
@@ -16,11 +17,9 @@ In this lab, you will complete the following tasks:
 - Task 5: Configure your application
 - Task 6: Run your application
 
-## Estimated time: 60 minutes
-
 ### Task 1: Provision an Azure OpenAI resource
 
-In this task , you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
+In this task, you'll create an Azure resource in the Azure portal by selecting the OpenAI service and configuring settings such as the region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
 1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)**.
 
@@ -34,11 +33,11 @@ In this task , you'll create an Azure resource in the Azure portal, selecting th
     
     - Subscription: **Default Subscription (1)**
     
-    - Resource group: **openai-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+    - Resource group: **openai-<inject key="Deployment-ID" enableCopy="false"></inject> (2)**
     
     - Region: **<inject key="Region" enableCopy="false"></inject> (3)**
     
-    - Name: **OpenAI-Lab03-<inject key="DeploymentID" enableCopy="false"></inject> (4)**
+    - Name: **OpenAI-Lab03-<inject key="Deployment-ID" enableCopy="false"></inject> (4)**
     
     - Pricing tier: **Standard S0 (5)**
   
@@ -81,9 +80,9 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     ![](../media/va3.png)
 
-1. Search for **gpt-4o (1)**, select it from the list **(2)**, and then click **Confirm (3)**.
+1. Search for **gpt-4.1-mini (1)**, select it from the list **(2)**, and then click **Confirm (3)**.
 
-    ![](../media/op-rt-g-1.png)
+    ![](../media/ms1.png)
 
 1. On the **Deploy gpt-4o** interface, click on **Customize (1)** and enter the details as mentioned below, then click on **Deploy (9):**
 
@@ -92,16 +91,14 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
    | **Deployment name** | **text-turbo (2)** |
    | **Deployment type** | **Standard (3)**|
    | **Model version upgrade policy** | **Upgrade once new default version becomes available. (4)** |
-   | **Model version** | 2024-11-20 **(5)**|
+   | **Model version** | 2025-04-14 (Default) **(5)**|
    | **Tokens per Minute Rate Limit (thousands)** | **10K (6)** |
    | **Content Filter** | **DefaultV2 (7)**|
    | **Enable dynamic quota** |**Enabled (8)**|
   
-      ![](../media/op-rt-g-13.png)
+      ![](../media/ms2.png)
 
-      ![](../media/cor-op-rt-g-1.png)
-   
-    >**Note:** gpt-4o is supported only for chat completions.
+      ![](../media/ms3.png)
 
 <validation step="e3805450-2e13-40c4-80fa-58a0cd695e6e" />
 
@@ -124,6 +121,8 @@ In this task, you will examine how prompt engineering improves model responses i
    ```
 
     ![](../media/findinfoo.png)
+
+    >**Note:** If you can't see the setup section, click on Show setup.
 
 1. In the **Update system message?** window, click on **Continue**.
 
@@ -205,7 +204,8 @@ In this task, you will examine how prompt engineering improves model responses i
     ```prompt
     Entertainment
     ```
-
+    >**Note:** Click Add section, then choose Examples again to add another example.
+   
 1. Click on the **Apply changes** button to save your changes.
 
    ![](../media/w3.png)
@@ -314,6 +314,8 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 1. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
 
    ![](../media/classic.png)
+
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
 
 1. Once the terminal starts, enter the following command to download the sample application and save it to a folder called `mslearn-openai`.
 
