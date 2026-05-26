@@ -35,7 +35,7 @@ In this task, you'll create an Azure resource in the Azure portal by selecting t
     
     - Resource group: **openai-<inject key="Deployment-ID" enableCopy="false"></inject> (2)**
     
-    - Region: **<inject key="Region" enableCopy="false"></inject> (3)**
+    - Region: **eastus2 (3)**
     
     - Name: **OpenAI-Lab03-<inject key="Deployment-ID" enableCopy="false"></inject> (4)**
     
@@ -80,9 +80,11 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     ![](../media/va3.png)
 
-1. Search for **gpt-4.1-mini (1)**, select it from the list **(2)**, and then click **Confirm (3)**.
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
 
-    ![](../media/ms1.png)
+1. Search for **gpt-4o (1)**, select it from the list **(2)**, and then click **Confirm (3)**.
+
+    ![](../media/op-rt-g-1.png)
 
 1. On the **Deploy gpt-4o** interface, click on **Customize (1)** and enter the details as mentioned below, then click on **Deploy (9):**
 
@@ -91,15 +93,17 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
    | **Deployment name** | **text-turbo (2)** |
    | **Deployment type** | **Standard (3)**|
    | **Model version upgrade policy** | **Upgrade once new default version becomes available. (4)** |
-   | **Model version** | 2025-04-14 (Default) **(5)**|
+   | **Model version** | 2024-11-20 **(5)**|
    | **Tokens per Minute Rate Limit (thousands)** | **10K (6)** |
    | **Content Filter** | **DefaultV2 (7)**|
    | **Enable dynamic quota** |**Enabled (8)**|
   
-      ![](../media/ms2.png)
+      ![](../media/op-rt-g-13.png)
 
-      ![](../media/ms3.png)
+      ![](../media/cor-op-rt-g-1.png)
 
+    >**Note:** gpt-4o is supported only for chat completions.
+    
 <validation step="e3805450-2e13-40c4-80fa-58a0cd695e6e" />
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
@@ -300,7 +304,7 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 
     - **Subscription**: Default- Choose the only existing subscription assigned for this lab (1).
     - **Resource group**: Select **openai-<inject key="Deployment-ID" enableCopy="false"></inject>** (2)
-    - **CloudShell region**: <inject key="Region" enableCopy="false" /> (3)
+    - **CloudShell region**: **eastus2 (3)**
     - **Storage account name**: storage<inject key="Deployment-ID" enableCopy="false"></inject>(4)
     - **File share**: Create a new file share named **none** (5)
     - Click **Create** (6)
