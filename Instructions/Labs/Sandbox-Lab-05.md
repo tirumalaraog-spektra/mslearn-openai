@@ -77,15 +77,17 @@ In this task, you will use the gpt-image-1-mini playground in the Microsoft Foun
 
       ![](../media/l5-12-21.png)
 
-4. On the **Microsoft Foundry portal** page, select **Deployments (1)** under **Shared Resources** from the left pane. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)**.
+4. On the **Microsoft Foundry portal** page, select **Model catalog (1)** under **Get started** from the left pane. Then, search **gpt-image-1-mini (2)** and choose **gpt-image-1-mini (3)**.
 
-      ![](../media/l5-12-31.png)
+      ![](../media/model-1.png)
 
-5. In the **Select a model** page, search for **gpt-image-1-mini (1)**, select **gpt-image-1-mini (Text to image) (2)** model, and click on **Confirm (3)**
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
 
-      ![](../media/dall1.png)
+6. On the gpt-image-1-mini page, click on **Use this model**.
 
-6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
+      ![](../media/model-2.png)
+
+7. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
 
       ![](../media/dall6.png)
 
@@ -332,7 +334,7 @@ In this task, you will run the reviewed code to generate some images.
     python generate-image.py
     ```
     
-1. In the **terminal**, when prompted with **Enter a prompt to request an image**, type the prompt **“A giraffe flying a kite” (1)** and press **Enter**.  Once the request is processed, the generated image file will be saved automatically and the **file path of the generated image (2)** will be displayed.
+1. In the **terminal**, when prompted with **Enter a prompt to request an image**, type the prompt **“A giraffe flying a kite” (1)** and press **Enter**.  Once the request is processed, the generated image file will be saved automatically, and the **file path of the generated image (2)** will be displayed.
 
     - **Python :**
 
@@ -340,11 +342,15 @@ In this task, you will run the reviewed code to generate some images.
 
     - **C# :**
 
-         ![](../media/DallCS01.png)  
+         ![](../media/DallCS01.png)
 
-1. In the **Download a file** window, verify the generated file path **(4)** and click **Download (5)** to download the image file to your system.
+1. Copy the **file path (1)**, then click on the **upload/download (2)** option, and click on **download (3)**.
 
-    ![](../media/Dall11.png)  
+   ![](../media/model-3.png)
+
+1. In the **Download a file** window, enter the generated file path **(4)** and click **Download (5)** to download the image file to your system.
+
+    ![](../media/Dall11.png)
 
 1. After the download begins, click **Click here to download your file (6)** to open the downloaded image from the browser.
 
