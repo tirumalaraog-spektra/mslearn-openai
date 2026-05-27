@@ -1,6 +1,6 @@
 # Lab 01: Use Azure OpenAI SDKs in your App
 
-### Estimated Duration: 120 Minutes
+### Estimated Duration: 90 Minutes
 
 ## Lab Overview
 
@@ -82,6 +82,8 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 1. Select the **Deployments (1)** from the left pane under **Shared resources**, click on **+ Deploy model (2)** and choose **Deploy base model (3)**.
 
     ![](../media/va3.png)
+
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your OpenAI Foundry resource. 
 
 1. Search for **gpt-4.1-mini (1)** in the search bar, select **gpt-4.1-mini (2)** and click on **Confirm (3)**.
 
