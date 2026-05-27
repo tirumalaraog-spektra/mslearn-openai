@@ -1,4 +1,5 @@
 # Lab 01: Utilize prompt engineering in your app
+## Estimated time: 60 minutes
 
 ## Lab scenario
 
@@ -16,11 +17,9 @@ In this lab, you will complete the following tasks:
 - Task 5: Configure your application
 - Task 6: Run your application
 
-## Estimated time: 60 minutes
-
 ### Task 1: Provision an Azure OpenAI resource
 
-In this task , you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
+In this task, you'll create an Azure resource in the Azure portal by selecting the OpenAI service and configuring settings such as the region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
 1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)**.
 
@@ -34,15 +33,17 @@ In this task , you'll create an Azure resource in the Azure portal, selecting th
     
     - Subscription: **Default Subscription (1)**
     
-    - Resource group: **openai-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+    - Resource group: **openai-<inject key="Deployment-ID" enableCopy="false"></inject> (2)**
     
     - Region: **<inject key="Region" enableCopy="false"></inject> (3)**
     
-    - Name: **OpenAI-Lab03-<inject key="DeploymentID" enableCopy="false"></inject> (4)**
+    - Name: **OpenAI-Lab03-<inject key="Deployment-ID" enableCopy="false"></inject> (4)**
     
     - Pricing tier: **Standard S0 (5)**
   
         ![](../media/op-rt-g-12.png "Create Azure OpenAI resource")
+
+        >**Note:** If you encounter any deployment issues related to region availability or capacity, update the region to East US 2 and retry the deployment.
 
 1. Under the **Review + submit** tab, click on **Create**.
 
@@ -81,6 +82,8 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     ![](../media/va3.png)
 
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
+
 1. Search for **gpt-4o (1)**, select it from the list **(2)**, and then click **Confirm (3)**.
 
     ![](../media/op-rt-g-1.png)
@@ -100,9 +103,9 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
       ![](../media/op-rt-g-13.png)
 
       ![](../media/cor-op-rt-g-1.png)
-   
-    >**Note:** gpt-4o is supported only for chat completions.
 
+    >**Note:** gpt-4o is supported only for chat completions.
+    
 <validation step="e3805450-2e13-40c4-80fa-58a0cd695e6e" />
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
@@ -124,6 +127,8 @@ In this task, you will examine how prompt engineering improves model responses i
    ```
 
     ![](../media/findinfoo.png)
+
+    >**Note:** If you can't see the setup section, click on Show setup.
 
 1. In the **Update system message?** window, click on **Continue**.
 
@@ -205,7 +210,8 @@ In this task, you will examine how prompt engineering improves model responses i
     ```prompt
     Entertainment
     ```
-
+    >**Note:** Click Add section, then choose Examples again to add another example.
+   
 1. Click on the **Apply changes** button to save your changes.
 
    ![](../media/w3.png)
@@ -300,12 +306,14 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 
     - **Subscription**: Default- Choose the only existing subscription assigned for this lab (1).
     - **Resource group**: Select **openai-<inject key="Deployment-ID" enableCopy="false"></inject>** (2)
-    - **CloudShell region**: <inject key="Region" enableCopy="false" /> (3)
+    - **CloudShell region**: **<inject key="Region" enableCopy="false"></inject> (3)**
     - **Storage account name**: storage<inject key="Deployment-ID" enableCopy="false"></inject>(4)
     - **File share**: Create a new file share named **none** (5)
     - Click **Create** (6)
 
         ![](../media/cloudshell-advanced-settings.png "Create storage advanced settings")
+        
+      >**Note:** If you encounter any deployment issues related to region availability or capacity, update the region to East US 2 and retry the deployment.
    
 1. Make sure the type of shell indicated on the top left of the Cloud Shell pane is switched to *Bash*. If it's *PowerShell*, switch to *Bash* by using the drop-down menu.
 
@@ -314,6 +322,8 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 1. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
 
    ![](../media/classic.png)
+
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
 
 1. Once the terminal starts, enter the following command to download the sample application and save it to a folder called `mslearn-openai`.
 

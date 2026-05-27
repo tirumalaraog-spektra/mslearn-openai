@@ -68,10 +68,12 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
    ![](../media/uupimg3.png)
 
-1. In the Azure OpenAI resource pane, click on **Go to Foundry portal** it will navigate to **Microsoft Foundry portal**.
+1. In the Azure OpenAI resource pane, click on **Go to Foundry portal**. It will navigate to the **Microsoft Foundry portal**.
 
    ![](../media/uupimg4.png)
 
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
+   
 1. Click on **Deployments (1)** under **Shared 
    Resources**, then select **+ Deploy Model (2)**. Next, choose **Deploy Base Model (3).**
 
@@ -159,16 +161,15 @@ In this task, you will observe how the base model responds to queries without an
     - **Resource group**: openai-<inject key="DeploymentID" enableCopy="false"></inject> **(1)**
     - **Storage account name**: storage<inject key="DeploymentID" enableCopy="false"></inject> **(2)**
     - **Region**: Select <inject key="Region" enableCopy="false" /> **(3)**
-    - **Preffered storage type**: Azure Blob Storage or Azure Lake Storage Gen 2 **(4)**
+    - **Preffered storage type**: Azure Blob Storage or Azure Data Lake Storage **(4)**
     - **Redundancy**: Locally-redundant storage (LRS) **(5)**
-    - Click **Next (6)**.
+    - Click **Next (6)** three times.
   
-      ![](../media/uupimg11.png)
-      ![](../media/uupimg120.png)
+      ![](../media/ch1.png)
 
-    - **Allow enable anonymous access on individual containers**: check in the box to enable under **Advanced** section. Click on **Review + Create**  and subsequently click on **Create**
+    - **Allow enable anonymous access on individual containers (1)**: check in the box to enable under **Security** section. Click on **Review + Create (2)**  and subsequently click on **Create**
 
-      ![](../media/image4.5.png "allow blob access")
+      ![](../media/ch2.png)
 
 1. Wait until the storage account is created before you proceed to the next task. This should take about a minute.
 
@@ -249,6 +250,8 @@ In this task, you will observe how the base model responds to queries without an
 1. In **Microsoft Foundry portal**, navigate to the **Chat (1)** section under **Playgrounds** followed by select **Add your data (2)** in the setup pane and click on **+ Add a data source (3)**.
 
     ![](../media/l6-12-61.png)
+   
+    >**Note:** If you can't see the setup section, click on Show setup.
    
 1. On the **Add data** window, enter the following values for under the **Data source** and then click on **Next (7)** to proceed with **Data Management**.
 
