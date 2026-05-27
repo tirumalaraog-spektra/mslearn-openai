@@ -35,13 +35,15 @@ In this task, you'll create an Azure resource in the Azure portal by selecting t
     
     - Resource group: **openai-<inject key="Deployment-ID" enableCopy="false"></inject> (2)**
     
-    - Region: **eastus2 (3)**
+    - Region: **<inject key="Region" enableCopy="false"></inject> (3)**
     
     - Name: **OpenAI-Lab03-<inject key="Deployment-ID" enableCopy="false"></inject> (4)**
     
     - Pricing tier: **Standard S0 (5)**
   
         ![](../media/op-rt-g-12.png "Create Azure OpenAI resource")
+
+        >**Note:** If you encounter any deployment issues related to region availability or capacity, update the region to East US 2 and retry the deployment.
 
 1. Under the **Review + submit** tab, click on **Create**.
 
@@ -304,12 +306,14 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 
     - **Subscription**: Default- Choose the only existing subscription assigned for this lab (1).
     - **Resource group**: Select **openai-<inject key="Deployment-ID" enableCopy="false"></inject>** (2)
-    - **CloudShell region**: **eastus2 (3)**
+    - **CloudShell region**: **<inject key="Region" enableCopy="false"></inject> (3)**
     - **Storage account name**: storage<inject key="Deployment-ID" enableCopy="false"></inject>(4)
     - **File share**: Create a new file share named **none** (5)
     - Click **Create** (6)
 
         ![](../media/cloudshell-advanced-settings.png "Create storage advanced settings")
+        
+      >**Note:** If you encounter any deployment issues related to region availability or capacity, update the region to East US 2 and retry the deployment.
    
 1. Make sure the type of shell indicated on the top left of the Cloud Shell pane is switched to *Bash*. If it's *PowerShell*, switch to *Bash* by using the drop-down menu.
 
