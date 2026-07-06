@@ -102,7 +102,7 @@ Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from
  
        ![](../media/pwrd1.png)
  
-4. In the **Stay signed in?** pop-up, click **No**.
+4. In the **Stay signed in?** pop-up, click **Yes**.
 
    ![](../media/stay-signed-0707.png)
  
