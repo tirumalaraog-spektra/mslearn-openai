@@ -66,13 +66,13 @@ To adjust the zoom level for the environment page, click the **A↕ : 100%** ico
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
 
-   ![](../media/img-01-16.png)
+   ![](../media/env-0707.png)
 
 ## Utilizing the Split Window Feature
  
 For your convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
 
-![](../media/img-01-17.png)
+![](../media/split-0707.png)
   
 ## Managing Your Virtual Machine
  
@@ -100,7 +100,7 @@ Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from
  
 4. In the **Stay signed in?** pop-up, click **No**.
 
-   ![](../media/2025-07-08(1).png)
+   ![](../media/stay-signed-0707.png)
  
 ## Support Contact
 
