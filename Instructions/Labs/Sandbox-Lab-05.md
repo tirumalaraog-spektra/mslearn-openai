@@ -144,7 +144,9 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
    ![](../media/classic-cloudshell1.png)
 
-   **Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+
+    > **Note:** If the **Go to Classic version** option is available under **Settings**, select it to continue with the previous Cloud Shell session. Otherwise, continue using the current **Bash** session.
    
 
 1. Run the below commands:
