@@ -44,7 +44,7 @@ The architecture for this lab involves the following key components:
 
 ## Getting Started with Lab
 
-Once the environment is provisioned, a virtual machine (JumpVM) and lab guide will get loaded in your browser. Use this virtual machine throughout the workshop to perform the lab. You can see the number on the lab guide bottom area to switch to different exercises of the lab guide.
+Once the environment is provisioned, a virtual machine (JumpVM) and a lab guide will be loaded in your browser. Use this virtual machine throughout the workshop to perform the lab. You can see the number at the bottom of the lab guide to switch to different exercises.
 
 ## Accessing Your Lab Environment
 
@@ -66,13 +66,13 @@ To adjust the zoom level for the environment page, click the **A↕ : 100%** ico
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
 
-![](../media/img-01-25.png)
+![](../media/env-0707.png)
 
 ## Utilizing the Split Window Feature
  
 For your convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
 
-![](../media/img-01-26.png)
+![](../media/split-0707.png)
   
 ## Managing Your Virtual Machine
  
@@ -98,9 +98,9 @@ Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from
  
        ![](../media/pwrd1.png)
  
-4. In the **Stay signed in?** pop-up, click **No**.
+4. In the **Stay signed in?** pop-up, click **Yes**.
 
-   ![](../media/2025-07-08(1).png)
+   ![](../media/stay-signed-0707.png)
  
 ## Support Contact
 
