@@ -21,29 +21,31 @@ In this lab, you will complete the following tasks:
 
 In this task , you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
-1. In the **Azure portal**, search for **Azure OpenAI** and select **Azure OpenAI**.
+1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)** from the results.
 
-   ![](../media/tel-11.png)
+   ![](../media/GM4.png)
 
 1. On the **Microsoft Foundry | Azure OpenAI** page, Click on **+ Create (1)** from the list, select **Azure OpenAI (2)**
 
    ![](../media/uupimg1.png)
 
-1. Create an **Azure OpenAI** resource with the following settings click on **Next** three times and subsequently click on **Create**:
+1. Create an **Azure OpenAI** resource with the following settings click on **Next (6)** three times and subsequently click on **Create**:
    
-    - **Subscription**: Default - Pre-assigned subscription.
-    - **Resource group**: openai-<inject key="DeploymentID" enableCopy="false"></inject>
-    - **Region**: <inject key="Region" enableCopy="false" />
-    - **Name**: OpenAI-Lab06-<inject key="DeploymentID" enableCopy="false"></inject>
-    - **Pricing tier**: Standard S0
+    - **Subscription (1**: Default - Pre-assigned subscription.
+    - **Resource group (2)**: openai-<inject key="DeploymentID" enableCopy="false"></inject>
+    - **Region (3)**: <inject key="Region" enableCopy="false" />
+    - **Name (4)**: OpenAI-Lab06-<inject key="DeploymentID" enableCopy="false"></inject>
+    - **Pricing tier (5)**: Standard S0
 
-      ![](../media/azopenai123.png "Create Azure OpenAI resource")
+         ![](../media/IMG010.png "Create Azure OpenAI resource")
 
-1. Wait for deployment to complete. Then go to the deployed Azure OpenAI resource in the Azure portal.
+1. Under the **Review + submit** tab, click on **Create**.
 
-1. If you are not able to see the left menu, click on **Service menu**.
+      ![](../media/A0I4.png)
 
-   ![](../media/uupimg2.png) 
+1. Wait for deployment to complete. Click on **Go to resource** to navigate to the deployed Azure OpenAI resource in the Azure portal.
+
+      ![](../media/AI5.png)
 
 1. To capture the Keys and Endpoints values, on **openai-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
       - Select **Keys and Endpoint (1)** under **Resource Management**.
@@ -79,19 +81,21 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       ![](../media/uupimg5.png)
 
-1. Search for **gpt-4.1-mini (1)**, click on **Confirm (2)**
+1. In the **Select a model** pane, search for **gpt-5.4-mini (1)**, select the **gpt-5.4-mini (2)** model, and then select **Confirm (3)**.
 
-      ![](../media/uupimg6.png)
-   
-1. Within the Deploy model pop-up interface, enter the following details:
-      - **Deployment name:** text-turbo **(1)**
-      - **Deployment type:** Standard **(2)**
-      - Click on **Customize**
-      - Tokens per Minute Rate Limit (thousands): **20K (3)**
-      - Click on **Deploy (4)**
-  
-           ![](../media/uupimg7.png)
-           ![](../media/uupimg8up.png) 
+    ![Select GPT-5.4-mini model](../media/GM11.png)
+
+1. In the **Deploy gpt-5.4-mini** pane, configure the following settings and then select **Deploy (6)**.
+
+    | Setting | Value |
+    |----------|-------|
+    | **Deployment name (1)** | `35turbo` |
+    | **Deployment type (2)** | **Global Standard** |
+    | **Model version (3)** | `2026-03-17` |
+    | **Tokens per Minute Rate Limit (4)** | `10K` |
+    | **Content filter (5)** | **DefaultV2** |
+
+    ![Deploy GPT-5.4-mini](../media/GM12.png)
 
 1. Click on the **Create** button to deploy a model which you will be playing around with as you proceed.
 
