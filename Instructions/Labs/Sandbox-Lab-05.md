@@ -79,13 +79,13 @@ In this task, you will use the gpt-image-1-mini playground in the Microsoft Foun
 
 4. On the **Microsoft Foundry portal** page, select **Model catalog (1)** under **Get started** from the left pane. Then, search **gpt-image-1-mini (2)** and choose **gpt-image-1-mini (3)**.
 
-      ![](../media/model-1.png)
+      ![](../media/GM1.png)
 
    >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
 
 6. On the gpt-image-1-mini page, click on **Use this model**.
 
-      ![](../media/model-2.png)
+      ![](../media/GM2.png)
 
 7. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
 
@@ -113,7 +113,7 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
 1. In the [Azure portal](https://portal.azure.com?azure-portal=true), select the **[>_]** (*Cloud Shell*) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
-    ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/cloudshell-launch-portal.png#lightbox)
+    ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/GM3.png#lightbox)
 
     > **Note:** If a **Cloud Shell timed out** pop-up appears, click **Reconnect**.
 
@@ -144,7 +144,9 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
    ![](../media/classic-cloudshell1.png)
 
-   **Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+
+    > **Note:** If the **Go to Classic version** option is available under **Settings**, select it to continue with the previous Cloud Shell session. Otherwise, continue using the current **Bash** session.
    
 
 1. Run the below commands:
