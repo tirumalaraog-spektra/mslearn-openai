@@ -4,45 +4,45 @@
 
 ## Lab overview
 
-In this lab, you'll learn how to get started with Azure OpenAI by provisioning the service as an Azure resource and using the Microsoft Foundry portal to deploy and explore OpenAI models. Azure OpenAI Service brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability and integration of services provided by the Azure cloud platform. 
+In this lab, you'll learn how to get started with **Microsoft Foundry** by provisioning a Foundry resource in Azure and using the Microsoft Foundry portal to deploy and explore generative AI models. Microsoft Foundry is the unified platform for building AI solutions on Azure — it gives you a single place to discover models, deploy them, test them interactively in the playground, and connect them to your own applications, all backed by the security, scalability and service integration of the Azure cloud platform. 
 
 ## Lab Objectives
 In this lab, you will complete the following tasks:
 
-- Task 1: Provision an Azure OpenAI resource
+- Task 1: Provision an Foundry resource
 - Task 2: Deploy a model
 - Task 3: Use the Chat playground
 - Task 4: Explore prompts and parameters 
 - Task 5: Explore code generation
 
-## Task 1: Provision an Azure OpenAI resource
+## Task 1: Provision an Microsoft Foundry resource
 
 In this task, you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
-1. In the **Azure portal**, search for **OpenAI (1)** and select **Azure OpenAI (2)**.
+1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
-   ![](../media/select-openai-1607.png)
+   ![](../media/foundry-1.png)
 
-2. On **Microsoft Foundry | Azure OpenAI**, click on **Azure OpenAI (1)** blade and then click on **+ Create (2)** and choose **Azure OpenAI (3)**.
+2. On **Microsoft Foundry**, click on **Foundry (1)** blade and then click on **+ Create (2)**
 
-   ![](../media/L1T1S2.png)
+   ![](../media/foundry-2.png)
 
-3. Fill in the required details on the **Create Azure OpenAI** page:
+3. Fill in the required details on the **Create a Foundry resource** page:
    
     - Subscription: Default - Pre-assigned subscription **(1)**
     - Resource group: **openai-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
-    - Region: Select **<inject key="Region" enableCopy="false" /> (3)**
-    - Name: **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject> (4)**
-    - Pricing tier: **Standard S0 (5)**
+    - Name: **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
+    - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
+    - Default project name: **proj-default (5)**
   
-      ![](../media/nlpe1.png "Create Azure OpenAI resource")
+      ![](../media/lab1-aoai-f-2.png "Create foundry resource")
 
 
-4. Click **Next** on each tab without changing anything.
+4. Click **Review + create (6)** tab.
 
-5. Finally, click **Review + create**, then click **Create** to start the deployment.
+5. Finally, click **Create** to start the deployment.
 
-     ![](../media/170725(01).png "Create Azure OpenAI resource")
+     ![](../media/lab1-aoai-f-3.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
@@ -55,38 +55,39 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 ## Task 2: Deploy a model
 
-In this task, you'll deploy a specific AI model instance within your Azure OpenAI resource to integrate advanced language capabilities into your applications.
+In this task, you'll deploy a specific AI model instance within your Microsoft Foundry resource to integrate advanced language capabilities into your applications.
 
-1. From the **Azure portal**, navigate to your OpenAI resource **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>**.
+1. From the **Azure portal**, navigate to your foundry resource **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>**.
 
-   ![](../media/180625(03).png)
+1. On the **Foundry** resource page, click **Overview**, then select **Go to Microsoft Foundry portal (2)** to navigate to the **Microsoft Foundry portal**.
 
-1. On the **Azure OpenAI** resource page, click **Overview (1)**, then select **Go to Microsoft Foundry portal (2)** to navigate to the **Microsoft Foundry portal**.
+   ![](../media/lab1-aoai-f-go-to-foundry.png)
 
-   ![](../media/goto-aiportal-1607.png)
+1. You'll land on the new **Microsoft Foundry** portal. Ensure the **toggle (1)** is turned on — if it's disabled, enable it. Then copy the following values into Notepad, as you'll need them in later steps:
 
-1. On the **Microsoft Foundry portal** page, select **Deployments (1)** under **Shared resources** from the left pane. Then, click **+ Deploy Model (2)** and choose **Deploy base model (3)**.
+   - API key **(1)**
+   - Project Endpoint **(2)** 
+   - Azure OpenAI Endpoint **(3)** 
 
-   ![](../media/L1T2S3.png)
+   ![](../media/lab1-aoai-f-6.png)
 
-1. In the **Select a model** window, search for **gpt-4.1-mini (1)**, then select the **gpt-4.1-mini (Chat completion) (2)** model from the list. Click **Confirm (3)** to proceed with the deployment.
+1. Navigate to the top of the page and click **Discover (1)**, then choose **Models (2)** from the left sidebar. Next, search for **gpt-5.4 (3)** and select **(4)** it from the results.
 
-   ![](../media/L1T2S4.png)
+   ![](../media/lab1-aoai-f-model.png)
 
-1. Click on **Customize**.
+1. On the model details page, click **Deploy (1)** and select **Custom settings (2)**.
    
-   ![](../media/L1T2S5.png)   
+   ![](../media/lab1-aoai-f-custom-deploy.png)
 
 1. Within the **Deploy model** pop-up interface, enter the following details:
 
-      - Deployment name: **my-gpt-model (1)**
+      - Deployment name: **gpt-5.4 (1)**
       - Deployment type: **Global Standard (2)**
-      - Model version: **2025-04-14 (Default) (3)**
-      - Tokens per Minute Rate Limit (thousands): **10K (4)**
-      - Content filter: **DefaultV2 (5)**
-      - Click on **Deploy** **(6)**
+      - Tokens per Minute Rate Limit (thousands): **10K (3)** use slider to adjust the tokens
+      - Content filter: **DefaultV2**
+      - Click on **Deploy** **(4)**
   
-           ![](../media/L1T2S6.png)
+           ![](../media/lab1-aoai-f-custom-2.png)
 
 1. With the deployed model, now you can experiment with the chat completion tasks as you go along.
  
@@ -95,70 +96,57 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-   <validation step="3b4a472e-f956-45d8-b828-3e2cc01c2e88" />
+   <validation step="6be846c2-8a90-4683-97e8-b55309a5b10e" />
 
 ## Task 3: Use the Chat playground
 
 In this task, you'll use the Chat playground to interact with and test the AI model's conversational abilities through a simulated chat interface.
 
-1. Navigate to the **Shared resources** section in the left-hand menu and select **Deployments (1)**. From the list of available deployments, choose **my-gpt-model**, then click on **Open in playground (2)**. This action will launch the **Chat Playground**, where you can interact with the deployed model in a conversational interface.
+1. Once the model is deployed, you'll be taken to the model **Playground**, where you can test it by providing instructions and prompts, review the responses it generates, and explore more of the model's AI capabilities.
 
-   ![](../media/L1T3S1.png)
+   ![](../media/lab1-aoai-f-instruction.png)
 
-   ![](../media/L1T3S1i.png)
+   > **Note**: Depending on your screen size, the **Instructions** section may be collapsed under a **Setup** tab. If so, click **Setup** to open it.
 
-2. In the **Setup** pane:
+2. In th **Playground** tab under we can see the **Instructions** section which is similar to **system message**:
 
-   * Replace the default **System message (1)** with the following instruction:
+   * Replace the default **Instruction** with the following instruction:
 
      ```
      The system is an AI teacher that helps people learn about AI.
      ```
-   * Click **Apply changes (2)** and confirm by selecting **Continue** on the prompt.
 
-      ![](../media/L1T3S2.png)
-
-      ![](../media/L1T3S2i.png)
+      ![](../media/lab1-aoai-f-instruction.png)
    
-1. In the **Setup (1)** section, click on **+ Add section (2)** box, then click on **Examples (3)**.
-
-      ![](../media/L1T3S3.png)
+1. Next, add examples in the **Instructions** section. Examples show the model the format you expect, so it can shape its responses to match.
 
 1. Enter the following message and response in the designated boxes:
 
-      - **User (1)**:
+      - **User**:
         ```
         What are the different types of artificial intelligence?
         ```
     
-      - **Assistant (2)**:
+      - **Model**:
         ```
         There are three main types of artificial intelligence: Narrow or Weak AI (such as virtual assistants like Siri or Alexa, image recognition software and spam filters), General or Strong AI (AI designed to be as intelligent as a human being. This type of AI does not currently exist and is purely theoretical) and Artificial Superintelligence (AI that is more intelligent than any human being and can perform tasks that are beyond human comprehension. This type of AI is also purely theoretical and has not yet been developed).
         ``` 
 
-         ![](../media/L1T4S4-1607.png)
+         ![](../media/lab1-aoai-f-examples.png)
    
          > **Note**: Few-shot examples are used to provide the model with examples of the types of responses that are expected. The model will attempt to reflect the tone and style of the examples in its own responses.
-
-1. Click **Apply changes**, then **Continue** to initialize the chat with the updated context.
-
-      ![](../media/L1T4S5.1-1607.png)
-
-      ![](../media/L1T3S2i.png)
    
-1. In the query box at the bottom of the page, enter the below-mentioned text **(1)**. Use the **Send (2)** button to submit the message and view the response.
+1. In the query box at the bottom of the page, enter the below-mentioned text **(1)**. Use the **Send (2)** button to submit the message and view the response in the **Chat** interface.
 
    ```
    What is artificial intelligence?
    ```
 
-   ![](../media/L1T4S6-1607.png)
-   
-      > **Note**: You may receive a response that the API deployment is not yet ready. If so, wait for a few minutes and try again.
+   ![](../media/lab1-aoai-f-chat.png)
 
-1. Review the response.
+1. Review the chat, where your **user prompt (1)** and the model's **response (2)** are displayed.
 
-   ![](../media/L1T3S7.png)
+   ![](../media/lab1-aoai-f-response.png)
 
 1. After reviewing the response, submit the following follow-up message:
 
@@ -168,91 +156,122 @@ In this task, you'll use the Chat playground to interact with and test the AI mo
 
 1. Review the response, noting that context from the previous interaction is retained (so the model understands that "it" refers to artificial intelligence).
 
-     ![](../media/L1T3S8.png)
+1. Use the **Call modal (1)** toggle to view the **code (2)** for the interaction.
 
-1. Use the **View Code** button to view the code for the interaction. The prompt consists of the *system* message, the few-shot examples of *user* and *assistant* messages and the sequence of *user* and *assistant* messages in the chat session so far.
+- The **Call modal** panel shows Python code like the following, which connects to your deployed model and sends a prompt to it.
 
-      ![](../media/image5a.png)
+   ``` 
+   from openai import OpenAI
 
-      ![](../media/170725(07).png)
+   endpoint = "https://<resource-name>.services.ai.azure.com/openai/v1"
+   deployment_name = "gpt-5.4"
+   api_key = "<your-api-key>"
+
+   client = OpenAI(
+    base_url=endpoint,
+    api_key=api_key
+   )
+
+   response = client.responses.create(
+    model=deployment_name,
+    input="What is the capital of France?",
+   )
+
+   print(f"answer: {response.output[0]}")
+   ```
+
+   ![](../media/lab1-aoai-f-call-modal.png)
 
 ## Task 4: Explore prompts and parameters
 
 In this task, you'll explore prompts and parameters by experimenting with different inputs and settings to fine-tune the AI model's responses and behavior.
 
-1. In the **Chat Configuration** pane, go to **Parameters (1)** and set the following values:
-   * **Past messages included(2)**: 10
-   * **Max Completion tokens (3)**: 500
-   * **Temperature (4)**: 0 (for deterministic responses)
+1. In the **Playground** pane, go to **Parameters (1)** and set the value:
 
-     ![](../media/image6.png)
+   - max completion tokens: **400** **(3)** by using the **slider (2)** to adjust the values.
+  
+     ![](../media/lab1-aoai-f-parameters.png)
       
-2. In the chat input box, enter the message **(1)** and click **Submit (2)** to send it.
+2. In the chat input box, enter the message and click **Submit** to send it.
 
       ```
-      Write three multiple-choice questions based on the following text.
-
-      Most computer vision solutions are based on machine learning models that can be applied to visual input from cameras, videos, or images.*
-
-      - Image classification involves training a machine learning model to classify images based on their contents. For example, in a traffic monitoring solution, you might use an image classification model to classify images based on the type of vehicle they contain, such as taxis, buses, cyclists and so on.*
-
-      - Object detection machine learning models are trained to classify individual objects within an image and identify their location with a bounding box. For example, a traffic monitoring solution might use object detection to identify the location of different classes of vehicles.*
-
-      - Semantic segmentation is an advanced machine learning technique in which individual pixels in the image are classified according to the object to which they belong. For example, a traffic monitoring solution might overlay traffic images with "mask" layers to highlight different vehicles using specific colors.
+      Write a 500-word explanation of how DNS resolution works, step by step. 
       ```
 
-      ![](../media/L1T5S2-1607.png)
+3. Review the chat, which shows your **user prompt (1)** and the model's **response (2)**. Although you asked for a 500-word explanation, the response is cut short because you set **max completion tokens** to **400** in the previous step.
 
-3. Review the results, which should consist of multiple-choice questions that a teacher could use to test students on the computer vision topics in the prompt. The total response should be smaller than the maximum length you specified as a parameter.
+   >**Note**: **Max completion tokens** caps how long the model's reply can be — it's an upper bound on the number of tokens the model is allowed to generate for a single response.
 
-      ![](../media/last-3.jpg)
-   
-4. Observe the following about the prompt and parameters you used:
+      ![](../media/lab1-aoai-f-mxt-2.png)
 
-      - The prompt specifically states that the desired output should be three multiple-choice questions.
-       
-      - The parameters include *Temperature*, which controls the degree to which response generation includes an element of randomness. The value of **0** used in your submission minimizes randomness, resulting in stable, predictable responses.
+4. Generation stops early and the playground displays a **Token limit reached (1)** message, because the reply hit the **max completion tokens** limit. Now raise **max completion tokens** above **500** and resubmit the same prompt — this time the model has enough room to finish the full explanation. 
+
+   - Click **New chat (2)** to start a fresh chat session. This clears the current conversation, so the previous messages are no longer available.
+
+      ![](../media/lab1-aoai-f-mxt-3.png)
+
+5. Observe the following about the prompt and parameters you used:
+
+      - The prompt specifically states the content and length you want: a step-by-step explanation of DNS resolution, in about 500 words.
+
+      - The parameters include *Max completion tokens*, which sets an upper limit on how many tokens the model can generate in a single response. Because 400 tokens is roughly 300 words, the limit was reached before the model could deliver the 500 words the prompt asked for.
+
+      - When a parameter and a prompt disagree, the parameter wins. No matter how the prompt is worded, the model cannot produce more output than *Max completion tokens* allows — which is why raising the limit was necessary to get the complete explanation.
+
+6. We add another value called **Reasoning Effort (1)** with high,medium,low  you can change this values and give the prompt **(2)** and click **Send (3)** to check Reasoning skills of AI model. 
+
+   ``` 
+   Three friends — Alex, Bel, and Cass — each have a different pet (cat, dog, bird)
+   and live on a different floor (1, 2, 3) of an apartment building.
+   - The person with the dog does not live on floor 1.
+   - Alex does not live directly above or below Bel.
+   - Cass does not have the bird.
+   - The person on floor 2 has the cat.
+   - Bel does not live on floor 3.
+   Who has which pet, and on which floor? 
+   ```
+
+   ![](../media/lab1-aoai-f-reasoning.png)
+
+7. Review the model's response, which appears in the chat below your prompt. Then resubmit the same puzzle with a different **Reasoning effort** setting and compare the results — higher effort generally produces more thorough, step-by-step reasoning, while lower effort returns a shorter answer more quickly.
+
+   ![](../media/lab1-aoai-f-reasoning-2.png)
 
 ## Task 5: Explore code generation
 
 In this task, you'll explore code generation by testing the AI model’s ability to generate and suggest code snippets based on various programming prompts and requirements.
 
-1. In the **Setup** pane, update the **System message (1)** to:
+1. Click the **New chat** icon in the top-right corner of the playground to clear the current conversation and start a fresh interaction.
+
+   ![](../media/lab1-aoai-f-new-chat.png)
+
+1. In the **Playground** pane, update the **Instructions (1)** to:
 
    ```
    You are a Python developer.
    ```
 
-   * Click **Apply changes (2)** and then **Continue** when prompted.
-
-     ![](../media/L1T5S1.png)
-
-     ![](../media/L1T3S2i.png)
-
-2. In the **Chat session** pane, select the **Clear chat** button, then select **Clear** from the pop-up window to clear the chat history and start a new session.
-
-      ![](../media/clear-history-1607.png)
-
-      ![](../media/L1T5S2i.png)
-
-4. Enter the following prompt:
+4. Enter the following **prompt (2)**:
 
       ```
       Write a Python function named Multiply that multiplies two numeric parameters.
       ```
+      ![](../media/lab1-aoai-f-python.png)
 
 5. Review the generated Python code snippet. The model should return a valid function definition that multiplies two inputs and returns the result.
 
-     ![](../media/L1T5S4.png)
+     ![](../media/lab1-aoai-f-python-output.png)
 
 ## Summary
 
 In this lab,
-- You provisioned an **Azure OpenAI resource** to integrate generative AI capabilities into your applications.
-- You **deployed a model** (gpt-4.1-mini for chat completion) using the Microsoft Foundry portal.
-- You explored the model in the **Chat playground**, experimented with prompts and parameters and tested the model’s **code generation abilities**.
+- You provisioned an **Microsoft Foundry resource** to integrate generative AI capabilities into your applications.
+- You **deployed a model** (gpt-5.4 for chat completion) using the Microsoft Foundry portal.
+- You explored the model in the **Playground**, experimented with prompts and parameters and tested the model’s **code generation abilities**.
 
 
 ### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
+
+#### Happy Learning!!!
      
    ![](../media/next-1507.png)

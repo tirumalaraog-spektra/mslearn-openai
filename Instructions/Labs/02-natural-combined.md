@@ -4,42 +4,44 @@
 
 ## Lab Overview
 
-In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Azure OpenAI APIs.
+In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Foundry APIs.
 
-With the Azure OpenAI Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Azure OpenAI provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. In this exercise, you'll learn how to deploy a model in Azure OpenAI and use it in your application.
+With **Microsoft Foundry**, developers can create chatbots, copilots, and other applications that excel at understanding natural human language. Foundry gives you a catalog of pre-trained models — including OpenAI models such as GPT — along with a suite of APIs and tools for deploying, customizing, and evaluating those models to meet the specific requirements of your application. In this exercise, you'll learn how to call an OpenAI model deployed in Microsoft Foundry from your own application code.
 
 ## Lab Objectives
 
 In this lab, you will complete the following tasks:
 
-- Task 1: Provision an Azure OpenAI resource
+- Task 1: Provision an Microsoft Foundry resource
 - Task 2: Set up an application in Cloud Shell
 - Task 3: Configure your application
 - Task 4: Test your application
 
-## Task 1: Provision an Azure OpenAI resource
+## Task 1: Provision an Foundry resource
 
-In this task, you will review the provisioned Azure OpenAI resource within your Azure subscription. This step is essential to access OpenAI models and retrieve the endpoint and API key required to authenticate your application.
+In this task, you will review the provisioned Foundry resource within your Azure subscription. This step is essential to access OpenAI models and retrieve the endpoint and API key required to authenticate your application.
 
-1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)** from Services section.
+1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
-   ![](../media/select-openai-1607.png)
+   ![](../media/foundry-1.png)
 
-1. On the **AI Foundry | Azure OpenAI** page, select **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>**
+1. On the **Foundry (1)** page, select **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** **(2)**
 
-   ![](../media/L2T1S2.png)
+   ![](../media/foundry-4.png)
 
-1. To capture the Keys and Endpoints values, on **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
-      - Select **Keys and Endpoint (1)** under **Resource Management**.
-      - Click on **Show Keys (2)**.
-      - Copy **Key 1 (3)**, and save it securely in a text editor (e.g., Notepad) for use in later steps.
-      - Next, copy the **Endpoint (4)** by clicking the copy icon, and save it in the same location.
+1. To capture the key and endpoint values, on the **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
 
-        ![](../media/L2T1S3.png "Keys and Endpoints")
+      - In the left navigation pane, expand **Resource Management** and select **Keys and Endpoint (1)**.
+      - Click **Show Keys** to reveal the key values, then use the copy icon next to **KEY 1 (2)** to copy it. Save it securely in a text editor (for example, Notepad) for use in later steps.
+      - Select the **Foundry (3)** tab, then copy the **API endpoint (4)** value and save it in the same location.
+
+        > **Note:** Make sure you copy the endpoint from the **Foundry** tab rather than the **OpenAI** or **AI Services** tab, as the application uses the Foundry project endpoint.
+
+        ![](../media/foundry-3.png "Keys and Endpoints")
 
 ## Task 2: Set up an application in Cloud Shell
 
-In this task, you will set up a development environment using Azure Cloud Shell. You will clone the sample application repository, prepare the workspace, and open the code editor to begin integrating Azure OpenAI services.
+In this task, you will set up a development environment using Azure Cloud Shell. You will clone the sample application repository, prepare the workspace, and open the code editor to begin integrating Microsoft Foundry openAI services.
 
 1. In the [Azure portal](https://portal.azure.com?azure-portal=true), select the **[>_]** (*Cloud Shell*) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
@@ -74,26 +76,37 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
 6. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-7. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
+8. Once the terminal is ready, Select the **Manage files (1)** and select the **upload (2)** option to open file explorer.
 
-    ![](../media/L2T2S7.png)
-
-8. Once the terminal starts, enter the below-mentioned command to download the sample application and save it to a folder called `azure-openai`.
-
-    ```bash
-   rm -r mslearn-openai -f
-   git clone https://github.com/microsoftlearning/mslearn-openai mslearn-openai
-    ```
-
-    ![](../media/L2T2S8-1507.png)    
+    ![](../media/cloud-shell-upload.png) 
   
-9. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this exercise using the following command.
+9. Navigate to this path `C:\sdk-files\CSharp` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
 
-    ```bash
-   cd mslearn-openai/Labfiles/01-app-develop
+    ![](../media/sdk-files-csharp.png)
+
+1. Navigate to this path `C:\sdk-files\Python` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
+
+    ![](../media/sdk-files-python.png)
+
+1. In cloud shell create two directories CSharp,Python use below commands. 
+
+    ``` 
+    mkdir CSharp Python
     ```
 
-    Applications for both C# and Python have been provided, as well as a sample text file you'll use to test the summarization. Both apps feature the same functionality.
+1. Next move the Python files to Python folder.
+
+    ```
+    mv system.txt grounding.txt application.py .env ./Python
+    ```
+    
+1. Next move the CSharp files to CSharp folder. 
+   
+   ``` 
+   mv system.txt Program.cs grounding.txt CSharp.csproj appsetting.json ./CSharp 
+   ``` 
+
+1. Applications for both C# and Python have been provided, as well as a sample text file you'll use to test the summarization. Both apps feature the same functionality.
 
 10. Open the built-in code editor, and observe the text file that you'll be summarizing with your model. Use the following command to open the lab files in the code editor.
 
@@ -110,36 +123,37 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
 ## Task 3: Configure your application
 
-In this task, you will configure the application to connect with the Azure OpenAI resource. You will update configuration files with your environment credentials and implement the client logic to interact with the deployed model.
+In this task, you will configure the application to connect with the Microsoft Foundry resource. You will update configuration files with your environment credentials and implement the client logic to interact with the deployed model.
 
 1. In the code editor, expand the **CSharp** or **Python** folder, depending on your language preference.
 1. To quit the code environment, right-click anywhere and select Quit
 
-1. If you are using the **C#** language, kindly open the **CSharp.csproj** file and replace it with the following code and save the file.
+1. If you are using the **C#** language, kindly open the **CSharp.csproj** file and replace it with the following code and save the file everytime you make any changes.
 
    ```
    <Project Sdk="Microsoft.NET.Sdk">
-   
-   <PropertyGroup>
-   <OutputType>Exe</OutputType>
-   <TargetFramework>net9.0</TargetFramework>
-   <ImplicitUsings>enable</ImplicitUsings>
-   <Nullable>enable</Nullable>
-   </PropertyGroup>
-   
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
     <ItemGroup>
-    <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.*" />
+        <PackageReference Include="OpenAI" Version="2.12.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     </ItemGroup>
-   
+
     <ItemGroup>
-      <None Update="appsettings.json">
+        <None Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-       </None>
-     </ItemGroup>
-   
-    </Project> 
+        </None>
+    </ItemGroup>
+
+    </Project>
    ```
 
 1. Open the configuration file for your language
@@ -148,17 +162,17 @@ In this task, you will configure the application to connect with the Azure OpenA
     
     - Python: `.env`
     
-1. Update the configuration values to include the **endpoint** and **key** from the Azure OpenAI resource you created, as well as the model name that you deployed, `my-gpt-model`. Then save the file by right-clicking on the blank space in the file text editor and hit **Save**.
+1. Update the configuration values to include the **project endpoint** and **key** from the foundry resource you created, as well as the model name that you deployed, `gpt-5.4`. Then the file by right-clicking on the blank space in the file text editor and hit **Save**.
 
     - **C#:**
      
-      ![](../media/nlp26.png)   
+      ![](../media/lab2-c-fvaluesupdated.png)   
 
     - **Python:**
      
-      ![](../media/nlp27.png) 
+      ![](../media/lab2-p-fvalues.png) 
 
-       > **Note:** You can get the Azure OpenAI endpoint and key values from the Azure OpenAI resource's **Key and Endpoint** section under **Resource Management**.
+       > **Note:** You can get the **Project endpoint** and **API key** values from the **Overview** page of your Foundry resource in the **Microsoft Foundry portal** — these are the same values you copied to Notepad earlier.
 
 1. Navigate back to the Cloudshell and install the necessary packages for your preferred language:
 
@@ -166,7 +180,7 @@ In this task, you will configure the application to connect with the Azure OpenA
 
     ```bash
     cd CSharp
-    dotnet add package Azure.AI.OpenAI --version 2.1.0
+    dotnet add package OpenAI
     ```
 
     **Python:** 
@@ -174,212 +188,217 @@ In this task, you will configure the application to connect with the Azure OpenA
     ```bash
     cd Python
     python -m venv labenv
-    pip install python-dotenv openai==1.65.2 --user
+    pip install openai python-dotenv --user
     ```
 
-1. Navigate to your preferred language folder, replace the comment **Add Azure OpenAI package** with code to add the Azure OpenAI SDK library:
+1. Navigate to your preferred language folder, replace the comment **Add OpenAI package** with code to add the OpenAI SDK library:
 
     **C#:** Program.cs
 
     ```csharp
-    // Add Azure OpenAI packages
-    using Azure.AI.OpenAI;
+    // Foundry OpenAI-compatible packages 
+    using OpenAI;
     using OpenAI.Chat;
     ```
 
-     ![](../media/L2T3S6-1507.png) 
+     ![](../media/lab2-c-openai-pac.png) 
 
     **Python:** application.py
 
     ```python
-    # Add Azure OpenAI package
-    from openai import AsyncAzureOpenAI
+   # Use the plain (non-Azure) OpenAI async client, pointed at the Foundry endpoint
+    from openai import AsyncOpenAI
     ```
 
-     ![](../media/L2T3S6-py.png)      
+     ![](../media/lab2-p-openai-pac.png)      
 
-1.  In the application code for your language, find the comment **Configure the Azure OpenAI client**, and add code to configure the Azure OpenAI client:
+1.  In the application code for your language, find the comment **Configure the OpenAI client**, and add code to configure the Foundry's OpenAI client:
 
     **C#:** Program.cs
 
     ```csharp
-    // Configure the Azure OpenAI client
-    AzureOpenAIClient azureClient = new (new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
-    ChatClient chatClient = azureClient.GetChatClient(oaiDeploymentName);
+    // Configure the ChatClient to talk to Foundry's OpenAI-compatible /openai/v1 route
+        ChatClient chatClient = new(
+            model: foundryModelName,
+            credential: new ApiKeyCredential(foundryApiKey),
+            options: new OpenAIClientOptions()
+            {
+                Endpoint = new Uri($"{foundryEndpoint.TrimEnd('/')}/openai/v1")
+            }
+        );
     ```
 
-     ![](../media/L2T3S7-1507.png)  
+     ![](../media/lab2-c-chat-client.png)  
 
     **Python:** application.py
 
     ```python
-    # Configure the Azure OpenAI client
-    client = AsyncAzureOpenAI(
-       azure_endpoint = azure_oai_endpoint, 
-       api_key=azure_oai_key,  
-       api_version="2024-02-15-preview"
-      )
+     # Configure the client to talk to Foundry's OpenAI-compatible v1 endpoint
+        client = AsyncOpenAI(
+            base_url=f"{foundry_endpoint.rstrip('/')}/openai/v1/",
+            api_key=foundry_api_key,
+        )
     ```
 
-     ![](../media/L2T3S7-py.png)   
+     ![](../media/lab2-p-chat-client.png)   
 
       >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
     
-1. In the function that calls the **Azure OpenAI model**, under the comment **Get response from Azure OpenAI**, add the code to format and send the request to the model.
+1. In the function that calls the **OpenAI model**, under the comment **Get response from foundry**, add the code to format and send the request to the model.
 
     **C#:** Program.cs
 
     ```csharp
-      // Get response from Azure OpenAI
-      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
-      {
-         Temperature = 0.7f,
-         MaxOutputTokenCount = 800
-      };
-      
-      ChatCompletion completion = chatClient.CompleteChat(
-         [
-             new SystemChatMessage(systemMessage),
-             new UserChatMessage(userMessage)
-         ],
-         chatCompletionOptions
-      );
-      
-      Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
+       // Get response from Foundry
+        ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
+        {
+            Temperature = 0.7f,
+            MaxOutputTokenCount = 800
+        };
+
+        ChatCompletion completion = chatClient.CompleteChat(
+            [
+                new SystemChatMessage(systemMessage),
+                new UserChatMessage(userMessage)
+            ],
+            chatCompletionOptions
+        );
+
+        Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
     ```
 
-     ![](../media/L2T3S8-1507.png)      
+     ![](../media/lab2-c-foundryrespond.png)      
 
     **Python:** application.py
 
     ```python
-    # Get response from Azure OpenAI
-      messages =[
-         {"role": "system", "content": system_message},
-         {"role": "user", "content": user_message},
-      ]
-      
-      print("\nSending request to Azure OpenAI model...\n")
-      
-      # Call the Azure OpenAI model
-      response = await client.chat.completions.create(
-         model=model,
-         messages=messages,
-         temperature=0.7,
-         max_tokens=800
-      )
+   # Define the function that will get the response from the Foundry model
+    async def call_openai_model(system_message, user_message, model, client):
+        messages = [
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_message},
+        ]
+
+        print("\nSending request to Foundry model...\n")
+
+        response = await client.chat.completions.create(
+            model=model,
+            =messages,
+            temperature=0.7,
+            max_completion_tokens=800
+        )
+        print("Response:\n" + response.choices[0].message.content + "\n")
+
     ```
 
-     ![](../media/L2T3S8-py.png)  
+     ![](../media/lab2-p-foundryrespond.png)  
 
 1. Before you can save the file, please make sure your code looks similar to the code provided below.
 
     **C#:** Program.cs
       
-      ```CSharp
-      // Implicit using statements are included
-      using System.Text;
-      using System.ClientModel;
-      using System.Text.Json;
-      using Microsoft.Extensions.Configuration;
-      using Microsoft.Extensions.Configuration.Json;
-      using Azure;
-      
-      // Add Azure OpenAI packages
-          using Azure.AI.OpenAI;
-          using OpenAI.Chat;
-      
-      // Build a config object and retrieve user settings.
-      class ChatMessageLab
-      {
-      
-      static string? oaiEndpoint;
-      static string? oaiKey;
-      static string? oaiDeploymentName;
-          static void Main(string[] args)
-      {
-      IConfiguration config = new ConfigurationBuilder()
-          .AddJsonFile("appsettings.json")
-          .Build();
-      
-      oaiEndpoint = config["AzureOAIEndpoint"];
-      oaiKey = config["AzureOAIKey"];
-      oaiDeploymentName = config["AzureOAIDeploymentName"];
-      
-      //Initialize messages list
-      
-      do {
-          // Pause for system message update
-          Console.WriteLine("-----------\nPausing the app to allow you to change the system prompt.\nPress any key to continue...");
-          Console.ReadKey();
-          
-          Console.WriteLine("\nUsing system message from system.txt");
-          string systemMessage = System.IO.File.ReadAllText("system.txt"); 
-          systemMessage = systemMessage.Trim();
-      
-          Console.WriteLine("\nEnter user message or type 'quit' to exit:");
-          string userMessage = Console.ReadLine() ?? "";
-          userMessage = userMessage.Trim();
-          
-          if (systemMessage.ToLower() == "quit" || userMessage.ToLower() == "quit")
-          {
-              break;
-          }
-          else if (string.IsNullOrEmpty(systemMessage) || string.IsNullOrEmpty(userMessage))
-          {
-              Console.WriteLine("Please enter a system and user message.");
-              continue;
-          }
-          else
-          {
-              // Format and send the request to the model
-      
-              GetResponseFromOpenAI(systemMessage, userMessage);
-          }
-      } while (true);
-      
-      }
-      
-      // Define the function that gets the response from Azure OpenAI endpoint
-      private static void GetResponseFromOpenAI(string systemMessage, string userMessage)  
-      {   
-          Console.WriteLine("\nSending prompt to Azure OpenAI endpoint...\n\n");
-      
-          if(string.IsNullOrEmpty(oaiEndpoint) || string.IsNullOrEmpty(oaiKey) || string.IsNullOrEmpty(oaiDeploymentName) )
-          {
-              Console.WriteLine("Please check your appsettings.json file for missing or incorrect values.");
-              return;
-          }
-      
-      // Configure the Azure OpenAI client
-      AzureOpenAIClient azureClient = new (new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
-      ChatClient chatClient = azureClient.GetChatClient(oaiDeploymentName);
-      
-      
-      // Get response from Azure OpenAI
-      
-      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
-      {
-         Temperature = 0.7f,
-         MaxOutputTokenCount = 800
-      };
-      
-      ChatCompletion completion = chatClient.CompleteChat(
-         [
-             new SystemChatMessage(systemMessage),
-             new UserChatMessage(userMessage)
-         ],
-         chatCompletionOptions
-      );
-      
-      Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
-      
-      
-      
-      }
-      
-      }
-      ```
+    ```CSharp
+    // Implicit using statements are included
+    using System.Text;
+    using System.ClientModel;
+    using System.Text.Json;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.Json;
+
+    // Foundry OpenAI-compatible packages 
+    using OpenAI;
+    using OpenAI.Chat;
+
+    // Build a config object and retrieve user settings.
+    class ChatMessageLab
+    {
+        static string? foundryEndpoint;
+        static string? foundryApiKey;
+        static string? foundryModelName;
+
+        static void Main(string[] args)
+        {
+            IConfiguration config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            foundryEndpoint = config["FoundryEndpoint"];
+            foundryApiKey = config["FoundryApiKey"];
+            foundryModelName = config["FoundryModelName"];
+
+            //Initialize messages list
+            do
+            {
+                // Pause for system message update
+                Console.WriteLine("-----------\nPausing the app to allow you to change the system prompt.\nPress any key to continue...");
+                Console.ReadKey();
+
+                Console.WriteLine("\nUsing system message from system.txt");
+                string systemMessage = System.IO.File.ReadAllText("system.txt");
+                systemMessage = systemMessage.Trim();
+
+                Console.WriteLine("\nEnter user message or type 'quit' to exit:");
+                string userMessage = Console.ReadLine() ?? "";
+                userMessage = userMessage.Trim();
+
+                if (systemMessage.ToLower() == "quit" || userMessage.ToLower() == "quit")
+                {
+                    break;
+                }
+                else if (string.IsNullOrEmpty(systemMessage) || string.IsNullOrEmpty(userMessage))
+                {
+                    Console.WriteLine("Please enter a system and user message.");
+                    continue;
+                }
+                else
+                {
+                    // Format and send the request to the model
+                    GetResponseFromFoundry(systemMessage, userMessage);
+                }
+            } while (true);
+        }
+
+        // Define the function that gets the response from the Foundry v1 endpoint
+        private static void GetResponseFromFoundry(string systemMessage, string userMessage)
+        {
+            Console.WriteLine("\nSending prompt to Foundry endpoint...\n\n");
+
+            if (string.IsNullOrEmpty(foundryEndpoint) || string.IsNullOrEmpty(foundryApiKey) || string.IsNullOrEmpty(foundryModelName))
+            {
+                Console.WriteLine("Please check your appsettings.json file for missing or incorrect values.");
+                return;
+            }
+
+            // Configure the ChatClient to talk to Foundry's OpenAI-compatible /openai/v1 route
+            ChatClient chatClient = new(
+                model: foundryModelName,
+                credential: new ApiKeyCredential(foundryApiKey),
+                options: new OpenAIClientOptions()
+                {
+                    Endpoint = new Uri($"{foundryEndpoint.TrimEnd('/')}/openai/v1")
+                }
+            );
+
+            // Get response from Foundry
+            ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
+            {
+                Temperature = 0.7f,
+                MaxOutputTokenCount = 800
+            };
+
+            ChatCompletion completion = chatClient.CompleteChat(
+                [
+                    new SystemChatMessage(systemMessage),
+                    new UserChatMessage(userMessage)
+                ],
+            chatCompletionOptions
+            );
+
+            Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
+        }
+    }
+
+    ```
     
    **Python:** application.py
 
@@ -387,69 +406,67 @@ In this task, you will configure the application to connect with the Azure OpenA
       import os
       import asyncio
       from dotenv import load_dotenv
-      
-      # Add Azure OpenAI package
-      from openai import AsyncAzureOpenAI
-      
-      async def main(): 
-          try: 
-              # Get configuration settings 
+
+      # Use the plain (non-Azure) OpenAI async client, pointed at the Foundry endpoint
+      from openai import AsyncOpenAI
+
+      async def main():
+          try:
+              # Get configuration settings
               load_dotenv()
-              azure_oai_endpoint = os.getenv("AZURE_OAI_ENDPOINT")
-              azure_oai_key = os.getenv("AZURE_OAI_KEY")
-              azure_oai_deployment = os.getenv("AZURE_OAI_DEPLOYMENT")
-              
-              # Configure the Azure OpenAI client
-              client = AsyncAzureOpenAI(
-                  azure_endpoint=azure_oai_endpoint, 
-                  api_key=azure_oai_key,  
-                  api_version="2024-02-15-preview"
+              foundry_endpoint = os.getenv("FOUNDRY_PROJECT_ENDPOINT")  # e.g. https://<resource-name>.services.ai.azure.com
+              foundry_api_key = os.getenv("FOUNDRY_API_KEY")
+              model_name = os.getenv("FOUNDRY_MODEL_DEPLOYMENT")
+              # model_name = os.getenv("FOUNDRY_MODEL_DEPLOYMENT")  # your deployed GPT model name
+
+              # Configure the client to talk to Foundry's OpenAI-compatible v1 endpoint
+              client = AsyncOpenAI(
+                  base_url=f"{foundry_endpoint.rstrip('/')}/openai/v1/",
+                  api_key=foundry_api_key,
               )
-      
+
               while True:
                   # Pause the app to allow the user to enter the system prompt
                   print("------------------\nPausing the app to allow you to change the system prompt.\nPress enter to continue...")
                   input()
-      
+
                   # Read in system message and prompt for user message
                   system_text = open(file="system.txt", encoding="utf8").read().strip()
                   user_text = input("Enter user message, or 'quit' to exit: ")
                   if user_text.lower() == 'quit' or system_text.lower() == 'quit':
                       print('Exiting program...')
                       break
-      
+
                   # Format and send the request to the model
                   await call_openai_model(
-                      system_message=system_text, 
-                      user_message=user_text, 
-                      model=azure_oai_deployment, 
+                      system_message=system_text,
+                      user_message=user_text,
+                      model=model_name,
                       client=client
                   )
-      
+
           except Exception as ex:
               print(ex)
-      
-      # Define the function that will get the response from Azure OpenAI endpoint
+
+      # Define the function that will get the response from the Foundry model
       async def call_openai_model(system_message, user_message, model, client):
-          # Get response from Azure OpenAI
           messages = [
               {"role": "system", "content": system_message},
               {"role": "user", "content": user_message},
           ]
-          
-          print("\nSending request to Azure OpenAI model...\n")
-          
-          # Call the Azure OpenAI model
+
+          print("\nSending request to Foundry model...\n")
+
           response = await client.chat.completions.create(
               model=model,
               messages=messages,
               temperature=0.7,
-              max_tokens=800
+              max_completion_tokens=800
           )
-      
+
           print("Response:\n" + response.choices[0].message.content + "\n")
-      
-      if __name__ == '__main__': 
+
+      if __name__ == '__main__':
           asyncio.run(main())
       ```
     
@@ -459,7 +476,7 @@ In this task, you will configure the application to connect with the Azure OpenA
 
 ## Task 4: Test your application
 
-In this task, you will run the application and interact with the Azure OpenAI model using different system and user prompts. This hands-on testing will help you observe how prompt variations affect the model’s output.
+In this task, you will run the application and interact with the Microsoft Foundry OpenAI model using different system and user prompts. This hands-on testing will help you observe how prompt variations affect the model’s output.
 
 1. In the folder of your preferred language, open the **system.txt** file. For each of the interactions, you'll enter the **System message** in this file and save it. Each iteration will pause first for you to change the system message.
 
@@ -548,14 +565,14 @@ In this task, you will run the application and interact with the Azure OpenAI mo
 ## Summary
 
 In this lab, 
-- You have provisioned an Azure OpenAI resource to access and use language models via the Azure portal.
+- You have provisioned an Microsoft Foundry resource to access and use language models via the Azure portal.
 - You set up a development environment in Azure Cloud Shell and cloned a sample application repository.
-- You configured the application with your OpenAI credentials and integrated the Azure OpenAI SDK.
+- You configured the application with your OpenAI credentials and integrated the Microsoft Foundry OpenAI SDK.
 - You tested the application using various prompts and observed how different inputs influence the AI-generated responses.
 
 ### You have successfully completed the Hands-on lab.
 
-By completing this **Get Started With OpenAI And Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Azure OpenAI models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Azure OpenAI SDK with **Python** or **C#**. 
+By completing this **Get Started With OpenAI And Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Microsoft Foundry OpenAI models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Microsoft Foundry OpenAI SDK with **Python** or **C#**. 
 
 This lab has equipped you with the foundational skills to start building intelligent, AI-powered solutions on Azure.
 
