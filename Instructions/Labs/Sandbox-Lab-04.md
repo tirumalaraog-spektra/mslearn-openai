@@ -69,7 +69,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 1. Select the **Deployments (1)** from the left pane, click on **+ Deploy model (2)** and choose **Deploy base model (3)**.
 
-    ![](../media/va3.png)
+    ![](../media/OPA1.png)
 
 1. Search for **gpt-5-mini (1)** in the search bar, select **gpt-5-mini (2)** and click on **Confirm (3)**.
 
@@ -107,7 +107,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
 
 1. Navigate back to [Microsoft Foundry](https://ai.azure.com/) portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
 
-   ![](../media/new/L1T3S1-0707.png)
+   ![](../media/OPA05.png)
    
 1. In the **Chat session** section, enter the following prompt and press *Enter*.
 
