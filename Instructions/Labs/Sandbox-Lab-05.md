@@ -69,7 +69,7 @@ In this task, you will use the gpt-image-1-mini playground in the Microsoft Foun
 
       ![](../media/l1-12-01.png)
 
-2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab06-<inject key="Deployment-id" enableCopy="false"></inject>(2)**
+2. On the **Microsoft Foundry | Azure OpenAI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab05-<inject key="Deployment-id" enableCopy="false"></inject>(2)**
 
       ![](../media/l5-12-11.png)
 
@@ -77,15 +77,17 @@ In this task, you will use the gpt-image-1-mini playground in the Microsoft Foun
 
       ![](../media/l5-12-21.png)
 
-4. On the **Microsoft Foundry portal** page, select **Deployments (1)** under **Shared Resources** from the left pane. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)**.
+4. On the **Microsoft Foundry portal** page, select **Model catalog (1)** under **Get started** from the left pane. Then, search **gpt-image-1-mini (2)** and choose **gpt-image-1-mini (3)**.
 
-      ![](../media/l5-12-31.png)
+      ![](../media/GM1.png)
 
-5. In the **Select a model** page, search for **gpt-image-1-mini (1)**, select **gpt-image-1-mini (Text to image) (2)** model, and click on **Confirm (3)**
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your **OpenAI Foundry resource**.
 
-      ![](../media/dall1.png)
+6. On the gpt-image-1-mini page, click on **Use this model**.
 
-6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
+      ![](../media/GM2.png)
+
+7. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-1-mini (1)**, Click on **Customize (2)** and make the **Requests per Minute Rate Limit: 3 (3)** and click on **Deploy (4)**.
 
       ![](../media/dall6.png)
 
@@ -111,7 +113,7 @@ In this task, you will use a simple Python or C# app to generate images by calli
 
 1. In the [Azure portal](https://portal.azure.com?azure-portal=true), select the **[>_]** (*Cloud Shell*) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
-    ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/cloudshell-launch-portal.png#lightbox)
+    ![Screenshot of starting Cloud Shell by clicking on the icon to the right of the top search box.](../media/GM3.png#lightbox)
 
     > **Note:** If a **Cloud Shell timed out** pop-up appears, click **Reconnect**.
 
@@ -141,6 +143,11 @@ In this task, you will use a simple Python or C# app to generate images by calli
 1. Once the terminal opens, click on **Settings** and select **Go to Classic Version**.
 
    ![](../media/classic-cloudshell1.png)
+
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+
+    > **Note:** If the **Go to Classic version** option is available under **Settings**, select it to continue with the previous Cloud Shell session. Otherwise, continue using the current **Bash** session.
+   
 
 1. Run the below commands:
 
@@ -187,7 +194,7 @@ In this task, you will use a configuration file in the application to store the 
 
     > **Tip:** You can adjust the split at the top of the cloud shell pane to see the Azure portal and get the endpoint and key values from the **Keys and Endpoint** page for your Azure OpenAI service.
 
-3. If you are using **Python**, you'll also need to install the **python-dotenv** package used to read the configuration file. In the console prompt pane, ensure the current folder is **~/azure-openai/Labfiles/05-image-generation/Python**. Then enter this command:
+3. If you are using **Python**, you'll also need to install the **python-dotenv** package used to read the configuration file. In the console prompt pane, ensure the current folder is **~/mslearn-openai/Labfiles/05-image-generation/Python**. Then enter this command:
 
     ```bash
    pip install python-dotenv
@@ -329,7 +336,7 @@ In this task, you will run the reviewed code to generate some images.
     python generate-image.py
     ```
     
-1. In the **terminal**, when prompted with **Enter a prompt to request an image**, type the prompt **“A giraffe flying a kite” (1)** and press **Enter**.  Once the request is processed, the generated image file will be saved automatically and the **file path of the generated image (2)** will be displayed.
+1. In the **terminal**, when prompted with **Enter a prompt to request an image**, type the prompt **“A giraffe flying a kite” (1)** and press **Enter**.  Once the request is processed, the generated image file will be saved automatically, and the **file path of the generated image (2)** will be displayed.
 
     - **Python :**
 
@@ -337,11 +344,15 @@ In this task, you will run the reviewed code to generate some images.
 
     - **C# :**
 
-         ![](../media/DallCS01.png)  
+         ![](../media/DallCS01.png)
 
-1. In the **Download a file** window, verify the generated file path **(4)** and click **Download (5)** to download the image file to your system.
+1. Copy the **file path (1)**, then click on the **upload/download (2)** option, and click on **download (3)**.
 
-    ![](../media/Dall11.png)  
+   ![](../media/model-3.png)
+
+1. In the **Download a file** window, enter the generated file path **(4)** and click **Download (5)** to download the image file to your system.
+
+    ![](../media/Dall11.png)
 
 1. After the download begins, click **Click here to download your file (6)** to open the downloaded image from the browser.
 

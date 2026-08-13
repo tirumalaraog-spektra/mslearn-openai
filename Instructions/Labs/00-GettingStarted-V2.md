@@ -4,7 +4,7 @@
 
 ## Overview
 
-This hands-on lab offers a comprehensive introduction to the Azure OpenAI Service. You will begin by configuring the service and integrating Azure OpenAI SDKs into your application. Techniques in prompt engineering will refine interactions, and you'll also gain skills in generating and enhancing code. The DALL-E model will be utilized for image generation, and you will explore the use of your own data for retrieval-augmented generation (RAG). Additionally, you will delve into content filtering to manage and regulate generated outputs. Throughout the labs, you'll gain practical experience with real-world AI applications, learn best practices for deploying and scaling these services in a production environment, and understand how to integrate various Azure services to develop resilient, scalable, and secure AI-powered applications.
+This hands-on lab offers a comprehensive introduction to the Azure OpenAI Service. You will begin by configuring the service and integrating Azure OpenAI SDKs into your application. Techniques in prompt engineering will refine interactions, and you'll also gain skills in generating and enhancing code. The gpt-image-1.5 model will be utilized for image generation, and you will explore the use of your own data for retrieval-augmented generation (RAG). Additionally, you will delve into content filtering to manage and regulate generated outputs. Throughout the labs, you'll gain practical experience with real-world AI applications, learn best practices for deploying and scaling these services in a production environment, and understand how to integrate various Azure services to develop resilient, scalable, and secure AI-powered applications.
 
 ## Objective 
 
@@ -20,7 +20,7 @@ Participants will learn:
 
 - **Generate and improve code with Azure OpenAI Service:** The goal of this hands-on exercise is to demonstrate how to effectively generate and refine code using Azure OpenAI. Participants will improve their abilities to create and refine code with Azure OpenAI Service tools and approaches.
 
-- **Generate images with a DALL-E model:** The goal of this hands-on activity is to produce and alter images using the DALL-E model. To attain the intended visual results, participants will develop and alter images using the DALL-E model.
+- **Generate images with a gpt-image-1.5 model:** The goal of this hands-on activity is to produce and alter images using the gpt-image-1.5 model. To attain the intended visual results, participants will develop and alter images using the gpt-image-1.5 model.
 
 - **Add your data for RAG using Azure OpenAI Service:** This hands-on exercise will help you integrate your data with the Azure OpenAI Service for Retrieval-Augmented Generation (RAG) to improve AI responses. Participants will integrate data into the Azure OpenAI Service to boost AI-powered retrieval and generation.
 
@@ -31,12 +31,12 @@ Participants will learn:
 Participants should have:
 
 - **Development Skills:** Basic programming knowledge and experience with APIs and SDKs.
-- **AI Concepts:** Understanding prompt engineering, code development, and image generation using models such as DALL-E.
+- **AI Concepts:** Understanding prompt engineering, code development, and image generation using models such as gpt-image-1.5.
 - **Content Management:** Understanding data integration for RAG and content filtering techniques.
    
 ## Architecture
 
-This lab provides robust functionalities for leveraging AI within Azure. Azure OpenAI integrates your data with large language models, enabling customized and secure interactions tailored to your needs. Azure OpenAI Models offer pre-trained and customizable models for various applications, such as text generation and language translation. Azure CloudShell provides an online, browser-based shell for managing Azure resources and running scripts, streamlining cloud management. DALL-E generates images from textual descriptions using advanced AI technology, enhancing creative capabilities. Finally, prompt engineering refines input prompts to optimize AI model responses, ensuring accuracy and relevance in outputs.
+This lab provides robust functionalities for leveraging AI within Azure. Azure OpenAI integrates your data with large language models, enabling customized and secure interactions tailored to your needs. Azure OpenAI Models offer pre-trained and customizable models for various applications, such as text generation and language translation. Azure CloudShell provides an online, browser-based shell for managing Azure resources and running scripts, streamlining cloud management. gpt-image-1.5 generates images from textual descriptions using advanced AI technology, enhancing creative capabilities. Finally, prompt engineering refines input prompts to optimize AI model responses, ensuring accuracy and relevance in outputs.
 
 ## Architecture Diagram
 
@@ -51,7 +51,7 @@ The architecture for this lab involves the following key components:
 - **Azure OpenAI:** Integrates your data with massive language models, allowing for personalized and secure interactions. Allows for fine-tuning of AI models with your own datasets, resulting in specialized and relevant outputs for your business needs.
 - **Azure OpenAI Models:** Provides pre-trained and customisable big language models for a variety of AI applications, including text generation, sentiment analysis, and language translation, with the option to tailor models to specific use cases.
 - **Azure CloudShell:** Offers an online, browser-based shell for managing Azure resources and running scripts. Allows you to deploy, manage, and automate Azure services directly from your web browser, eliminating the need for local installations.
-- **DALL-E:** DALL-E uses artificial intelligence technology to generate visuals from written descriptions. Enhances creativity by translating word inputs into distinct and coherent pictures.
+- **gpt-image-1.5:** gpt-image-1.5 uses artificial intelligence technology to generate visuals from written descriptions. Enhances creativity by translating word inputs into distinct and coherent pictures.
 - **Prompt Engineering:** Prompt engineering fine-tunes input prompts to improve AI model replies, ensuring accurate and relevant outputs by optimizing how prompts are produced and delivered to AI models.
 - **AI chat:** AI chat, also known as an AI chatbot or conversational AI, is a technology that uses artificial intelligence to facilitate automated, human-like conversations between machines and users. These systems are designed to understand and interpret natural language inputs, enabling them to respond in a way that simulates a real conversation.
 
@@ -63,7 +63,7 @@ We've prepared a seamless environment for you to explore and learn about the con
  
 Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
 
-   ![](../media/new/vm.png)
+   ![](../media/guideee.png)
 
 ## Virtual Machine & Lab Guide
  
@@ -79,13 +79,13 @@ To get a better understanding of your lab resources and credentials, navigate to
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
- ![](../media/splitwin.png)
+ ![](../media/splittt.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to **Start, Stop,** or **Restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-![](../media/resources.png)
+![](../media/vmssr2.png)
 
 ## Lab Guide Zoom In/Zoom Out
 
@@ -103,21 +103,21 @@ To adjust the zoom level for the environment page, click the **A↕: 100%** icon
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
  
-       ![Enter Your Username](../media/sc900-image-1.png)
+       ![Enter Your Username](../media/odlusr.png)
  
 1. Next, provide your Temporary password:
  
    - **Temporary Acces Pass:** <inject key="AzureAdUserPassword"></inject>
  
-       ![](../media/tpwrd.png)
+       ![](../media/odltap.png)
 
 1. If you see the pop-up **Stay Signed in?**, select **No**.
  
-   ![](../media/new/stay.png)       
+   ![](../media/staysignn.png)       
 
-1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **Cancel** to skip the tour.
+1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **Maybe later** to skip the tour.
 
-   ![](../media/skiptour.png)
+   ![](../media/starttour.png)
 
 ## Support Contact
 

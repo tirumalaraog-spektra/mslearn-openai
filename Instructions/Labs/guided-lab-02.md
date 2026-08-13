@@ -1,6 +1,6 @@
 # Lab 01: Use Azure OpenAI SDKs in your App
 
-### Estimated Duration: 120 Minutes
+### Estimated Duration: 90 Minutes
 
 ## Lab Overview
 
@@ -83,11 +83,13 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     ![](../media/va3.png)
 
-1. Search for **gpt-4.1-mini (1)** in the search bar, select **gpt-4.1-mini (2)** and click on **Confirm (3)**.
+   >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your OpenAI Foundry resource. 
 
-   ![](../media/va4.png)
+1. Search for **gpt-5-mini (1)** in the search bar, select **gpt-5-mini (2)** and click on **Confirm (3)**.
 
-1. Within the **Deploy gpt-4.1-mini** pop-up interface, enter the following details:
+   ![](../media/T2S3-0707.png)
+
+1. Within the **Deploy gpt-5-mini** pop-up interface, enter the following details:
 
     - **Deployment name**: **text-turbo (1)**
 
@@ -97,7 +99,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     - **Model version upgrade policy**: Select **Upgrade once new default version becomes available (3)**
 
-    - **Model version**: Choose **2025-04-14 (Default) (4)**
+    - **Model version**: Choose **2025-08-07 (4)**
 
     - **Tokens per Minute Rate Limit**: **10K (5)**
         >**Note**: If you're unable to slide to 10K, click on the slider thumb and use your keyboard arrows (right/left) to adjust the token rate limit.
@@ -106,11 +108,11 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     - Click on **Deploy (7)**
 
-        ![](../media/deploy4.1.png)
+        ![](../media/T2S4-0707.png)
 
 1. This will deploy a model that you will use as you proceed as you proceed.
 
-    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-4.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
+    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 <validation step="69a18560-a442-467a-be09-b5663806dd0a" />
 
@@ -118,6 +120,8 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide. 
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+> **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 ## Task 3: Set up an application in Cloud Shell
 
@@ -323,18 +327,15 @@ In this task, you will configure the application to connect with the Azure OpenA
 
     ```csharp
       // Get response from Azure OpenAI
-      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
-      {
-         Temperature = 0.7f,
-         MaxOutputTokenCount = 800
-      };
+
+      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions();
       
       ChatCompletion completion = chatClient.CompleteChat(
-         [
-             new SystemChatMessage(systemMessage),
-             new UserChatMessage(userMessage)
-         ],
-         chatCompletionOptions
+      [
+          new SystemChatMessage(systemMessage),
+          new UserChatMessage(userMessage)
+      ],
+      chatCompletionOptions
       );
       
       Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
@@ -345,21 +346,19 @@ In this task, you will configure the application to connect with the Azure OpenA
     **Python:** application.py
 
     ```python
-    # Get response from Azure OpenAI
-      messages =[
-         {"role": "system", "content": system_message},
-         {"role": "user", "content": user_message},
-      ]
-      
-      print("\nSending request to Azure OpenAI model...\n")
-      
-      # Call the Azure OpenAI model
-      response = await client.chat.completions.create(
-         model=model,
-         messages=messages,
-         temperature=0.7,
-         max_tokens=800
-      )
+        # Get response from Azure OpenAI
+    messages = [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_message},
+    ]
+    
+    print("\nSending request to Azure OpenAI model...\n")
+    
+    # Call the Azure OpenAI model
+    response = await client.chat.completions.create(
+        model=model,
+        messages=messages
+    )
     ```
 
      ![](../media/L2T3S8-py.png)  
@@ -447,26 +446,19 @@ In this task, you will configure the application to connect with the Azure OpenA
       AzureOpenAIClient azureClient = new (new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
       ChatClient chatClient = azureClient.GetChatClient(oaiDeploymentName);
       
-      
       // Get response from Azure OpenAI
       
-      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
-      {
-         Temperature = 0.7f,
-         MaxOutputTokenCount = 800
-      };
+      ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions();
       
       ChatCompletion completion = chatClient.CompleteChat(
-         [
-             new SystemChatMessage(systemMessage),
-             new UserChatMessage(userMessage)
-         ],
-         chatCompletionOptions
+      [
+          new SystemChatMessage(systemMessage),
+          new UserChatMessage(userMessage)
+      ],
+      chatCompletionOptions
       );
       
       Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
-      
-      
       
       }
       
@@ -534,9 +526,7 @@ In this task, you will configure the application to connect with the Azure OpenA
           # Call the Azure OpenAI model
           response = await client.chat.completions.create(
               model=model,
-              messages=messages,
-              temperature=0.7,
-              max_tokens=800
+              messages=messages
           )
       
           print("Response:\n" + response.choices[0].message.content + "\n")

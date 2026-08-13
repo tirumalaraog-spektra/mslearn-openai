@@ -25,7 +25,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
    ![](../media/new/AI1.png)
 
-2. On  **AI Foundary | Azure OpenAI** blade, select **Azure OpenAI (1)** from the left menu, click on **+ Create (2)** and select **Azure OpenAI (3)**
+2. On  **Microsoft Foundary | Azure OpenAI** blade, select **Azure OpenAI (1)** from the left menu, click on **+ Create (2)** and select **Azure OpenAI (3)**
 
    ![](../media/new/AI2.png)
 
@@ -54,8 +54,8 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 6. To capture the Keys and Endpoints values, on **openai-<inject key="Deployment-ID" enableCopy="false"></inject>** blade:
       - Select **Keys and Endpoint (1)** under **Resource Management**.
       - Click on **Show Keys (2)**.
-      - Copy **Key 1 (3)** and ensure to paste it in a text editor such as notepad for future reference.
-      - Finally copy the **Endpoint (4)** API URL by clicking on copy to clipboard. Paste it in a text editor such as notepad for later use.
+      - Copy **Key 1 (3)** and ensure to paste it in a text editor such as Notepad for future reference.
+      - Finally, copy the **Endpoint (4)** API URL by clicking on copy to clipboard. Paste it into a text editor such as Notepad for later use.
 
            ![](../media/ui3.png)    
 
@@ -71,39 +71,35 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     ![](../media/va3.png)
 
-1. Search for **gpt-4.1-mini (1)** in the search bar, select **gpt-4.1-mini (2)** and click on **Confirm (3)**.
+1. Search for **gpt-5-mini (1)** in the search bar, select **gpt-5-mini (2)** and click on **Confirm (3)**.
 
-   ![](../media/new/AI6.png) 
-
-   >**Note:** If pop-up window **Unlock the full capabilities of Azure Microsoft Foundry with projects** appears, click **Continue with existing setup**
-
-      ![](../media/new/AI7.png)
+   ![](../media/new/T2S3-0707.png)
    
-1. Within the **Deploy model gpt-4.1-mini** pop-up interface, click on **Customize**.
+1. Within the **Deploy model gpt-5-mini** pop-up interface, click on **Customize**.
 
-   ![](../media/new/AI8.png)
+   ![](../media/new/L1T2S4-0707.png)
 
-1. Within the **Deploy model gpt-4.1-mini** pop-up interface, enter the following details:
+1. Within the **Deploy model gpt-5-mini** pop-up interface, enter the following details:
 
       - Deployment name: **my-gpt-model (1)**
 
       - Deployment type: **Global Standard (2)**
 
-      - Model version: **2025-04-14 (Default) (3)**
+      - Model version: **2025-08-07 (Default) (3)**
 
-      - Tokens per Minute Rate Limit (thousands): In between **10K - 13K (4)**
+      - Tokens per Minute Rate Limit (thousands): In between **13K - 16K (4)**
 
       - Content filter: **DefaultV2 (5)**
 
       - Click on **Deploy (6)**
 
-        ![](../media/new/AI9.png)
+        ![](../media/new/L1T2S5-0707.png)
       
 1. This will deploy a model that you will be playing around with as you proceed.
 
     > **Note:** You can ignore any error related to the assignment of roles to view the quota limits.
    
-    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-4.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
+    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 ## Task 3: Generate code in chat playground
 
@@ -111,7 +107,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
 
 1. Navigate back to [Microsoft Foundry](https://ai.azure.com/) portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
 
-   ![](../media/new/AI10.png)
+   ![](../media/new/L1T3S1-0707.png)
    
 1. In the **Chat session** section, enter the following prompt and press *Enter*.
 
@@ -119,7 +115,9 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
     Write a function in Python that takes a character and a string as input, and returns how many times that character appears in the string
     ```
     
-   ![](../media/new/AI12.png)
+   ![](../media/new/L4T3S2-0707.png)
+
+   >**Note:** If you can't see the setup section, click on Show setup.
 
 1. Observe the output. The model will likely respond with a function, with some explanation of what the function does and how to call it.
 
@@ -158,7 +156,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
    Can you simplify the function?
    ```   
 
-   ![](../media/new/AI15.png)
+   ![](../media/new/L4T3S8-0707.png)
 
 1. Submit the below-mentioned prompt to add comments to the code.
 
@@ -166,7 +164,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
       Add some comments to the function.
       ```
 
-      ![](../media/new/AI16.png)
+      ![](../media/new/L4T3S9-0707.png)
 
 1. Observe the output, which includes comments explaining what each part of the function does. 
 
@@ -182,7 +180,7 @@ In this task, you will use a short command-line application running in Cloud She
 
    ![](../media/new/Bash1.png)
 
-1. If you're prompted as Getting Started click on **Mount storage account (1)** select the available subscription **(2)** and click on **Apply (3)**.
+1. If you're prompted as Getting Started, click on **Mount storage account (1)**, select the available subscription **(2)**, and click on **Apply (3)**.
 
    ![](../media/cloudshell-getting-started.png "Create storage advanced settings")
 
@@ -193,7 +191,7 @@ In this task, you will use a short command-line application running in Cloud She
 1. Within the **Create storage account** pane, enter the following details:
     - **Subscription**: Default- Choose the only existing subscription assigned for this lab (1).
     - **Resource group**: Select openai-<inject key="Deployment-ID" enableCopy="false"></inject>(2)
-    - **CloudShell region**: East US (3)
+    - **CloudShell region**: West Europe (3)
     - **Storage Account Name**: storage<inject key="Deployment-ID" enableCopy="false"></inject>(4)
     - **File share**: Enter **none** (5)
     - Click **Create** (6)
@@ -204,14 +202,16 @@ In this task, you will use a short command-line application running in Cloud She
 
    ![](../media/classic.png)
 
-4. Once the terminal starts, enter the following command to download the sample application and save it to a folder called `mslearn-openai`.
+   >**Note:** If the Settings icon is not visible, click on the (...) ellipses icon.
+
+5. Once the terminal starts, enter the following command to download the sample application and save it to a folder called `mslearn-openai`.
 
     ```bash
    rm -r mslearn-openai -f
    git clone https://github.com/CloudLabs-MOC/mslearn-openai
     ```
 
-5. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this task using the following command.
+6. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this task using the following command.
 
     ```bash
     cd mslearn-openai/Labfiles/04-code-generation
@@ -219,7 +219,7 @@ In this task, you will use a short command-line application running in Cloud She
 
    > **Note:** Applications for both C# and Python have been provided, as well as sample code we'll be using in this lab.
 
-6. Use the following command to open the lab files in the code editor.
+7. Use the following command to open the lab files in the code editor.
 
     ```bash
     code .
