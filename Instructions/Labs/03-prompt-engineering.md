@@ -22,7 +22,7 @@ In this task, you'll explore how prompt engineering influences model behavior by
 
 1. Navigate back to **Microsoft Foundry** portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
 
-      ![](../media/MDV.png) 
+      ![](../media/OPA5.png) 
 
 1. Update the  **Give the model instructions and context (1)** with the text mentioned below, and click on **Apply changes (2)**. 
 
