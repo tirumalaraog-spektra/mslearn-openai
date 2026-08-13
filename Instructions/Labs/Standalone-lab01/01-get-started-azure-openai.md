@@ -67,27 +67,25 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 1. Select the **Deployments (1)** from the left pane, click on **+ Deploy model (2)** and choose **Deploy base model (3)**.
 
-    ![](./media/SS2.png)
+    ![](./media/OPA1.png)
 
-1. Search for **gpt-4o-mini (1)** in the search bar, select **gpt-4o-mini (2)** and click on **Confirm (3)**.
+1. Search for **gpt-5-mini (1)** in the search bar, select **gpt-5-mini (2)** and click on **Confirm (3)**.
 
-   ![](./media/L1T2S3.png)
+   ![](./media/OPA3.png)
 
    >**Note:** If pop-up window **Unlock the full capabilities of Microsoft Foundry with projects** appears, click **Continue with existing setup**
 
       ![](./media/e1t2p2(1).png)
-   
-1. Within the **Deploy gpt-4o-mini** pop-up interface, click on **Customize**.
 
-   ![](./media/customize.png)
-
-1. Within the **Deploy model gpt-4o-mini** pop-up interface, enter the following details:
+1. Within the **Deploy model gpt-5-mini** pop-up interface, enter the following details:
 
       - Deployment name: **my-gpt-model (1)**
 
       - Deployment type: **Global Standard (2)**
 
-      - Model version:**2024-07-18 (Default) (3)**
+      - Click on **Customize**
+
+      - Model version:**2024-08-07 (Default) (3)**
 
       - Tokens per Minute Rate Limit (thousands): **10K (4)**
 
@@ -95,15 +93,15 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       - Click on **Deploy (6)**
 
-        ![](./media/deploy-gpt-4o-mini.png)
+        ![](./media/OPA2.png)
       
-        >**Note:** gpt-4o-mini is supported only for chat completions, and it is not supported for the completions API.
+        >**Note:** gpt-5-mini is supported only for chat completions, and it is not supported for the completions API.
         
 1. This will deploy a model that you will be playing around with as you proceed.
 
     > **Note:** You can ignore any error related to the assignment of roles to view the quota limits.
    
-    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-4o-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
+    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
