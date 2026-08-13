@@ -81,7 +81,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 1. Select **Deployments (1)** from the left pane under **Shared resources**, click on **+ Deploy model (2)** and choose **Deploy base model (3)**.
 
-    ![](../media/va3.png)
+    ![](../media/OPA1.png)
 
    >**Note:** If the Create a Project pop-up appears, click **Cancel**. Then, on the top-right side, **turn off** the New Foundry toggle. If a feedback pop-up appears, click **Continue without feedback** and then select your OpenAI Foundry resource. 
 
@@ -93,7 +93,7 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
     - **Deployment name**: **text-turbo (1)**
 
-    - **Deployment type**: **Standard (2)**
+    - **Deployment type**: **Global Standard (2)**
 
     - Click on **Customize**
 
@@ -113,13 +113,6 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 1. This will deploy a model that you will use as you proceed as you proceed.
 
     > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
-
-<validation step="69a18560-a442-467a-be09-b5663806dd0a" />
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide. 
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
 > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5.1-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
@@ -165,7 +158,8 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
 6. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-7. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
+
+    > **Note:** Once the terminal opens, click **Settings (1)** and select **Go to Classic version (2)**. If the option is not available, continue with the next steps.
 
     ![](../media/classic.png)
 
