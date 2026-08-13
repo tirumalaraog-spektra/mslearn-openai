@@ -80,27 +80,27 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
     ![](../media/cloud-shell-upload.png) 
   
-9. Navigate to this path `C:\sdk-files\CSharp` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
+9. Navigate to this path `C:\LabFiles\sdk-files\CSharp` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
 
     ![](../media/sdk-files-csharp.png)
 
-1. Navigate to this path `C:\sdk-files\Python` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
+1. Navigate to this path `C:\LabFiles\sdk-files\Python` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
 
     ![](../media/sdk-files-python.png)
 
-1. In cloud shell create two directories CSharp,Python use below commands. 
+1. In cloud shell terminal create two directories CSharp,Python use below commands. 
 
     ``` 
     mkdir CSharp Python
     ```
 
-1. Next move the Python files to Python folder.
+1. Next move the Python files to Python folder. Run the below command.
 
     ```
     mv system.txt grounding.txt application.py .env ./Python
     ```
-    
-1. Next move the CSharp files to CSharp folder. 
+
+1. Next move the CSharp files to CSharp folder. Run the below command.
    
    ``` 
    mv system.txt Program.cs grounding.txt CSharp.csproj appsetting.json ./CSharp 
