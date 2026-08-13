@@ -67,27 +67,25 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 1. Select the **Deployments (1)** from the left pane, click on **+ Deploy model (2)** and choose **Deploy base model (3)**.
 
-    ![](./media/SS2.png)
+    ![](./media/OPA1.png)
 
-1. Search for **gpt-4o-mini (1)** in the search bar, select **gpt-4o-mini (2)** and click on **Confirm (3)**.
+1. Search for **gpt-5-mini (1)** in the search bar, select **gpt-5-mini (2)** and click on **Confirm (3)**.
 
-   ![](./media/L1T2S3.png)
+   ![](./media/OPA3.png)
 
    >**Note:** If pop-up window **Unlock the full capabilities of Microsoft Foundry with projects** appears, click **Continue with existing setup**
 
       ![](./media/e1t2p2(1).png)
-   
-1. Within the **Deploy gpt-4o-mini** pop-up interface, click on **Customize**.
 
-   ![](./media/customize.png)
-
-1. Within the **Deploy model gpt-4o-mini** pop-up interface, enter the following details:
+1. Within the **Deploy model gpt-5-mini** pop-up interface, enter the following details:
 
       - Deployment name: **my-gpt-model (1)**
 
       - Deployment type: **Global Standard (2)**
 
-      - Model version:**2024-07-18 (Default) (3)**
+      - Click on **Customize**
+
+      - Model version:**2024-08-07 (Default) (3)**
 
       - Tokens per Minute Rate Limit (thousands): **10K (4)**
 
@@ -95,15 +93,15 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
       - Click on **Deploy (6)**
 
-        ![](./media/deploy-gpt-4o-mini.png)
+        ![](./media/OPA2.png)
       
-        >**Note:** gpt-4o-mini is supported only for chat completions, and it is not supported for the completions API.
+        >**Note:** gpt-5-mini is supported only for chat completions, and it is not supported for the completions API.
         
 1. This will deploy a model that you will be playing around with as you proceed.
 
     > **Note:** You can ignore any error related to the assignment of roles to view the quota limits.
    
-    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-4o-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
+    > **Note:** Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **gpt-5-mini** model, which is a good model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
@@ -118,9 +116,9 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 In this task, you'll use the Chat playground to interact and test the AI model's conversational abilities through a simulated chat interface.
 
-1. In the **Playgrounds** section, select the **Chat (1)** page, and ensure that the **my-gpt-model(version:2024-07-18) (2)** model is selected in the configuration pane.
+1. In the **Microsoft Foundry Portal** section, select the **Playgrounds (1)** page, and ensure that the **my-gpt-model(version:2024-08-07) (2)** model is selected in the configuration pane.
 
-      ![](./media/SS3.png)  
+      ![](./media/OPA05.png)  
 
 1. In the **Setup** section, in the **Give the model instructions and context** box, replace the existing text with the following statement: **`The system is an AI teacher that helps people learn about AI`** **(1)** and click on **Apply changes (2)**. 
 
@@ -160,13 +158,13 @@ In this task, you'll use the Chat playground to interact and test the AI model's
    
 1. In the query box at the bottom of the page, enter the text **`What is artificial intelligence?`**. Use the **Send** button to submit the message and view the response.
 
-      ![](./media/NO-7a.png)
+      ![](./media/OPA6.png)
    
       > **Note:** You may receive a response that the API deployment is not yet ready. If so, wait for a few minutes and try again.
 
 1. Review the response and then submit the following message to continue the conversation: **`How is it related to machine learning?`**
 
-      ![](./media/model_response.png)
+      ![](./media/OPA7.png)
 
 1. Review the response, note that context from the previous interaction is retained (so the model understands that "it" refers to artificial intelligence).
 
@@ -180,11 +178,13 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
 1. In the **Chat Configuration** pane select **Parameters (1)**, set the following parameter values:
       
-      - Max response: **500 (2)**
-     
-      - Temperature: **0 (3)**
+      - Set **Max Completion Tokens (2)** to **500**.
+
+      - Under **Reasoning Effort (3)**, select **high**.
+
+      - Under **Generate Summary (4)**, select **detailed**.
    
-          ![](./media/image6.png)
+          ![](./media/OPA8.png)
       
 2. Submit the following message as a query in a chat session
 
@@ -216,7 +216,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
 
 1. In the **Setup pane**, under the **Give the model instructions and context** box, enter the system message: **`You are a Python developer.`** **(1)** then save the changes by clicking on **Apply changes (2)**.
 
-      ![](./media/e1t6p1.png)
+      ![](./media/OPA10.png)
 
 1. In the **Update system message?** pop-up window, click on **Continue**.
 
@@ -238,7 +238,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
 
 1. Review the response, which should include sample Python code that meets the requirement in the prompt.
 
-      ![](./media/T5S6.png)
+      ![](./media/OPA9.png)
 
 ## Summary
 
