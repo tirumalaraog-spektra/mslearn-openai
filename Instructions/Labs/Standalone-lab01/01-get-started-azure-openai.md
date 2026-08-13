@@ -116,9 +116,9 @@ In this task, you'll deploy a specific AI model instance within your Azure OpenA
 
 In this task, you'll use the Chat playground to interact and test the AI model's conversational abilities through a simulated chat interface.
 
-1. In the **Playgrounds** section, select the **Chat (1)** page, and ensure that the **my-gpt-model(version:2024-07-18) (2)** model is selected in the configuration pane.
+1. In the **Microsoft Foundry Portal** section, select the **Playgrounds (1)** page, and ensure that the **my-gpt-model(version:2024-08-07) (2)** model is selected in the configuration pane.
 
-      ![](./media/SS3.png)  
+      ![](./media/OPA05.png)  
 
 1. In the **Setup** section, in the **Give the model instructions and context** box, replace the existing text with the following statement: **`The system is an AI teacher that helps people learn about AI`** **(1)** and click on **Apply changes (2)**. 
 
@@ -158,13 +158,13 @@ In this task, you'll use the Chat playground to interact and test the AI model's
    
 1. In the query box at the bottom of the page, enter the text **`What is artificial intelligence?`**. Use the **Send** button to submit the message and view the response.
 
-      ![](./media/NO-7a.png)
+      ![](./media/OPA6.png)
    
       > **Note:** You may receive a response that the API deployment is not yet ready. If so, wait for a few minutes and try again.
 
 1. Review the response and then submit the following message to continue the conversation: **`How is it related to machine learning?`**
 
-      ![](./media/model_response.png)
+      ![](./media/OPA7.png)
 
 1. Review the response, note that context from the previous interaction is retained (so the model understands that "it" refers to artificial intelligence).
 
@@ -178,11 +178,13 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
 1. In the **Chat Configuration** pane select **Parameters (1)**, set the following parameter values:
       
-      - Max response: **500 (2)**
-     
-      - Temperature: **0 (3)**
+      - Set **Max Completion Tokens (2)** to **500**.
+
+      - Under **Reasoning Effort (3)**, select **high**.
+
+      - Under **Generate Summary (4)**, select **detailed**.
    
-          ![](./media/image6.png)
+          ![](./media/OPA8.png)
       
 2. Submit the following message as a query in a chat session
 
@@ -214,7 +216,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
 
 1. In the **Setup pane**, under the **Give the model instructions and context** box, enter the system message: **`You are a Python developer.`** **(1)** then save the changes by clicking on **Apply changes (2)**.
 
-      ![](./media/e1t6p1.png)
+      ![](./media/OPA10.png)
 
 1. In the **Update system message?** pop-up window, click on **Continue**.
 
@@ -236,7 +238,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
 
 1. Review the response, which should include sample Python code that meets the requirement in the prompt.
 
-      ![](./media/T5S6.png)
+      ![](./media/OPA9.png)
 
 ## Summary
 
