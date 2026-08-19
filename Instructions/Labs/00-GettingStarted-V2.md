@@ -1,4 +1,4 @@
-# Get Started with OpenAI and Build Natural Language Solution
+# Get Started with Microsoft Foundry and Build Natural Language Solution
 
 ### Overall Estimated Duration: 4 Hours
 
@@ -11,7 +11,7 @@ Microsoft Foundry is Microsoft's unified platform for building AI solutions on A
 In this hands-on lab, you will learn how to use OpenAI models in Microsoft Foundry to create natural language solutions. You’ll start by setting up your Foundry environment in Azure and exploring the basic features of OpenAI models for language processing. By the end of the lab, you’ll build and deploy a simple application that can process and respond to user input, while also learning how to enhance the model’s performance and output quality.
 
 - **Get started with Microsoft Foundry:** This hands-on lab aims to provision a Microsoft Foundry resource and deploy an OpenAI model. Explore the model's capabilities in the Chat playground, fine-tune responses by adjusting instructions, prompts, and parameters, and leverage code generation to automate tasks.
-- **Use Foundry SDKs in your App:** This hands-on lab aims to review a Microsoft Foundry resource and its deployed model, set up and configure an application in Cloud Shell, and then run the application, demonstrating the full lifecycle from resource creation to application deployment and execution.
+- **Use OpenAI SDKs in your App:** This hands-on lab aims to review a Microsoft Foundry resource and its deployed model, set up and configure an application in Cloud Shell, and then run the application, demonstrating the full lifecycle from resource creation to application deployment and execution.
 
 ## Pre-requisites
 
@@ -24,7 +24,7 @@ The architecture flow for this task begins with provisioning a Microsoft Foundry
 
 ## Architecture Diagram
 
- ![Access Your VM and Lab Guide](../media/lab-flow-foundry-final.png)
+ ![Access Your VM and Lab Guide](../media/architect-diagram.png)
 
 ## Explanation of Components
 
@@ -35,7 +35,7 @@ The architecture flow for this task begins with provisioning a Microsoft Foundry
 
 ## Getting Started with the Lab
 
-Welcome to the **Get Started With OpenAI and Build Natural Language Solutions** Workshop!. In this lab, you will learn how to use OpenAI models to create natural language solutions. You'll explore the basics and work on building and deploying applications that understand and process language. Let’s get started with the lab and explore the possibilities of AI.
+Welcome to the **Get Started with Microsoft Foundry and Build Natural Language Solution** Workshop!. In this lab, you will learn how to use OpenAI models to create natural language solutions. You'll explore the basics and work on building and deploying applications that understand and process language. Let’s get started with the lab and explore the possibilities of AI.
  
 ## Accessing Your Lab Environment
  

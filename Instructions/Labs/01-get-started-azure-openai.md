@@ -1,4 +1,4 @@
-# Lab 01: Get started with Azure OpenAI Service
+# Lab 01: Get started with Microsoft Foundry
 
 ### Estimated Duration: 120 Minutes
 
@@ -9,15 +9,15 @@ In this lab, you'll learn how to get started with **Microsoft Foundry** by provi
 ## Lab Objectives
 In this lab, you will complete the following tasks:
 
-- Task 1: Provision an Foundry resource
+- Task 1: Provision a Microsoft Foundry resource
 - Task 2: Deploy a model
 - Task 3: Use the Chat playground
 - Task 4: Explore prompts and parameters 
 - Task 5: Explore code generation
 
-## Task 1: Provision an Microsoft Foundry resource
+## Task 1: Provision a Microsoft Foundry resource
 
-In this task, you'll create an Azure resource in the Azure portal, selecting the OpenAI service and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
+In this task, you'll create an Azure resource in the Azure portal, selecting the Microsoft Foundry resource and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
 
 1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
@@ -35,14 +35,14 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
     - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
-      ![](../media/lab1-aoai-f-2.png "Create foundry resource")
+      ![](../media/Foundry-create-1.png "Create foundry resource")
 
 
 4. Click **Review + create (6)** tab.
 
 5. Finally, click **Create** to start the deployment.
 
-     ![](../media/lab1-aoai-f-3.png "Create a foundry resource")
+     ![](../media/Foundry-create.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
