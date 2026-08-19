@@ -4,32 +4,33 @@
 
 ## Overview
 
-Azure OpenAI Service brings the generative AI models developed by OpenAI to the Azure platform, enabling the development of powerful AI solutions with the security, scalability, and integration of Azure's cloud services. In this lab, you'll learn to provision Azure OpenAI as a resource and use Azure OpenAI Studio to deploy and explore OpenAI models. With Azure OpenAI, developers can create applications like chatbots and language models that excel in understanding natural human language. The service provides access to pre-trained AI models and a suite of APIs and tools for customizing and fine-tuning these models to meet specific application requirements. In this scenario, you'll assume the role of a software developer tasked with implementing an app to provide hiking recommendations using generative AI, demonstrating techniques applicable to any app utilizing Azure OpenAI APIs.
+Microsoft Foundry is Microsoft's unified platform for building AI solutions on Azure, bringing generative AI models — including the models developed by OpenAI — together with the security, scalability, and service integration of Azure's cloud services. In this lab, you'll learn to provision a Microsoft Foundry resource and use the Microsoft Foundry portal to deploy and explore OpenAI models. With Foundry, developers can create applications like chatbots and copilots that excel in understanding natural human language. The platform provides access to a catalog of pre-trained models along with a suite of APIs and tools for customizing and evaluating those models to meet specific application requirements. In this scenario, you'll assume the role of a software developer tasked with implementing an app to provide hiking recommendations using generative AI, demonstrating techniques applicable to any app utilizing Foundry APIs.
 
 ## Objective
 
-In this hands-on lab, you will learn how to use OpenAI to create natural language solutions. You’ll start by setting up the OpenAI environment in Azure and exploring the basic features of OpenAI models for language processing. By the end of the lab, you’ll build and deploy a simple application that can process and respond to user input, while also learning how to enhance the model’s performance and output quality.
+In this hands-on lab, you will learn how to use OpenAI models in Microsoft Foundry to create natural language solutions. You’ll start by setting up your Foundry environment in Azure and exploring the basic features of OpenAI models for language processing. By the end of the lab, you’ll build and deploy a simple application that can process and respond to user input, while also learning how to enhance the model’s performance and output quality.
 
-- **Get started with Azure OpenAI Service:** This hands-on lab aims to provision an Azure OpenAI resource and deploy a model. Explore the model's capabilities in the Completions playground, then interact with it using the Chat playground. Fine-tune responses by adjusting prompts and parameters, and leverage code generation to automate tasks.
-- **Use Azure OpenAI SDKs in your App:** This hands-on lab aims to provision an Azure OpenAI resource, deploy a model, set up and configure an application in Cloud Shell, and then run the application, demonstrating the full lifecycle from resource creation to application deployment and execution.
+- **Get started with Microsoft Foundry:** This hands-on lab aims to provision a Microsoft Foundry resource and deploy an OpenAI model. Explore the model's capabilities in the Chat playground, fine-tune responses by adjusting instructions, prompts, and parameters, and leverage code generation to automate tasks.
+- **Use Foundry SDKs in your App:** This hands-on lab aims to review a Microsoft Foundry resource and its deployed model, set up and configure an application in Cloud Shell, and then run the application, demonstrating the full lifecycle from resource creation to application deployment and execution.
 
 ## Pre-requisites
 
-- Familiarity with Azure OpenAI Service, Azure CLI, and REST APIs
+- Familiarity with Microsoft Foundry, Azure CLI, and REST APIs
 - Basic understanding of AI and machine learning concepts
 
 ## Architecture
 
-The architecture flow for this task begins with provisioning an Azure OpenAI resource within your Azure subscription and deploying a pre-trained model using Azure OpenAI Studio. Next, you'll explore the model's capabilities in the Completions playground and test its conversational abilities in the Chat playground, experimenting with different prompts and parameters to customize responses. You'll also investigate the model's code-generation capabilities. In the application development phase, you'll set up your application environment in Azure Cloud Shell, configure the application to integrate with the deployed OpenAI model, and finally, run the application to provide hiking recommendations using generative AI.
+The architecture flow for this task begins with provisioning a Microsoft Foundry resource within your Azure subscription and deploying a pre-trained OpenAI model using the Microsoft Foundry portal. Next, you'll test the model's conversational abilities in the Chat playground, experimenting with different instructions, prompts, and parameters to customize responses. You'll also investigate the model's code-generation capabilities. In the application development phase, you'll set up your application environment in Azure Cloud Shell, configure the application to integrate with the deployed model through its Foundry endpoint and key, and finally, run the application to provide hiking recommendations using generative AI.
 
 ## Architecture Diagram
 
- ![Access Your VM and Lab Guide](../media/arch-diag-new.png)
+ ![Access Your VM and Lab Guide](../media/lab-flow-foundry-final.png)
 
 ## Explanation of Components
 
-1. **Azure OpenAI:** Azure OpenAI Service provides REST API access to OpenAI's powerful language models, and these models integrate with your data, enabling customized and secure interactions.
-1. **Azure OpenAI Models:** Offers pre-trained and customizable large language models for various AI applications. These models allow for powerful AI-driven solutions by generating tailored and contextually relevant content based on well-crafted prompts.
+1. **Microsoft Foundry:** Microsoft Foundry is the unified platform for building AI solutions on Azure. It provides REST API access to powerful language models and the tooling to deploy, test, and integrate them with your data, enabling customized and secure interactions.
+1. **Foundry model catalog:** Offers pre-trained and customizable large language models — including OpenAI models such as GPT — for various AI applications. These models allow for powerful AI-driven solutions by generating tailored and contextually relevant content based on well-crafted prompts.
+1. **Microsoft Foundry portal:** Provides a browser-based workspace for discovering models, deploying them, and testing them interactively in the playground before you call them from your own application code.
 1. **Azure CloudShell:** Azure CloudShell offers an integrated, browser-based shell experience for managing Azure resources. It provides a ready-to-use environment with pre-installed tools and access to both Bash and PowerShell.
 
 ## Getting Started with the Lab
@@ -50,13 +51,13 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, you can navigate to the **Environment** tab.
  
-![Explore Lab Resources](../media/exp-lab-resources.png)
+![Explore Lab Resources](../media/env-tab.png)
 
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-![Use the Split Window Feature](../media/split-feature-new.png)
+![Use the Split Window Feature](../media/split-tab.png)
  
 ## Managing Your Virtual Machine
  
