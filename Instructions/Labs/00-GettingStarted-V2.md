@@ -41,7 +41,7 @@ Welcome to the **Get Started with Microsoft Foundry and Build Natural Language S
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../media/getting-started-eng-openai-1.png)
+![Access Your VM and Lab Guide](../media/lab-guide-vm.png)
 
 ## Virtual Machine & Lab Guide
  
