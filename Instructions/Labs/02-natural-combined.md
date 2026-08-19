@@ -1,4 +1,4 @@
-# Lab 02: Use Azure OpenAI SDKs in your App
+# Lab 02: Build an App with Microsoft Foundry OpenAI SDKs
 
 ### Estimated Duration: 120 Minutes
 
@@ -12,7 +12,7 @@ With **Microsoft Foundry**, developers can create chatbots, copilots, and other 
 
 In this lab, you will complete the following tasks:
 
-- Task 1: Provision an Microsoft Foundry resource
+- Task 1: Provision a Microsoft Foundry resource
 - Task 2: Set up an application in Cloud Shell
 - Task 3: Configure your application
 - Task 4: Test your application
@@ -166,13 +166,17 @@ In this task, you will configure the application to connect with the Microsoft F
 
     - **C#:**
      
-      ![](../media/lab2-c-fvaluesupdated.png)   
+      ![](../media/csharp-f-values.png)   
+
+      >**Note**: Make sure the variables like `FoundryEndpoint`,`FoundryApiKey`,`FoundryModelName` in **appsettings.json** are same used in **Program.cs** file.
 
     - **Python:**
      
       ![](../media/lab2-p-fvalues.png) 
 
-       > **Note:** You can get the **Project endpoint** and **API key** values from the **Overview** page of your Foundry resource in the **Microsoft Foundry portal** — these are the same values you copied to Notepad earlier.
+      >**Note**: Make sure the variables name like `FOUNDRY_PROJECT_ENDPOINT`,`FOUNDRY_API_KEY`,`FOUNDRY_MODEL_DEPLOYMENT` in **.env** are same used in **application.py** file.
+
+      > **Note:** You can get the **Project endpoint** and **API key** values from the **Overview** page of your Foundry resource in the **Microsoft Foundry portal** — these are the same values you copied to Notepad earlier.
 
 1. Navigate back to the Cloudshell and install the necessary packages for your preferred language:
 
@@ -572,7 +576,7 @@ In this lab,
 
 ### You have successfully completed the Hands-on lab.
 
-By completing this **Get Started With OpenAI And Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Microsoft Foundry OpenAI models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Microsoft Foundry OpenAI SDK with **Python** or **C#**. 
+By completing this **Get Started With  And Microsoft Foundry Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Microsoft Foundry OpenAI models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Microsoft Foundry OpenAI SDK with **Python** or **C#**. 
 
 This lab has equipped you with the foundational skills to start building intelligent, AI-powered solutions on Azure.
 
