@@ -1,35 +1,35 @@
-# Lab 02: Build an App with Microsoft Foundry OpenAI SDKs
+# 🧩 Lab 02: Build an Application with Microsoft Foundry Using the OpenAI SDK
 
-### Estimated Duration: 120 Minutes
+### ⏱️ Estimated Duration: 120 Minutes
 
-## Lab Overview
+## 📘 Lab Overview
 
 In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Foundry APIs.
 
-With **Microsoft Foundry**, developers can create chatbots, copilots, and other applications that excel at understanding natural human language. Foundry gives you a catalog of pre-trained models — including OpenAI models such as GPT — along with a suite of APIs and tools for deploying, customizing, and evaluating those models to meet the specific requirements of your application. In this exercise, you'll learn how to call an OpenAI model deployed in Microsoft Foundry from your own application code.
+With **Microsoft Foundry**, developers can create chatbots, copilots, and other applications that excel at understanding natural human language. Foundry gives you a catalog of pre-trained models — including Microsoft Foundry  models such as GPT — along with a suite of APIs and tools for deploying, customizing, and evaluating those models to meet the specific requirements of your application. In this exercise, you'll learn how to call an Microsoft Foundry  model deployed in Microsoft Foundry from your own application code.
 
-## Lab Objectives
+## 🎯 Lab Objectives
 
 In this lab, you will complete the following tasks:
 
-- Task 1: Provision a Microsoft Foundry resource
+- Task 1: Access the Foundry resource credentials
 - Task 2: Set up an application in Cloud Shell
 - Task 3: Configure your application
 - Task 4: Test your application
 
-## Task 1: Provision an Foundry resource
+## 🔑 Task 1: Access the Foundry resource credentials
 
-In this task, you will review the provisioned Foundry resource within your Azure subscription. This step is essential to access OpenAI models and retrieve the endpoint and API key required to authenticate your application.
+In this task, you will review the provisioned Foundry resource within your Azure subscription. This step is essential to access Microsoft Foundry  models and retrieve the endpoint and API key required to authenticate your application.
 
 1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
    ![](../media/foundry-1.png)
 
-1. On the **Foundry (1)** page, select **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** **(2)**
+1. On the **Foundry (1)** page, select **foundry-<inject key="DeploymentID" enableCopy="false"></inject>** **(2)**
 
    ![](../media/foundry-4.png)
 
-1. To capture the key and endpoint values, on the **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
+1. To capture the key and endpoint values, on the **foundry-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
 
       - In the left navigation pane, expand **Resource Management** and select **Keys and Endpoint (1)**.
       - Click **Show Keys** to reveal the key values, then use the copy icon next to **KEY 1 (2)** to copy it. Save it securely in a text editor (for example, Notepad) for use in later steps.
@@ -39,7 +39,7 @@ In this task, you will review the provisioned Foundry resource within your Azure
 
         ![](../media/foundry-3.png "Keys and Endpoints")
 
-## Task 2: Set up an application in Cloud Shell
+## ☁️ Task 2: Set up an application in Cloud Shell
 
 In this task, you will set up a development environment using Azure Cloud Shell. You will clone the sample application repository, prepare the workspace, and open the code editor to begin integrating Microsoft Foundry openAI services.
 
@@ -121,7 +121,7 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
 <validation step="bd2f25c6-d67e-4553-a8ed-32e9f0162e26" />
 
-## Task 3: Configure your application
+## ⚙️ Task 3: Configure your application
 
 In this task, you will configure the application to connect with the Microsoft Foundry resource. You will update configuration files with your environment credentials and implement the client logic to interact with the deployed model.
 
@@ -477,9 +477,9 @@ In this task, you will configure the application to connect with the Microsoft F
 
    >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
 
-## Task 4: Test your application
+## 🧪 Task 4: Test your application
 
-In this task, you will run the application and interact with the Microsoft Foundry OpenAI model using different system and user prompts. This hands-on testing will help you observe how prompt variations affect the model’s output.
+In this task, you will run the application and interact with the Microsoft Foundry model using different system and user prompts. This hands-on testing will help you observe how prompt variations affect the model’s output.
 
 1. In the folder of your preferred language, open the **system.txt** file. For each of the interactions, you'll enter the **System message** in this file and save it. Each iteration will pause first for you to change the system message.
 
@@ -565,17 +565,17 @@ In this task, you will run the application and interact with the Microsoft Found
 
 1. Observe the output. This time, you'll likely see the email in a similar format, but with a much more informal tone. You'll likely even see jokes included!
 
-## Summary
+## 📝 Summary
 
 In this lab, 
 - You have provisioned an Microsoft Foundry resource to access and use language models via the Azure portal.
 - You set up a development environment in Azure Cloud Shell and cloned a sample application repository.
-- You configured the application with your OpenAI credentials and integrated the Microsoft Foundry OpenAI SDK.
+- You configured the application with your Microsoft Foundry resource credentials and integrated the Microsoft Foundry OpenAI SDK.
 - You tested the application using various prompts and observed how different inputs influence the AI-generated responses.
 
-### You have successfully completed the Hands-on lab.
+### ✅ You have successfully completed the Hands-on lab.
 
-By completing this **Get Started with Microsoft Foundry and Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Microsoft Foundry OpenAI models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Microsoft Foundry OpenAI SDK with **Python** or **C#**. 
+By completing this **Get Started with Microsoft Foundry and Build Natural Language Solution** hands-on lab, you have gained practical experience in provisioning, deploying, and interacting with Microsoft Foundry models. You explored both the Completions and Chat capabilities and learned how to fine-tune model behavior using parameters. Additionally, you integrated the models into an application using the Microsoft Foundry OpenAI SDK with **Python** or **C#**. 
 
 This lab has equipped you with the foundational skills to start building intelligent, AI-powered solutions on Azure.
 

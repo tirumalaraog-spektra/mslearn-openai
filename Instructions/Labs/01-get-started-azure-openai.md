@@ -1,12 +1,12 @@
-# Lab 01: Get started with Microsoft Foundry
+# 🚀 Lab 01: Get started with Microsoft Foundry
 
-### Estimated Duration: 120 Minutes
+### ⏱️ Estimated Duration: 120 Minutes
 
-## Lab overview
+## 📘 Lab overview
 
 In this lab, you'll learn how to get started with **Microsoft Foundry** by provisioning a Foundry resource in Azure and using the Microsoft Foundry portal to deploy and explore generative AI models. Microsoft Foundry is the unified platform for building AI solutions on Azure — it gives you a single place to discover models, deploy them, test them interactively in the playground, and connect them to your own applications, all backed by the security, scalability and service integration of the Azure cloud platform. 
 
-## Lab Objectives
+## 🎯 Lab Objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Provision a Microsoft Foundry resource
@@ -15,9 +15,9 @@ In this lab, you will complete the following tasks:
 - Task 4: Explore prompts and parameters 
 - Task 5: Explore code generation
 
-## Task 1: Provision a Microsoft Foundry resource
+## 🛠️ Task 1: Provision a Microsoft Foundry resource
 
-In this task, you'll create an Azure resource in the Azure portal, selecting the Microsoft Foundry resource and configuring settings such as region and pricing tier. This setup allows you to integrate OpenAI's advanced language models into your applications.
+In this task, you'll create an Azure resource in the Azure portal, selecting the Microsoft Foundry resource and configuring settings such as region and pricing tier. This setup allows you to integrate Microsoft Foundry 's advanced language models into your applications.
 
 1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
@@ -30,8 +30,8 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 3. Fill in the required details on the **Create a Foundry resource** page:
    
     - Subscription: Default - Pre-assigned subscription **(1)**
-    - Resource group: **openai-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
-    - Name: **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
+    - Resource group: **MFoundry-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+    - Name: **foundry-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
     - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
@@ -53,11 +53,11 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 <validation step="1fa0e87b-eb46-463d-b63b-edf6e2282e16" />
 
-## Task 2: Deploy a model
+## 📦 Task 2: Deploy a model
 
 In this task, you'll deploy a specific AI model instance within your Microsoft Foundry resource to integrate advanced language capabilities into your applications.
 
-1. From the **Azure portal**, navigate to your foundry resource **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>**.
+1. From the **Azure portal**, navigate to your foundry resource **foundry-<inject key="DeploymentID" enableCopy="false"></inject>**.
 
 1. On the **Foundry** resource page, click **Overview**, then select **Go to Microsoft Foundry portal (2)** to navigate to the **Microsoft Foundry portal**.
 
@@ -65,9 +65,8 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 
 1. You'll land on the new **Microsoft Foundry** portal. Ensure the **toggle (1)** is turned on — if it's disabled, enable it. Then copy the following values into Notepad, as you'll need them in later steps:
 
-   - API key **(1)**
-   - Project Endpoint **(2)** 
-   - Azure OpenAI Endpoint **(3)** 
+   - API key **(2)**
+   - Project Endpoint **(3)** 
 
    ![](../media/lab1-aoai-f-6.png)
 
@@ -98,7 +97,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 
    <validation step="6be846c2-8a90-4683-97e8-b55309a5b10e" />
 
-## Task 3: Use the Chat playground
+## 💬 Task 3: Use the Playground
 
 In this task, you'll use the Chat playground to interact with and test the AI model's conversational abilities through a simulated chat interface.
 
@@ -182,7 +181,7 @@ In this task, you'll use the Chat playground to interact with and test the AI mo
 
    ![](../media/lab1-aoai-f-call-modal.png)
 
-## Task 4: Explore prompts and parameters
+## 🎛️ Task 4: Explore prompts and parameters
 
 In this task, you'll explore prompts and parameters by experimenting with different inputs and settings to fine-tune the AI model's responses and behavior.
 
@@ -237,13 +236,13 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
    ![](../media/lab1-aoai-f-reasoning-2.png)
 
-## Task 5: Explore code generation
+## 💻 Task 5: Explore code generation
 
 In this task, you'll explore code generation by testing the AI model’s ability to generate and suggest code snippets based on various programming prompts and requirements.
 
 1. Click the **New chat** icon in the top-right corner of the playground to clear the current conversation and start a fresh interaction.
 
-   ![](../media/lab1-aoai-f-new-chat.png)
+   ![](../media/new-chat.png)
 
 1. In the **Playground** pane, update the **Instructions (1)** to:
 
@@ -262,7 +261,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
 
      ![](../media/lab1-aoai-f-python-output.png)
 
-## Summary
+## 📝 Summary
 
 In this lab,
 - You provisioned an **Microsoft Foundry resource** to integrate generative AI capabilities into your applications.
@@ -270,8 +269,8 @@ In this lab,
 - You explored the model in the **Playground**, experimented with prompts and parameters and tested the model’s **code generation abilities**.
 
 
-### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
+### ✅ You have successfully completed the lab. Click on Next >> to proceed with the next lab.
 
-#### Happy Learning!!!
+#### 🎉 Happy Learning!!!
      
    ![](../media/next-1507.png)
