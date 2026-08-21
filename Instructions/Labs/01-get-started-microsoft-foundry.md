@@ -2,6 +2,14 @@
 
 ### ⏱️ Estimated Duration: 120 Minutes
 
+## 🧭 Scenario
+
+You have recently joined **Contoso**, an organization that wants to bring generative AI into its internal learning platform. Learners currently rely on static course material, and the training team wants to know whether an AI assistant could answer questions in natural language, explain technical concepts on demand, and even help developers with sample code.
+
+Before any application is built, your manager has asked you to evaluate the platform itself. In this lab, you will take on the role of an **AI developer** responsible for that evaluation: you'll provision a **Microsoft Foundry** resource in the Azure subscription, deploy a **gpt-5.4** model, and validate its behaviour hands-on in the **Microsoft Foundry portal** playground — shaping the assistant's persona with instructions and few-shot examples, controlling response length and depth with parameters such as *max completion tokens* and *reasoning effort*, and confirming that the model can generate usable code.
+
+By the end of the lab, you'll have a working, tested model deployment along with the **project endpoint** and **API key** your team needs to call it from application code in the next lab.
+
 ## 📘 Lab overview
 
 In this lab, you'll learn how to get started with **Microsoft Foundry** by provisioning a Foundry resource in Azure and using the Microsoft Foundry portal to deploy and explore generative AI models. Microsoft Foundry is the unified platform for building AI solutions on Azure — it gives you a single place to discover models, deploy them, test them interactively in the playground, and connect them to your own applications, all backed by the security, scalability and service integration of the Azure cloud platform. 
@@ -30,19 +38,19 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 3. Fill in the required details on the **Create a Foundry resource** page:
    
     - Subscription: Default - Pre-assigned subscription **(1)**
-    - Resource group: **MFoundry-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
-    - Name: **foundry-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
-    - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
+    - Resource group: **foundry-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+    - Name: **Foundry-lab-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
+    - Region: Select **<inject key="Region" enableCopy="false" /> Recommended (4)**
     - Default project name: **proj-default (5)**
   
-      ![](../media/Foundry-create-1.png "Create foundry resource")
+      ![](../media/l1-Foundry-1.png "Create foundry resource")
 
 
 4. Click **Review + create (6)** tab.
 
 5. Finally, click **Create** to start the deployment.
 
-     ![](../media/Foundry-create.png "Create a foundry resource")
+     ![](../media/l1-Foundry-2.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
@@ -51,7 +59,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide. 
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="1fa0e87b-eb46-463d-b63b-edf6e2282e16" />
+<validation step="1cf5027a-766c-491a-a0d3-8440fec9e748" />
 
 ## 📦 Task 2: Deploy a model
 
@@ -61,14 +69,14 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 
 1. On the **Foundry** resource page, click **Overview**, then select **Go to Microsoft Foundry portal (2)** to navigate to the **Microsoft Foundry portal**.
 
-   ![](../media/lab1-aoai-f-go-to-foundry.png)
+   ![](../media/l1-Foundry-3.png)
 
 1. You'll land on the new **Microsoft Foundry** portal. Ensure the **toggle (1)** is turned on — if it's disabled, enable it. Then copy the following values into Notepad, as you'll need them in later steps:
 
-   - API key **(2)**
-   - Project Endpoint **(3)** 
+   - Project Endpoint **(2)** 
+   - API key **(3)**
 
-   ![](../media/lab1-aoai-f-6.png)
+   ![](../media/l1-Foundry-4.png)
 
 1. Navigate to the top of the page and click **Discover (1)**, then choose **Models (2)** from the left sidebar. Next, search for **gpt-5.4 (3)** and select **(4)** it from the results.
 
@@ -90,12 +98,12 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 
 1. With the deployed model, now you can experiment with the chat completion tasks as you go along.
  
-   > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps
-   > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-   <validation step="6be846c2-8a90-4683-97e8-b55309a5b10e" />
+<validation step="6be846c2-8a90-4683-97e8-b55309a5b10e" />
 
 ## 💬 Task 3: Use the Playground
 

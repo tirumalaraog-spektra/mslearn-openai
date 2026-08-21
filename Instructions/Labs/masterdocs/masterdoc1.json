@@ -1,6 +1,6 @@
 [
   {
-    "Name": "Hands-on Lab: Get started with OpenAI and build natural language solution",
+    "Name": "Hands-on Lab: Get Started with Microsoft Foundry and Build Natural Language Solution",
     "Language": "English",
     "BaseURL": "https://github.com/CloudLabs-MOC/mslearn-openai",
     "Files": [
@@ -9,7 +9,7 @@
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/refs/heads/Instructor-track/Instructions/Labs/01-get-started-azure-openai.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-openai/refs/heads/Instructor-track/Instructions/Labs/01-get-started-microsoft-foundry.md",
         "Order": 2
       },
       {
@@ -19,7 +19,7 @@
     ]
   },
   {
-    "Name": "Hands-on Lab: Get started with OpenAI and build natural language solution",
+    "Name": "Hands-on Lab: Get Started with Microsoft Foundry and Build Natural Language Solution",
     "Language": "Spanish-ES",
     "BaseURL": "https://github.com/CloudLabs-MOC/mslearn-openai",
     "Files": [
@@ -38,7 +38,7 @@
     ]
   },
   {
-    "Name": "Hands-on Lab: Get started with OpenAI and build natural language solution",
+    "Name": "Hands-on Lab: Get Started with Microsoft Foundry and Build Natural Language Solution",
     "Language": "Portuguese",
     "BaseURL": "https://github.com/CloudLabs-MOC/mslearn-openai",
     "Files": [
