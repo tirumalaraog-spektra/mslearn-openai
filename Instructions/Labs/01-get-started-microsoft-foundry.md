@@ -40,11 +40,10 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
     - Subscription: Default - Pre-assigned subscription **(1)**
     - Resource group: **foundry-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
     - Name: **Foundry-lab-<inject key="DeploymentID" enableCopy="false"></inject> (3)**
-    - Region: Select **<inject key="Region" enableCopy="false" /> Recommended (4)**
+    - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
       ![](../media/l1-Foundry-1.png "Create foundry resource")
-
 
 4. Click **Review + create (6)** tab.
 
@@ -95,6 +94,8 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
       - Click on **Deploy** **(4)**
   
            ![](../media/lab1-aoai-f-custom-2.png)
+
+           >**Note**: Set the Tokens per Minute Rate Limit to a maximum of 10K. Exceeding this limit will cause the model deployment to fail. 
 
 1. With the deployed model, now you can experiment with the chat completion tasks as you go along.
  
@@ -165,7 +166,7 @@ In this task, you'll use the Chat playground to interact with and test the AI mo
 
 1. Use the **Call modal (1)** toggle to view the **code (2)** for the interaction.
 
-- The **Call modal** panel shows Python code like the following, which connects to your deployed model and sends a prompt to it.
+1. The **Call modal** panel shows Python code like the following, which connects to your deployed model and sends a prompt to it.
 
    ``` 
    from openai import OpenAI
@@ -242,7 +243,7 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
 7. Review the model's response, which appears in the chat below your prompt. Then resubmit the same puzzle with a different **Reasoning effort** setting and compare the results — higher effort generally produces more thorough, step-by-step reasoning, while lower effort returns a shorter answer more quickly.
 
-   ![](../media/lab1-aoai-f-reasoning-2.png)
+   ![](../media/l1-task-4.png)
 
 ## 💻 Task 5: Explore code generation
 

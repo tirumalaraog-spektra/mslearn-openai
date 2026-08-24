@@ -1,4 +1,4 @@
-# 🧩 Lab 02: Build an Application with Microsoft Foundry Using the OpenAI SDK
+# 🧩 Lab 02: Build an Application with Microsoft Foundry Using OpenAI SDK
 
 ### ⏱️ Estimated Duration: 120 Minutes
 
@@ -74,7 +74,7 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 5. Within the **Create storage account** page, enter the following details:
 
     - Subscription: Choose the Default subscription **(1)**.
-    - Resource group: Select **openai-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+    - Resource group: Select **foundry-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
     - Region: **<inject key="Region" enableCopy="false" /> (3)**
     - Storage account name: **storage<inject key="DeploymentID" enableCopy="false"></inject> (4)**
     - File share: Create a new file share named **none** **(5)**
