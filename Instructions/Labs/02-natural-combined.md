@@ -1,20 +1,20 @@
 # 🧩 Lab 02: Build an Application with Microsoft Foundry Using OpenAI SDK
 
-### ⏱️ Estimated Duration: 120 Minutes
+### Estimated Duration: 120 Minutes
 
-## 🧭 Scenario
+## 🧭 Lab Scenario
 
-Your evaluation of **Microsoft Foundry** in the previous lab was a success, and **Contoso** has approved moving from the portal playground into a real application. The business now wants an app that uses generative AI to provide **hiking recommendations** to customers — one that responds in natural language and can be adapted later to any other content the marketing and outreach teams need.
+Your evaluation of **Microsoft Foundry** in the previous lab was a success, and **Contoso** has approved moving from the portal playground into a real application. The business now wants an app that uses generative AI to provide **hiking recommendations** to customers  one that responds in natural language and can be adapted later to any other content the marketing and outreach teams need.
 
-In this lab, you will step into the role of a **software developer** on that project. Starting from the Foundry resource and **gpt-5.4** deployment you created earlier, you'll collect the **API key** and **project endpoint** credentials, prepare a development environment in **Azure Cloud Shell**, and wire up a starter application in either **C#** or **Python** using the **OpenAI SDK** pointed at Foundry's OpenAI-compatible endpoint.
+In this lab, you will step into the role of a **software developer** on that project. Starting from the Foundry resource and model deployment you created earlier, you'll collect the **API key** and **project endpoint** credentials, prepare a development environment in **Azure Cloud Shell**, and wire up a starter application in either **C#** or **Python** using the **OpenAI SDK** pointed at Foundry's OpenAI-compatible endpoint.
 
-With the app running, you'll act as the developer tuning its behaviour: adjusting the **system message** and **user prompts** across several iterations to see how added format, content, and tone instructions change the AI-generated output — the same technique you would use to move any Foundry-powered app from a rough prototype to production-quality responses.
+With the app running, you'll act as the developer tuning its behaviour adjusting the **system message** and **user prompts** across several iterations to see how added format, content, and tone instructions change the AI-generated output  the same technique you would use to move any Foundry-powered app from a rough prototype to production-quality responses.
 
 ## 📘 Lab Overview
 
 In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Foundry APIs.
 
-With **Microsoft Foundry**, developers can create chatbots, copilots, and other applications that excel at understanding natural human language. Foundry gives you a catalog of pre-trained models — including Microsoft Foundry  models such as GPT — along with a suite of APIs and tools for deploying, customizing, and evaluating those models to meet the specific requirements of your application. In this exercise, you'll learn how to call an Microsoft Foundry  model deployed in Microsoft Foundry from your own application code.
+With **Microsoft Foundry**, developers can create chatbots, copilots, and other applications that excel at understanding natural human language. Foundry gives you a catalog of pre-trained models including Microsoft Foundry  models such as GPT along with a suite of APIs and tools for deploying, customizing, and evaluating those models to meet the specific requirements of your application. In this exercise, you'll learn how to call an Microsoft Foundry  model deployed in Microsoft Foundry from your own application code.
 
 ## 🎯 Lab Objectives
 
@@ -25,7 +25,7 @@ In this lab, you will complete the following tasks:
 - Task 3: Configure your application
 - Task 4: Test your application
 
-## 🔑 Task 1: Access the Foundry resource credentials
+## Task 1: Access the Foundry resource credentials
 
 In this task, you will review the provisioned Foundry resource within your Azure subscription. This step is essential to access Microsoft Foundry  models and retrieve the endpoint and API key required to authenticate your application.
 
@@ -47,7 +47,7 @@ In this task, you will review the provisioned Foundry resource within your Azure
 
         ![](../media/l1-Foundry-6.png "Keys and Endpoints")
 
-## ☁️ Task 2: Set up an application in Cloud Shell
+## Task 2: Set up an application in Cloud Shell
 
 In this task, you will set up a development environment using Azure Cloud Shell. You will clone the sample application repository, prepare the workspace, and open the code editor to begin integrating Microsoft Foundry openAI services.
 
@@ -80,11 +80,17 @@ In this task, you will set up a development environment using Azure Cloud Shell.
     - File share: Create a new file share named **none** **(5)**
     - Click **Create** **(6)**
 
-        ![](../media/nlpe18.png "Create storage advanced settings")
+        ![](../media/foundry-cstorage-1.png "Create storage advanced settings")
 
 6. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-8. Once the terminal is ready, Select the **Manage files (1)** and select the **upload (2)** option to open file explorer.
+1. Once the Cloud Shell terminal is ready, create two directories named `CSharp` and `Python` by running the commands below. This sets up the workspace structure needed for your code files 
+
+    ``` 
+    mkdir CSharp Python
+    ```
+
+8. Select the **Manage files (1)** and select the **upload (2)** option to open file explorer.
 
     ![](../media/cloud-shell-upload.png) 
   
@@ -92,29 +98,23 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
     ![](../media/sdk-files-csharp.png)
 
+1. Next, move your C# files into the CSharp folder and run the command below. This keeps all your code files organized under a single directory.
+   
+   ``` 
+   mv system.txt Program.cs grounding.txt CSharp.csproj appsettings.json ./CSharp 
+   ``` 
+
 1. Navigate to this path `C:\LabFiles\sdk-files\Python` **(1)** and select all files **(2)** using `ctrl + A` and select **open (3)** option which loads the files in cloud shell environment.
 
     ![](../media/sdk-files-python.png)
 
-1. In cloud shell terminal create two directories CSharp,Python use below commands. 
-
-    ``` 
-    mkdir CSharp Python
-    ```
-
-1. Next move the Python files to Python folder. Run the below command.
+1. Next, move your Python files into the Python folder and run the command below. This keeps all your code files organized under a single directory.
 
     ```
     mv system.txt grounding.txt application.py .env ./Python
     ```
 
-1. Next move the CSharp files to CSharp folder. Run the below command.
-   
-   ``` 
-   mv system.txt Program.cs grounding.txt CSharp.csproj appsetting.json ./CSharp 
-   ``` 
-
-1. Applications for both C# and Python have been provided, as well as a sample text file you'll use to test the summarization. Both apps feature the same functionality.
+1. Applications for both **C#** and **Python** have been provided, as well as a sample text file you'll use to test the summarization. Both apps feature the same functionality.
 
 10. Open the built-in code editor, and observe the text file that you'll be summarizing with your model. Use the following command to open the lab files in the code editor.
 
@@ -129,14 +129,14 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 
 <validation step="65bf308e-dccd-4403-9c6b-e3e46ead0cb3" />
 
-## ⚙️ Task 3: Configure your application
+## Task 3: Configure your application
 
 In this task, you will configure the application to connect with the Microsoft Foundry resource. You will update configuration files with your environment credentials and implement the client logic to interact with the deployed model.
 
 1. In the code editor, expand the **CSharp** or **Python** folder, depending on your language preference.
 1. To quit the code environment, right-click anywhere and select Quit
 
-1. If you are using the **C#** language, kindly open the **CSharp.csproj** file and replace it with the following code and save the file everytime you make any changes.
+1. If you are using the **C#** language, kindly open the **CSharp.csproj** file and replace it with the following code and save the file everytime you make any changes use **ctrl + s**
 
    ```
    <Project Sdk="Microsoft.NET.Sdk">
@@ -170,23 +170,23 @@ In this task, you will configure the application to connect with the Microsoft F
     
     - Python: `.env`
     
-1. Update the configuration values to include the **project endpoint** and **key** from the foundry resource you created, as well as the model name that you deployed, `gpt-5.4`. Then the file by right-clicking on the blank space in the file text editor and hit **Save**.
+1. Update the configuration values to include the **project endpoint** and **key** from the foundry resource you created, as well as the model name that you deployed, `gpt-5.4`. Save your changes to files using **ctrl + s**.
 
     - **C#:**
      
-      ![](../media/csharp-f-values.png)   
+      ![](../media/foundry-endpoint-c1.png)   
 
       >**Note**: Make sure the variables like `FoundryEndpoint`,`FoundryApiKey`,`FoundryModelName` in **appsettings.json** are same used in **Program.cs** file.
 
     - **Python:**
      
-      ![](../media/lab2-p-fvalues.png) 
+      ![](../media/foundry-endpoint-p1.png) 
 
       >**Note**: Make sure the variables name like `FOUNDRY_PROJECT_ENDPOINT`,`FOUNDRY_API_KEY`,`FOUNDRY_MODEL_DEPLOYMENT` in **.env** are same used in **application.py** file.
 
       > **Note:** You can get the **Project endpoint** and **API key** values from the **Overview** page of your Foundry resource in the **Microsoft Foundry portal** — these are the same values you copied to Notepad earlier.
 
-1. Navigate back to the Cloudshell and install the necessary packages for your preferred language:
+1. Navigate back to the Cloudshell and install the necessary packages for your preferred language. Save your changes to files using **ctrl + s**
 
     **C#:** 
 
@@ -203,7 +203,7 @@ In this task, you will configure the application to connect with the Microsoft F
     pip install openai python-dotenv --user
     ```
 
-1. Navigate to your preferred language folder, replace the comment **Add OpenAI package** with code to add the OpenAI SDK library:
+1. Navigate to your preferred language folder, replace the comment **Add OpenAI package** with code to add the OpenAI SDK library. Save your changes to files using **ctrl + s**
 
     **C#:** Program.cs
 
@@ -224,7 +224,7 @@ In this task, you will configure the application to connect with the Microsoft F
 
      ![](../media/lab2-p-openai-pac.png)      
 
-1.  In the application code for your language, find the comment **Configure the OpenAI client**, and add code to configure the Foundry's OpenAI client:
+1.  In the application code for your language, find the comment **Configure the OpenAI client**, and add code to configure the Foundry's OpenAI client. Save your changes to files using **ctrl + s**
 
     **C#:** Program.cs
 
@@ -256,7 +256,7 @@ In this task, you will configure the application to connect with the Microsoft F
 
       >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
     
-1. In the function that calls the **OpenAI model**, under the comment **Get response from foundry**, add the code to format and send the request to the model.
+1. In the function that calls the **OpenAI model**, under the comment **Get response from foundry**, add the code to format and send the request to the model. Save your changes to files using **ctrl + s**
 
     **C#:** Program.cs
 
@@ -295,7 +295,7 @@ In this task, you will configure the application to connect with the Microsoft F
 
         response = await client.chat.completions.create(
             model=model,
-            =messages,
+            messages=messages,
             temperature=0.7,
             max_completion_tokens=800
         )
@@ -305,7 +305,7 @@ In this task, you will configure the application to connect with the Microsoft F
 
      ![](../media/lab2-p-foundryrespond.png)  
 
-1. Before you can save the file, please make sure your code looks similar to the code provided below.
+1. Please take a moment to review your code against the example provided below. Through the changes you’ve made up to this point, you have successfully built the core structure and integrated the necessary logic for your application. Ensuring your code matches this final layout confirms that all components are wired up correctly, preparing you to seamlessly save your work and begin testing the application's functionality.
 
     **C#:** Program.cs
       
@@ -485,7 +485,7 @@ In this task, you will configure the application to connect with the Microsoft F
 
    >**Note:** Make sure to indent the code by eliminating any extra white spaces after pasting it into the code editor.
 
-## 🧪 Task 4: Test your application
+## Task 4: Test your application
 
 In this task, you will run the application and interact with the Microsoft Foundry model using different system and user prompts. This hands-on testing will help you observe how prompt variations affect the model’s output.
 
