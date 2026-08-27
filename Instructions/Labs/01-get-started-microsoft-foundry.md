@@ -1,18 +1,18 @@
 # 🚀 Lab 01: Get started with Microsoft Foundry
 
-### ⏱️ Estimated Duration: 120 Minutes
+### Estimated Duration: 120 Minutes
 
-## 🧭 Scenario
+## 🧭 Lab Scenario
 
 You have recently joined **Contoso**, an organization that wants to bring generative AI into its internal learning platform. Learners currently rely on static course material, and the training team wants to know whether an AI assistant could answer questions in natural language, explain technical concepts on demand, and even help developers with sample code.
 
-Before any application is built, your manager has asked you to evaluate the platform itself. In this lab, you will take on the role of an **AI developer** responsible for that evaluation: you'll provision a **Microsoft Foundry** resource in the Azure subscription, deploy a **gpt-5.4** model, and validate its behaviour hands-on in the **Microsoft Foundry portal** playground — shaping the assistant's persona with instructions and few-shot examples, controlling response length and depth with parameters such as *max completion tokens* and *reasoning effort*, and confirming that the model can generate usable code.
+Before any application is built, your manager has asked you to evaluate the platform itself. In this lab, you will take on the role of an **AI developer** responsible for that evaluation: you'll provision a **Microsoft Foundry** resource in the Azure subscription, deploy a model, and validate its behaviour hands-on in the **Microsoft Foundry portal** playground shaping the assistant's persona with instructions and few-shot examples, controlling response length and depth with parameters such as *max completion tokens* and *reasoning effort*, and confirming that the model can generate usable code.
 
 By the end of the lab, you'll have a working, tested model deployment along with the **project endpoint** and **API key** your team needs to call it from application code in the next lab.
 
-## 📘 Lab overview
+## 📘 Lab Overview
 
-In this lab, you'll learn how to get started with **Microsoft Foundry** by provisioning a Foundry resource in Azure and using the Microsoft Foundry portal to deploy and explore generative AI models. Microsoft Foundry is the unified platform for building AI solutions on Azure — it gives you a single place to discover models, deploy them, test them interactively in the playground, and connect them to your own applications, all backed by the security, scalability and service integration of the Azure cloud platform. 
+In this lab, you'll learn how to get started with **Microsoft Foundry** by provisioning a Foundry resource in Azure and using the Microsoft Foundry portal to deploy and explore generative AI models. Microsoft Foundry is the unified platform for building AI solutions on Azure  it gives you a single place to discover models, deploy them, test them interactively in the playground, and connect them to your own applications, all backed by the security, scalability and service integration of the Azure cloud platform. 
 
 ## 🎯 Lab Objectives
 In this lab, you will complete the following tasks:
@@ -23,7 +23,7 @@ In this lab, you will complete the following tasks:
 - Task 4: Explore prompts and parameters 
 - Task 5: Explore code generation
 
-## 🛠️ Task 1: Provision a Microsoft Foundry resource
+## Task 1: Provision a Microsoft Foundry resource
 
 In this task, you'll create an Azure resource in the Azure portal, selecting the Microsoft Foundry resource and configuring settings such as region and pricing tier. This setup allows you to integrate Microsoft Foundry 's advanced language models into your applications.
 
@@ -33,7 +33,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 2. On **Microsoft Foundry**, click on **Foundry (1)** blade and then click on **+ Create (2)**
 
-   ![](../media/foundry-2.png)
+   ![](../media/foundry-creation-1.png)
 
 3. Fill in the required details on the **Create a Foundry resource** page:
    
@@ -43,13 +43,13 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
     - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
-      ![](../media/l1-Foundry-1.png "Create foundry resource")
+      ![](../media/foundry-resource-1.png "Create foundry resource")
 
 4. Click **Review + create (6)** tab.
 
 5. Finally, click **Create** to start the deployment.
 
-     ![](../media/l1-Foundry-2.png "Create a foundry resource")
+     ![](../media/foundry-resource-2.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
@@ -60,7 +60,7 @@ In this task, you'll create an Azure resource in the Azure portal, selecting the
 
 <validation step="1cf5027a-766c-491a-a0d3-8440fec9e748" />
 
-## 📦 Task 2: Deploy a model
+## Task 2: Deploy a model
 
 In this task, you'll deploy a specific AI model instance within your Microsoft Foundry resource to integrate advanced language capabilities into your applications.
 
@@ -106,7 +106,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 
 <validation step="6be846c2-8a90-4683-97e8-b55309a5b10e" />
 
-## 💬 Task 3: Use the Playground
+## Task 3: Use the Playground
 
 In this task, you'll use the Chat playground to interact with and test the AI model's conversational abilities through a simulated chat interface.
 
@@ -188,9 +188,9 @@ In this task, you'll use the Chat playground to interact with and test the AI mo
    print(f"answer: {response.output[0]}")
    ```
 
-   ![](../media/lab1-aoai-f-call-modal.png)
+   ![](../media/foundry-gpt-1.png)
 
-## 🎛️ Task 4: Explore prompts and parameters
+## Task 4: Explore prompts and parameters
 
 In this task, you'll explore prompts and parameters by experimenting with different inputs and settings to fine-tune the AI model's responses and behavior.
 
@@ -245,7 +245,7 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
    ![](../media/l1-task-4.png)
 
-## 💻 Task 5: Explore code generation
+## Task 5: Explore code generation
 
 In this task, you'll explore code generation by testing the AI model’s ability to generate and suggest code snippets based on various programming prompts and requirements.
 
