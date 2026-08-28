@@ -12,7 +12,7 @@ With the evaluation approved, you step into the role of a **software developer**
 
 **Microsoft Foundry** is Microsoft's unified platform for building AI solutions on Azure, bringing generative AI models including the models developed by Microsoft Foundry  together with the security, scalability, and service integration of Azure's cloud services. In this lab, you'll learn to provision a Microsoft Foundry resource and use the Microsoft Foundry portal to deploy and explore Microsoft Foundry  models. With Foundry, developers can create applications like chatbots and copilots that excel in understanding natural human language. The platform provides access to a catalog of pre-trained models along with a suite of APIs and tools for customizing and evaluating those models to meet specific application requirements. In this scenario, you'll assume the role of a software developer tasked with implementing an app to provide hiking recommendations using generative AI, demonstrating techniques applicable to any app utilizing Foundry APIs.
 
-## 🎯 Objectives
+## 🎯 Lab Objectives
 
 In this hands-on lab, you will learn how to use Microsoft Foundry  models in Microsoft Foundry to create natural language solutions. You’ll start by setting up your Foundry environment in Azure and exploring the basic features of Microsoft Foundry  models for language processing. By the end of the lab, you’ll build and deploy a simple application that can process and respond to user input, while also learning how to enhance the model’s performance and output quality.
 
