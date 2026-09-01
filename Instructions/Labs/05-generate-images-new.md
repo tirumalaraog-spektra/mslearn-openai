@@ -2,6 +2,10 @@
 
 ## Estimated Duration: 75 Minutes
 
+## Lab Scenario
+
+A design team wants concept art drafted straight from written briefs instead of waiting on a stock library, and you are asked to prove that a generative model can do the job. You deploy the gpt-image-1.5 model with custom settings in Microsoft Foundry, then open the image playground and generate a picture from the prompt *An elephant on a skateboard*, before adding style guidance to the same prompt to see how *in the style of Picasso* changes the result. Moving from the portal into code, you open Cloud Shell, configure the sample C# or Python app with your Azure OpenAI endpoint, key, and the `gpt-image-model` deployment name, and review how the app submits a generation request and then polls the **operation-location** callback URL until the image is ready. Finally, you run the app, describe an image such as *A giraffe flying a kite*, and download the generated file to view it.
+
 ## Lab Overview
 
 In this lab, you'll use a gpt-image-1.5 model to generate images based on natural language prompts.
@@ -57,32 +61,41 @@ In this task, you will use the gpt-image-1.5 playground in the Microsoft Foundry
 1. It opens the Deploy pop-up to select the custom model values. 
         - Deployment name **(1)**: **gpt-image-model**
         - Deployment type **(2)**: **Global Standard**
-        - Request per Minute Rate Limit: **1/9 (4)** (use **slider to adjust the values)
+        - Request per Minute Rate Limit: **1/9 (4)** (use **slider** to adjust the values)
+        - Guadrails: **DefaultV2** **(5)**
       ![](../media/l5-gpt-d3.png)
 
-      ![](../media/l5-gpt-d4.png)
-
-6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-model (1)** and Click on **Customize (2)** and make the **Request per Minute Rate Limit** to **`1` (3)** and click on **Create resource and deploy (4)**.
-
     >**Note:** Make sure that if your model is deployed to a new resource due to quota limitations (as shown in the images below), which is created during deployment, you will need to configure its Azure OpenAI endpoint and API key when using the REST API to generate images, else we can use the one's that we have used before.
+      
+1. In the left pane, select **Deployments (1)**, then select your **gpt-image-model** deployment. On the model page, make sure the **Playground (2)** tab is selected and confirm that **Model: gpt-image-model (3)** is the selected deployment. The image playground opens with a prompt box at the bottom.
 
-      ![](../media/12cs.png)
 
-      ![](../media/rlmt.png)
-              
-4. Once the model is deployed click on **Open in playground (1)** and then **Describe the image you want to generate (2)** box (for example, ``An elephant on a skateboard``), and then select **Generate (3)** to view the **Resulting Image (4)**.
+    ![](../media/l5-gpt-d4.png)
 
-    ![](../media/oip.png)
+1. In the **Describe the image you want to generate** box, enter the following prompt **(1)**, then select the **send (2)** icon:
 
-    ![](../media/espb.png)
+    ```
+    An elephant on a skateboard
+    ```
 
-5. Modify the prompt to provide a more specific description. For example, ``An elephant on a skateboard in the style of Picasso`` **(1)**. Then **generate (2)** the new image and review the **results (3)**.
+    ![](../media/l5-gpt-img1.png)
+
+1. The model generates the image and displays it in the playground. Review the result — each image tile shows the prompt used, the model name, and the generation timestamp. Use the download and copy icons on the tile to save the image or copy it for use elsewhere.
+
+     ![](../media/l5-gpt-img2.png)
 
     > **Note:** If you hit any rate limit error please try again after 1 or 2 minutes. 
 
     > **Note:** The image may appear differently than shown in the screenshot. 
 
-    ![](../media/psso.png)
+1. Now change the artistic style of the output by adding style guidance to your prompt. Enter the following prompt **(1)** and select the **send (2)** icon:
+
+    ```
+    An elephant on a skateboard in the style of Picasso
+    ```
+1. Compare the new image with the previous one to see how the added style instruction changes the output. To see the API request behind these generations, select **View code (3)**.
+
+    ![](../media/l5-gpt-img3.png)
 
 ## Task 2: Use the REST API to generate images 
 
@@ -101,10 +114,6 @@ In this task, you will use a simple Python or C# app to generate images by calli
 2. Make sure the type of shell indicated on the top left of the Cloud Shell pane is **Switch to PowerShell**. If it's *Switch to Bash*, select **Switch to Bash** and choose **Confirm** from the pop-up box.
 
     ![](../media/dev-genai-june-4.png)
-
-3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
-
-   ![](../media/gtcv.png)
 
 4. Navigate to the folder for the language of your preference by running the appropriate command.
 
@@ -137,13 +146,17 @@ In this task, you will use a configuration file in the application to store the 
     
 2. In the configuration file, enter the following values for your Azure OpenAI service:
 
-    > **Note:** As mentioned earlier, if your model was deployed to a newly created resource during deployment, you’ll need to use its Azure OpenAI endpoint and API key. To find these, go to **Overview (1)** of newely created resource on foundry portal, select **Azure OpenAI (2)**, and copy the **Azure OpenAI endpoint (3)** and **API Key (4)**.
+    >**Note:** To find the values you need, select the **Home (1)** tab in the top bar of the Microsoft Foundry portal. At the bottom of the page, use the copy icons to copy the **Azure OpenAI endpoint (2)** and the **API key (3)**, and paste them into a notepad.
 
-    ![](../media/neeyy.png)
+    ![](../media/l5-openai-values.png)
 
-    - **Endpoint**: The endpoint URL from your Azure OpenAI resource.
-    - **API Key**: The API key from your Azure OpenAI resource.
-    - **Deployment Name**: Set this to **gpt-image-model** (the name of your image generation model deployment). After updating these values, press **CTRL + S** to save the file.
+1. Now update the following values in the file:
+
+    - **Endpoint**: The Azure OpenAI endpoint you copied from the portal. Remove the `/openai/v1/` part from the end so that only the base resource URL remains, for example `https://<resource-name>.openai.azure.com/`.
+    - **API Key**: The API key you copied from the portal.
+    - **Deployment Name**: Set this to **gpt-image-model** (the name of your image generation model deployment).
+
+1. After updating these values, press **CTRL + S** to save the file.
 
       ![](../media/apset.png)
 
@@ -162,7 +175,7 @@ In this task, you will use a configuration file in the application to store the 
 
     <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -212,7 +225,7 @@ In this task, you will use a configuration file in the application to store the 
     export PATH=$DOTNET_ROOT:$PATH
     ```
 
-      >**Note:** These commands download and prepare the official `.NET` installation script, grant it execute permissions, and install the required .NET SDK version (8.0.404) in the `$DOTNET_ROOT` directory, as we don't have the admin privileges to install it globally.
+      >**Note:** These commands download and prepare the official `.NET` installation script, grant it execute permissions, and install the required .NET SDK version (9.0.317) in the `$DOTNET_ROOT` directory, as we don't have the admin privileges to install it globally.
 
 1. Enter the following command to restore the workload.
 

@@ -1,12 +1,16 @@
-# Lab 06: Add your data for RAG with Azure OpenAI Service
+# Lab 06: Add your data for RAG with Microsoft Foundry
 
 ## Estimated Duration: 75 Minutes
 
+## Lab Scenario
+
+A travel company wants its assistant to answer from the brochures it publishes rather than from whatever the model picked up during training, and you are asked to build that grounding. You start in the Playground by asking where to stay in New York and what facts the model knows about the city, establishing how the ungrounded model responds. You then create an agent named `my-gpt-agent` in Microsoft Foundry, turn off web search so it can only draw on your documents, and upload the lab's city brochure PDFs into a new vector index, saving the configuration as a new agent version. Asking the same two questions again, you get specific hotels along with inline citations pointing back to the source PDFs. Finally, you set up the sample application in Cloud Shell, configure it with your Microsoft Foundry endpoint, key, and agent details, and run it to ask `Tell me about London` from code.
+
 ## Lab Overview
 
-In this lab, you will learn how to connect your own data to the Azure OpenAI Service for Retrieval-Augmented Generation (RAG).
+In this lab, you will learn how to connect your own data to the Microsoft Foundry for Retrieval-Augmented Generation (RAG).
 
-The Azure OpenAI Service enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
+The Microsoft Foundry enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
 
 ## Lab Objectives
 
@@ -86,8 +90,8 @@ In this task, you will create an agent that will  responds to queries with groun
     ![](../media/l6-agent-4.png)
 
     > **Note:** **The vector index** is what allows the agent to answer from your documents. When you attach files, Foundry splits them into chunks, converts each chunk into a numeric vector using a text embedding model, and stores those vectors in the index. At query time, your question is embedded the same way and the closest matching chunks are retrieved and passed to the model as grounding context — so answers come from your documents rather than the public web.
-        >
-        > **A text embedding model** deployment is created automatically as part of this process, so you don't need to deploy one separately.
+    >
+    > **A text embedding model** deployment is created automatically as part of this process, so you don't need to deploy one separately.
 
 1. Now Search for navigate to `C:\AllFiles\mslearn-openai-main\Labfiles\06-use-own-data\data` **(1)**. Select all the **PDF files (2)** and click on **Open (3)**.
 
@@ -153,10 +157,6 @@ In this task, you will use a short command-line application running in Cloud She
 
     ![](../media/new/e6.png)
 
-3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
-
-   ![](../media/gtcv.png)
-
 4. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise.
 
      ```
@@ -190,30 +190,32 @@ In this task, you will complete key parts of the application to enable it to use
 
         ```json
         {
-        "AzureOAIEndpoint": "Your OpenAI endpoint",
-        "AzureOAIKey": "Azure OpenAI Key",
-        "AssistantId": "Id of your Assistant"
+            "Foundry": {
+            "ProjectEndpoint": "https://YOUR-FOUNDRY-RESOURCE.services.ai.azure.com/api/projects/YOUR-PROJECT-NAME",
+            "AgentName": "YOUR-AGENT-NAME",
+            "AgentVersion": "YOUR-AGENT-VERSION"
+            }
         }
         ```
 
     - **Python**: `.env`
 
         ```
-        AZURE_OAI_ENDPOINT=<Your OpenAI endpoint>
-        AZURE_OAI_KEY=<Azure OpenAI Key>
-        ASSISTANT_ID=<Id of your Assistant>
+        FOUNDRY_PROJECT_ENDPOINT=https://YOUR-FOUNDRY-RESOURCE.services.ai.azure.com/api/projects/YOUR-PROJECT-NAME
+        FOUNDRY_AGENT_NAME=YOUR-AGENT-NAME
+        FOUNDRY_AGENT_VERSION=YOUR-AGENT-VERSION
         ```
 
 1. Update the configuration file for your chosen language with the following values:
 
-    - **Azure OpenAI endpoint**: Paste the endpoint URL from your Azure OpenAI resource (found on the Keys and Endpoint page in the Azure portal).
-    - **Azure OpenAI key**: Paste the key from your Azure OpenAI resource (also on the Keys and Endpoint page).
-    - **AssistantId**: Enter the ID of your assistant that you created in Task 2.
+    - **Microsoft Foundry project endpoint**: Paste the project endpoint URL from your Microsoft Foundry project.
+    - **Agent name**: Enter the name of the agent you created in Task 2.
+    - **Agent version**: Enter the version of the agent you created in Task 2.
     - Save your changes after updating these values.
 
-        ![](../media/cen.png)
+        ![](../media/l6-code-c1.png)
 
-        ![](../media/penv.png)
+        ![](../media/l6-code-p1.png)
 
 1. If you're using **C#**, navigate to `CSharp.csproj`, delete the existing code, then replace it with the following code, and then press **Ctrl+S** to save the file.
 
@@ -222,18 +224,18 @@ In this task, you will complete key parts of the application to enable it to use
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>12</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
-        <PackageReference Include="Azure.Search.Documents" Version="11.6.0" />
+        <PackageReference Include="Azure.AI.Projects" Version="2.0.0" />
+        <PackageReference Include="Azure.AI.Extensions.OpenAI" Version="2.0.0" />
+        <PackageReference Include="Azure.Identity" Version="1.20.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -245,7 +247,7 @@ In this task, you will complete key parts of the application to enable it to use
     </Project>
     ```    
 
-     ![](../media/new/f3.png)    
+     ![](../media/l6-code-c2.png)    
 
 1. Navigate to the **CSharp** folder and install the necessary packages. These commands set up the environment for a local installation of the .NET SDK in Cloud Shell.
 
@@ -272,7 +274,7 @@ In this task, you will complete key parts of the application to enable it to use
     ``` 
 
     ```
-    ./dotnet-install.sh --channel 8.0 --install-dir $DOTNET_ROOT
+    ./dotnet-install.sh --channel 9.0 --install-dir $DOTNET_ROOT
     ```
 
     ```
@@ -282,19 +284,7 @@ In this task, you will complete key parts of the application to enable it to use
 1. Enter the following command to restore any required workloads for your project, such as additional tools or libraries that are part of the .NET SDK.
 
     ```
-    dotnet workload restore
-    ```
-
-1. Enter the following command to add the `Azure.AI.OpenAI` NuGet package to your project, which is necessary for integrating with Azure OpenAI services.
-
-    ```
-    dotnet add package Azure.AI.OpenAI --version 2.1.0
-    dotnet add package Azure.Search.Documents --version 11.6.0
-    ```
-
-    ```
-    dotnet add package Azure.AI.OpenAI --prerelease
-    dotnet add package OpenAI --prerelease
+    dotnet restore
     ```
 
 1. If you prefer **Python**, navigate to the **Python** folder and install the necessary packages using the commands below:
@@ -302,8 +292,8 @@ In this task, you will complete key parts of the application to enable it to use
     ```
     cd Python
     python -m venv labenv
-    ./labenv/bin/Activate.ps1
-    pip install --user python-dotenv openai==1.65.2
+    source labenv/bin/activate
+    pip install python-dotenv openai==1.65.2
     ```
 
 1. In the code editor, replace your entire file code.
@@ -311,61 +301,98 @@ In this task, you will complete key parts of the application to enable it to use
     For **C#**: OwnData.cs
 
     ```csharp
-    using System.ClientModel;
+    using Azure.AI.Projects;
+    using Azure.AI.Extensions.OpenAI;
+    using Azure.Identity;
     using Microsoft.Extensions.Configuration;
-
-    using Azure.AI.OpenAI;
-    using OpenAI.Assistants;
-    using OpenAI;
+    using OpenAI.Responses;
 
     #pragma warning disable OPENAI001
 
-    // Get configuration settings  
+    // Load configuration from appsettings.json
     IConfiguration config = new ConfigurationBuilder()
-        .AddJsonFile("appsettings.json")
+        .SetBasePath(AppContext.BaseDirectory)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
         .Build();
 
-    string oaiEndpoint = config["AzureOAIEndpoint"] ?? "";
-    string oaiKey = config["AzureOAIKey"] ?? "";
-    string assistantId = config["AssistantId"] ?? "";
+    // Read Microsoft Foundry configuration
+    string projectEndpoint =
+        config["Foundry:ProjectEndpoint"]
+        ?? throw new InvalidOperationException(
+            "Foundry:ProjectEndpoint is missing in appsettings.json");
 
-    // Initialize client
-    AzureOpenAIClient azureClient = new(new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
-    AssistantClient assistantClient = azureClient.GetAssistantClient();
+    string agentName =
+        config["Foundry:AgentName"]
+        ?? throw new InvalidOperationException(
+            "Foundry:AgentName is missing in appsettings.json");
 
-    // Get input
-    Console.WriteLine("Enter a question:");
-    string text = Console.ReadLine() ?? "";
+    string agentVersion =
+        config["Foundry:AgentVersion"]
+        ?? throw new InvalidOperationException(
+            "Foundry:AgentVersion is missing in appsettings.json");
 
-    // Create thread
-    var thread = assistantClient.CreateThread().Value;
-
-    // Add message
-    assistantClient.CreateMessage(
-        thread.Id,
-        MessageRole.User,
-        new[] { MessageContent.FromText(text) }
+    // Connect to Microsoft Foundry using your Azure identity
+    AIProjectClient projectClient = new(
+        endpoint: new Uri(projectEndpoint),
+        tokenProvider: new DefaultAzureCredential()
     );
 
-    // Run assistant (UPDATED)
-    var run = assistantClient.CreateRun(thread.Id, assistantId).Value;
+    // Reference the existing Foundry Agent
+    AgentReference agentReference = new(
+        name: agentName,
+        version: agentVersion
+    );
 
-    // Wait for completion
-    while (run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress)
+    // Create a Responses client configured for the agent
+    ProjectResponsesClient responseClient =
+        projectClient.ProjectOpenAIClient
+            .GetProjectResponsesClientForAgent(agentReference);
+
+    Console.WriteLine("Microsoft Foundry Agent connected.");
+    Console.WriteLine($"Agent: {agentName}");
+    Console.WriteLine($"Version: {agentVersion}");
+    Console.WriteLine();
+    Console.WriteLine("Enter your question.");
+    Console.WriteLine("Type 'exit' to quit.");
+    Console.WriteLine();
+
+    while (true)
     {
-        Thread.Sleep(1000);
-        run = assistantClient.GetRun(thread.Id, run.Id).Value;
-    }
+        Console.Write("Question: ");
 
-    // Get messages
-    var messages = assistantClient.GetMessages(thread.Id);
+        string question = Console.ReadLine() ?? "";
 
-    // Print response
-    foreach (var msg in messages)
-    {
-        if (msg.Role == MessageRole.Assistant)
+        if (string.Equals(question, "exit", StringComparison.OrdinalIgnoreCase))
         {
-            Console.WriteLine(msg.Content[0].Text);
+            break;
+        }
+
+        if (string.IsNullOrWhiteSpace(question))
+        {
+            Console.WriteLine("Please enter a question.");
+            Console.WriteLine();
+            continue;
+        }
+
+        try
+        {
+            Console.WriteLine("\nSearching the agent's configured tools...");
+
+            // Send the question to the existing Foundry Agent.
+            // The agent's File Search/vector store configuration
+            // is used by the agent automatically.
+            ResponseResult response =
+                responseClient.CreateResponse(question);
+
+            Console.WriteLine("\nAgent response:");
+            Console.WriteLine(response.GetOutputText());
+            Console.WriteLine();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("\nError calling Microsoft Foundry Agent:");
+            Console.WriteLine(ex.Message);
+            Console.WriteLine();
         }
     }
     ```
@@ -374,56 +401,89 @@ In this task, you will complete key parts of the application to enable it to use
 
     ```python
     import os
-    from openai import AzureOpenAI
-    import dotenv
-    import time
 
-    dotenv.load_dotenv()
+    from dotenv import load_dotenv
+    from azure.identity import DefaultAzureCredential
+    from azure.ai.projects import AIProjectClient
 
-    endpoint = os.environ.get("AZURE_OAI_ENDPOINT")
-    api_key = os.environ.get("AZURE_OAI_KEY")
-    assistant_id = os.environ.get("ASSISTANT_ID")
 
-    client = AzureOpenAI(
-        azure_endpoint=endpoint,
-        api_key=api_key,
-        api_version="2024-05-01-preview"
+    # Load values from .env
+    load_dotenv()
+
+    # Read Microsoft Foundry configuration
+    endpoint = os.getenv("FOUNDRY_PROJECT_ENDPOINT")
+    agent_name = os.getenv("FOUNDRY_AGENT_NAME")
+    agent_version = os.getenv("FOUNDRY_AGENT_VERSION")
+
+
+    # Validate configuration
+    if not endpoint:
+        raise ValueError("FOUNDRY_PROJECT_ENDPOINT is missing from .env")
+
+    if not agent_name:
+        raise ValueError("FOUNDRY_AGENT_NAME is missing from .env")
+
+    if not agent_version:
+        raise ValueError("FOUNDRY_AGENT_VERSION is missing from .env")
+
+
+    # Connect to Microsoft Foundry
+    project_client = AIProjectClient(
+        endpoint=endpoint,
+        credential=DefaultAzureCredential(),
     )
 
-    # Get user input
-    text = input('\nEnter a question:\n')
 
-    # Create thread
-    thread = client.beta.threads.create()
+    # Get the OpenAI client for the Foundry project
+    openai_client = project_client.get_openai_client()
 
-    # Add message
-    client.beta.threads.messages.create(
-        thread_id=thread.id,
-        role="user",
-        content=text
-    )
 
-    # Run assistant
-    run = client.beta.threads.runs.create(
-        thread_id=thread.id,
-        assistant_id=assistant_id
-    )
+    print("Microsoft Foundry Agent connected.")
+    print(f"Agent: {agent_name}")
+    print(f"Version: {agent_version}")
+    print()
+    print("Type 'exit' to quit.")
+    print()
 
-    # Wait for completion
-    while run.status in ["queued", "in_progress"]:
-        time.sleep(1)
-        run = client.beta.threads.runs.retrieve(
-            thread_id=thread.id,
-            run_id=run.id
-        )
 
-    # Get messages
-    messages = client.beta.threads.messages.list(thread_id=thread.id)
+    # Continuously accept questions
+    while True:
 
-    # Print response
-    for msg in messages.data:
-        if msg.role == "assistant":
-            print("\nAssistant:", msg.content[0].text.value)
+        question = input("Question: ")
+
+        if question.lower() == "exit":
+            break
+
+        if not question.strip():
+            print("Please enter a question.")
+            continue
+
+        try:
+            # Send the question to the existing Foundry Agent
+            response = openai_client.responses.create(
+                input=[
+                    {
+                        "role": "user",
+                        "content": question
+                    }
+                ],
+                extra_body={
+                    "agent_reference": {
+                        "name": agent_name,
+                        "version": agent_version,
+                        "type": "agent_reference"
+                    }
+                },
+            )
+
+            print("\nAgent response:")
+            print(response.output_text)
+            print()
+
+        except Exception as e:
+            print("\nError calling Microsoft Foundry Agent:")
+            print(e)
+            print()
     ```
 
 
