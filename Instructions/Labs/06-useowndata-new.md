@@ -1,27 +1,19 @@
-# Lab 06: Add your data for RAG with Microsoft Foundry Agent
+# Lab 06: Add your data for RAG with Azure OpenAI Service
 
 ## Estimated Duration: 75 Minutes
 
-## Lab Scenario
-
-A travel company wants an assistant that answers customer questions from its own brochures rather than from the open internet, and you are the developer building it. You first ask the deployed model about travel destinations with no grounding data so you have a baseline to compare against, then create a Foundry agent, turn off web search, and upload the company's PDF brochures so Foundry chunks and stores them in a new vector index. Chatting with the grounded agent, you repeat the same questions and see answers backed by citations to the source files, then probe a destination that is missing from the index to observe how the agent distinguishes grounded answers from general model knowledge. Finally, you set up the sample app in Cloud Shell, configure it with your project endpoint, agent name, and agent version, and run it to query the same grounded agent programmatically.
-
 ## Lab Overview
 
-In this lab, you will learn how to connect your own data to the Microsoft Foundry for Retrieval-Augmented Generation (RAG).
+In this lab, you will learn how to connect your own data to the Azure OpenAI Service for Retrieval-Augmented Generation (RAG).
 
-The Microsoft Foundry models enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
-
-## Lab Scenario
-
-A travel company wants an assistant that answers customer questions from its own brochures rather than from the open internet, and you are the developer building it. You first ask the deployed model about travel destinations with no grounding data so you have a baseline to compare against, then create a Foundry agent, turn off web search, and upload the company's PDF brochures so Foundry chunks and stores them in a new vector index. Chatting with the grounded agent, you repeat the same questions and see answers backed by citations to the source files, then probe a destination that is missing from the index to observe how the agent distinguishes grounded answers from general model knowledge. Finally, you set up the sample app in Cloud Shell, configure it with your project endpoint, agent name, and agent version, and run it to query the same grounded agent programmatically.
+The Azure OpenAI Service enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
 
 ## Lab Objectives
 
 In this lab, you will complete the following tasks:
 
 - Task 1: Observe normal chat behavior without adding your own data
-- Task 2: Create an Agent and connect your data
+- Task 2: Create an assistant and connect your data
 - Task 3: Chat with a model grounded in your data
 - Task 4: Set up an application in Cloud Shell
 - Task 5: Configure your application
@@ -128,11 +120,14 @@ In this task, you will create an agent that will  responds to queries with groun
 
 In this task, you will ask the same questions as before in the chat section after adding your data, and observe how the responses differ.
 
-1. In the **Chat** panel on the right, test the agent by entering a prompt in the **Message the agent...** box and pressing **Enter**.
+1. In the **Chat** panel on the right, test the agent by entering a prompt in the **Message the agent...** box from below prompt and pressing **Enter**.
 
    ```
    I'd like to take a trip to New York. Where should I stay?
    ```
+
+1. The agent generates a response **(2)** using the content from your uploaded document rather than the web. Each fact includes an inline reference number, and the source files are listed as citations **(3)** below the response — for example, `New York Brochure.pdf`. Click a citation to view the exact passage the answer was drawn from.
+
 
    ![](../media/l6-agent-11.png) 
 
@@ -142,29 +137,9 @@ In this task, you will ask the same questions as before in the chat section afte
 
    ![](../media/l6-agent-12.png) 
 
-1. Continue testing the agent with the other cities included in the grounding data — **Dubai**, **Las Vegas**, **London**, and **San Francisco**. Try prompts such as:
+2. You'll notice a very different response this time, with specifics about certain hotels, as well as references to where the information provided came from. If you open the PDF reference listed in the response, you'll see the same hotels as the model provided. Try asking it about other cities included in the grounding data, which are Dubai, Las Vegas, London, and San Francisco.
 
-    - `What are some facts about Dubai?`
-    - `I'm planning a trip to Las Vegas. Where should I stay?`
-    - `What attractions are covered in the London brochure?`
-    - `Recommend hotels in San Francisco.`
-
-1. Each response should be grounded in the uploaded brochures and include citations to the matching source file.
-
-1. Next, ask about a city that is **not** in the grounding data, for example:
-
-    - `I'd like to visit Japan. Which hotels do you recommend in Tokyo?`
-    - `What are the top attractions in Paris?`
-
-1. The agent runs a file search against the vector index and reports that no matching file was found. It confirms that the index contains only the Margie's Travel company information and brochures for **Dubai, London, New York, Las Vegas, and San Francisco**. Notice that the agent still produces a general itinerary for the unavailable destination, but states clearly that this content comes from general model knowledge rather than your uploaded documents.
-
-1. To see how the agent distinguishes its sources, follow up with:
-
-    - `Which of your previous answers came from my uploaded files, and which did not?`
-
-1. The agent responds with a breakdown showing which replies were grounded in the brochures (with citations) and which were generated from general knowledge without a supporting file.
-
-    > **Note:** This feature is still in preview and may not always behave as expected. For a destination outside the grounding data, the agent can occasionally return an incorrect or irrelevant citation instead of reporting that no matching information was found. If that happens, re-run or rephrase the prompt.
+    >**Note:** It is still in preview and might not always behave as expected for this feature, such as giving the incorrect reference for a city not included in the grounding data.
 
 ## Task 4: Set up an application in Cloud Shell
 
@@ -177,6 +152,10 @@ In this task, you will use a short command-line application running in Cloud She
 2. Make sure the type of shell indicated on the top left of the Cloud Shell pane is **Switch to PowerShell**. If it's *Bash*, select **Switch to Bash** and choose **Confirm** from the pop-up box.
 
     ![](../media/new/e6.png)
+
+3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
+
+   ![](../media/gtcv.png)
 
 4. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise.
 
@@ -208,66 +187,65 @@ In this task, you will complete key parts of the application to enable it to use
 1. Open the configuration file for your language and update the code.
 
     - **C#**: `appsettings.json`
-        ```
+
+        ```json
         {
-        "Foundry": {
-            "ProjectEndpoint": "https://YOUR-FOUNDRY-RESOURCE.services.ai.azure.com/api/projects/YOUR-PROJECT-NAME",
-            "AgentName": "YOUR-AGENT-NAME",
-            "AgentVersion": "YOUR-AGENT-VERSION"
-            }
+        "AzureOAIEndpoint": "Your OpenAI endpoint",
+        "AzureOAIKey": "Azure OpenAI Key",
+        "AssistantId": "Id of your Assistant"
         }
         ```
 
     - **Python**: `.env`
 
         ```
-        FOUNDRY_PROJECT_ENDPOINT=https://YOUR-FOUNDRY-RESOURCE.services.ai.azure.com/api/projects/YOUR-PROJECT-NAME
-        FOUNDRY_AGENT_NAME=YOUR-AGENT-NAME
-        FOUNDRY_AGENT_VERSION=YOUR-AGENT-VERSION
+        AZURE_OAI_ENDPOINT=<Your OpenAI endpoint>
+        AZURE_OAI_KEY=<Azure OpenAI Key>
+        ASSISTANT_ID=<Id of your Assistant>
         ```
 
 1. Update the configuration file for your chosen language with the following values:
 
-    - **Project endpoint**: Paste the endpoint URL of your Foundry project (found on the **Overview** page of your project in the Microsoft Foundry portal on **Home** page).
-    - **Agent name**: Enter the name of the agent you created earlier — `my-gpt-agent`.
-    - **Agent version**: Enter the version number of the agent, shown in the **Version** dropdown at the top-right of the agent's **Playground** tab (for example, `2`).
+    - **Azure OpenAI endpoint**: Paste the endpoint URL from your Azure OpenAI resource (found on the Keys and Endpoint page in the Azure portal).
+    - **Azure OpenAI key**: Paste the key from your Azure OpenAI resource (also on the Keys and Endpoint page).
+    - **AssistantId**: Enter the ID of your assistant that you created in Task 2.
     - Save your changes after updating these values.
 
-        ![](../media/l6-code-c1.png)
+        ![](../media/cen.png)
 
-        ![](../media/l6-code-p1.png)
+        ![](../media/penv.png)
 
 1. If you're using **C#**, navigate to `CSharp.csproj`, delete the existing code, then replace it with the following code, and then press **Ctrl+S** to save the file.
 
     ```
     <Project Sdk="Microsoft.NET.Sdk">
 
-      <PropertyGroup>
+    <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>12</LangVersion>
-      </PropertyGroup>
+    </PropertyGroup>
 
-      <ItemGroup>
-        <PackageReference Include="Azure.AI.Projects" Version="2.0.0" />
-        <PackageReference Include="Azure.AI.Extensions.OpenAI" Version="2.0.0" />
-        <PackageReference Include="Azure.Identity" Version="1.20.0" />
+    <ItemGroup>
+        <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+        <PackageReference Include="Azure.Search.Documents" Version="11.6.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-      </ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
 
-      <ItemGroup>
+    <ItemGroup>
         <None Update="appsettings.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-      </ItemGroup>
+    </ItemGroup>
 
     </Project>
     ```    
 
-     ![](../media/l6-code-c2.png)    
+     ![](../media/new/f3.png)    
 
 1. Navigate to the **CSharp** folder and install the necessary packages. These commands set up the environment for a local installation of the .NET SDK in Cloud Shell.
 
@@ -276,7 +254,6 @@ In this task, you will complete key parts of the application to enable it to use
     ```
     cd CSharp
     ```
-1. If you have perfomed this steps in Lab 05 then skip the **steps 6-8** and proceed with package installation **step - 9**.
 
     ```
     export DOTNET_ROOT=$HOME/.dotnet
@@ -284,7 +261,6 @@ In this task, you will complete key parts of the application to enable it to use
     ```
 
      >**Note:** Azure Cloud Shell often does not have admin privileges, so you need to install .NET in your home directory. So here you are creating a separate `.dotnet` directory under your home directory to isolate your configuration.
-
      - `DOTNET_ROOT` specifies where your .NET runtime and SDK are located (in your `$HOME/.dotnet directory`).
      - `mkdir -p $DOTNET_ROOT` This creates the directory where the .NET runtime and SDK will be installed.
 
@@ -296,7 +272,7 @@ In this task, you will complete key parts of the application to enable it to use
     ``` 
 
     ```
-    ./dotnet-install.sh --channel 9.0 --install-dir $DOTNET_ROOT
+    ./dotnet-install.sh --channel 8.0 --install-dir $DOTNET_ROOT
     ```
 
     ```
@@ -306,7 +282,19 @@ In this task, you will complete key parts of the application to enable it to use
 1. Enter the following command to restore any required workloads for your project, such as additional tools or libraries that are part of the .NET SDK.
 
     ```
-    dotnet restore
+    dotnet workload restore
+    ```
+
+1. Enter the following command to add the `Azure.AI.OpenAI` NuGet package to your project, which is necessary for integrating with Azure OpenAI services.
+
+    ```
+    dotnet add package Azure.AI.OpenAI --version 2.1.0
+    dotnet add package Azure.Search.Documents --version 11.6.0
+    ```
+
+    ```
+    dotnet add package Azure.AI.OpenAI --prerelease
+    dotnet add package OpenAI --prerelease
     ```
 
 1. If you prefer **Python**, navigate to the **Python** folder and install the necessary packages using the commands below:
@@ -314,8 +302,8 @@ In this task, you will complete key parts of the application to enable it to use
     ```
     cd Python
     python -m venv labenv
-    source labenv/bin/activate
-    pip install "azure-ai-projects>=2.1.0" azure-identity python-dotenv
+    ./labenv/bin/Activate.ps1
+    pip install --user python-dotenv openai==1.65.2
     ```
 
 1. In the code editor, replace your entire file code.
@@ -323,98 +311,61 @@ In this task, you will complete key parts of the application to enable it to use
     For **C#**: OwnData.cs
 
     ```csharp
-        using Azure.AI.Projects;
-        using Azure.AI.Extensions.OpenAI;
-        using Azure.Identity;
-        using Microsoft.Extensions.Configuration;
-        using OpenAI.Responses;
+    using System.ClientModel;
+    using Microsoft.Extensions.Configuration;
 
-        #pragma warning disable OPENAI001
+    using Azure.AI.OpenAI;
+    using OpenAI.Assistants;
+    using OpenAI;
 
-        // Load configuration from appsettings.json
-        IConfiguration config = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
-            .Build();
+    #pragma warning disable OPENAI001
 
-        // Read Microsoft Foundry configuration
-        string projectEndpoint =
-            config["Foundry:ProjectEndpoint"]
-            ?? throw new InvalidOperationException(
-                "Foundry:ProjectEndpoint is missing in appsettings.json");
+    // Get configuration settings  
+    IConfiguration config = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json")
+        .Build();
 
-        string agentName =
-            config["Foundry:AgentName"]
-                ?? throw new InvalidOperationException(
-                "Foundry:AgentName is missing in appsettings.json");
+    string oaiEndpoint = config["AzureOAIEndpoint"] ?? "";
+    string oaiKey = config["AzureOAIKey"] ?? "";
+    string assistantId = config["AssistantId"] ?? "";
 
-        string agentVersion =
-            config["Foundry:AgentVersion"]
-            ?? throw new InvalidOperationException(
-            "Foundry:AgentVersion is missing in appsettings.json");
+    // Initialize client
+    AzureOpenAIClient azureClient = new(new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
+    AssistantClient assistantClient = azureClient.GetAssistantClient();
 
-        // Connect to Microsoft Foundry using your Azure identity
-        AIProjectClient projectClient = new(
-            endpoint: new Uri(projectEndpoint),
-            tokenProvider: new DefaultAzureCredential()
-        );
+    // Get input
+    Console.WriteLine("Enter a question:");
+    string text = Console.ReadLine() ?? "";
 
-        // Reference the existing Foundry Agent
-        AgentReference agentReference = new(
-            name: agentName,
-            version: agentVersion
-        );
+    // Create thread
+    var thread = assistantClient.CreateThread().Value;
 
-        // Create a Responses client configured for the agent
-        ProjectResponsesClient responseClient =
-            projectClient.ProjectOpenAIClient
-                .GetProjectResponsesClientForAgent(agentReference);
+    // Add message
+    assistantClient.CreateMessage(
+        thread.Id,
+        MessageRole.User,
+        new[] { MessageContent.FromText(text) }
+    );
 
-        Console.WriteLine("Microsoft Foundry Agent connected.");
-        Console.WriteLine($"Agent: {agentName}");
-        Console.WriteLine($"Version: {agentVersion}");
-        Console.WriteLine();
-        Console.WriteLine("Enter your question.");
-        Console.WriteLine("Type 'exit' to quit.");
-        Console.WriteLine();
+    // Run assistant (UPDATED)
+    var run = assistantClient.CreateRun(thread.Id, assistantId).Value;
 
-        while (true)
+    // Wait for completion
+    while (run.Status == RunStatus.Queued || run.Status == RunStatus.InProgress)
+    {
+        Thread.Sleep(1000);
+        run = assistantClient.GetRun(thread.Id, run.Id).Value;
+    }
+
+    // Get messages
+    var messages = assistantClient.GetMessages(thread.Id);
+
+    // Print response
+    foreach (var msg in messages)
+    {
+        if (msg.Role == MessageRole.Assistant)
         {
-            Console.Write("Question: ");
-
-            string question = Console.ReadLine() ?? "";
-
-            if (string.Equals(question, "exit", StringComparison.OrdinalIgnoreCase))
-            {
-                break;
-            }
-
-            if (string.IsNullOrWhiteSpace(question))
-            {
-                Console.WriteLine("Please enter a question.");
-                Console.WriteLine();
-                continue;
-            }
-
-        try
-        {
-            Console.WriteLine("\nSearching the agent's configured tools...");
-
-            // Send the question to the existing Foundry Agent.
-            // The agent's File Search/vector store configuration
-            // is used by the agent automatically.
-            ResponseResult response =
-                responseClient.CreateResponse(question);
-
-            Console.WriteLine("\nAgent response:");
-            Console.WriteLine(response.GetOutputText());
-            Console.WriteLine();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("\nError calling Microsoft Foundry Agent:");
-            Console.WriteLine(ex.Message);
-            Console.WriteLine();
+            Console.WriteLine(msg.Content[0].Text);
         }
     }
     ```
@@ -423,81 +374,56 @@ In this task, you will complete key parts of the application to enable it to use
 
     ```python
     import os
-    from dotenv import load_dotenv
-    from azure.identity import DefaultAzureCredential
-    from azure.ai.projects import AIProjectClient
+    from openai import AzureOpenAI
+    import dotenv
+    import time
 
-    # Load values from .env
-    load_dotenv()
+    dotenv.load_dotenv()
 
-    # Read Microsoft Foundry configuration
-    endpoint = os.getenv("FOUNDRY_PROJECT_ENDPOINT")
-    agent_name = os.getenv("FOUNDRY_AGENT_NAME")
-    agent_version = os.getenv("FOUNDRY_AGENT_VERSION")
+    endpoint = os.environ.get("AZURE_OAI_ENDPOINT")
+    api_key = os.environ.get("AZURE_OAI_KEY")
+    assistant_id = os.environ.get("ASSISTANT_ID")
 
-    # Validate configuration
-    if not endpoint:
-        raise ValueError("FOUNDRY_PROJECT_ENDPOINT is missing from .env")
-
-    if not agent_name:
-        raise ValueError("FOUNDRY_AGENT_NAME is missing from .env")
-
-    if not agent_version:
-        raise ValueError("FOUNDRY_AGENT_VERSION is missing from .env")
-
-    # Connect to Microsoft Foundry
-    project_client = AIProjectClient(
-        endpoint=endpoint,
-        credential=DefaultAzureCredential(),
+    client = AzureOpenAI(
+        azure_endpoint=endpoint,
+        api_key=api_key,
+        api_version="2024-05-01-preview"
     )
 
-    # Get the OpenAI client for the Foundry project
-    openai_client = project_client.get_openai_client()
+    # Get user input
+    text = input('\nEnter a question:\n')
 
-    print("Microsoft Foundry Agent connected.")
-    print(f"Agent: {agent_name}")
-    print(f"Version: {agent_version}")
-    print()
-    print("Type 'exit' to quit.")
-    print()
+    # Create thread
+    thread = client.beta.threads.create()
 
-    # Continuously accept questions
-    while True:
-        question = input("Question: ")
+    # Add message
+    client.beta.threads.messages.create(
+        thread_id=thread.id,
+        role="user",
+        content=text
+    )
 
-        if question.lower() == "exit":
-            break
+    # Run assistant
+    run = client.beta.threads.runs.create(
+        thread_id=thread.id,
+        assistant_id=assistant_id
+    )
 
-        if not question.strip():
-            print("Please enter a question.")
-            continue
+    # Wait for completion
+    while run.status in ["queued", "in_progress"]:
+        time.sleep(1)
+        run = client.beta.threads.runs.retrieve(
+            thread_id=thread.id,
+            run_id=run.id
+        )
 
-        try:
-            # Send the question to the existing Foundry Agent
-            response = openai_client.responses.create(
-                input=[
-                    {
-                        "role": "user",
-                        "content": question
-                    }
-                ],
-                extra_body={
-                    "agent_reference": {
-                        "name": agent_name,
-                        "version": agent_version,
-                        "type": "agent_reference"
-                    }
-                },
-            )
+    # Get messages
+    messages = client.beta.threads.messages.list(thread_id=thread.id)
 
-            print("\nAgent response:")
-            print(response.output_text)
-            print()
-
-        except Exception as e:
-            print("\nError calling Microsoft Foundry Agent:")
-            print(e)
-            print()
+    # Print response
+    for msg in messages.data:
+        if msg.role == "assistant":
+            print("\nAssistant:", msg.content[0].text.value)
     ```
 
 
@@ -519,21 +445,12 @@ In this task, you will run the reviewed code to generate some images.
         >**Note**: If you encounter any errors after running the Python script, try upgrading the OpenAI package by running the following command:
         
         ```
-        python -m pip install --upgrade "azure-ai-projects>=2.1.0" azure-identity python-dotenv
+        pip install --user --upgrade openai
         ```
 
 3. Review the response to the prompt `Tell me about London`, which should include an answer as well as some details of the data used to ground the prompt, which was obtained from your search service.
 
     ![](../media/optown.png)
-
-4. Once you have finished sending queries to the agent and reviewing its responses, stop the running application in the Bash terminal.
-
-    - Press `Ctrl+C` to stop the running **python** application, then deactivate the Python virtual environment in the Bash terminal:
-
-        ``` 
-        deactivate
-        ```
-    - Press `Ctrl+C` to stop the running C# application and end the interaction with the model.
 
 ## Summary
 

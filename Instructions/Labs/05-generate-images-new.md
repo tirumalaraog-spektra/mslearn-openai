@@ -2,11 +2,6 @@
 
 ## Estimated Duration: 75 Minutes
 
-## Lab Scenario
-
-Your team now needs original artwork to accompany the content the text models produce, so you are asked to add image generation to the solution. You return to your Microsoft Foundry resource, deploy the **gpt-image-1.5** model as **gpt-image-model** with a custom request-per-minute rate limit, and open it in the playground to generate an image from a short description before refining the prompt with an artistic style to compare the results. You then work with the same model programmatically by opening the sample C# or Python app in Cloud Shell, storing the endpoint, API key, and deployment name in the configuration file, and installing the required packages. Finally, you review how the code calls the REST API and polls the **operation-location** callback URL, run the app with your own prompt, and download the generated image to view it.
-
-
 ## Lab Overview
 
 In this lab, you'll use a gpt-image-1.5 model to generate images based on natural language prompts.
@@ -43,17 +38,29 @@ In this task, you will use the gpt-image-1.5 playground in the Microsoft Foundry
    ![](../media/l2-nf-foundry-select.png)
 
 
-1. In the Microsoft Foundry resource pane, click on **Go to Foundry portal**, which will navigate to **New Foundry**.
+1. In the Microsoft Foundry resource pane, click on **Go to Foundry portal**, which will navigate to **Microsoft Foundry**.
 
     ![](../media/l1-nf-gotofoundry.png)
 
-4. On the **Microsoft Foundry** portal, from the top right select **Build*** in left navigation pane, select **Deployments (2) or Models**. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)** from the drop-down.
+4. On the **Microsoft Foundry** portal, from the top right select **Build (1)** in left navigation pane, select **Deployments (2) or Models**.Under **Deployed models (3)** Then, click **+ Deploy (4)** and choose **Deploy a Base Model (5)** from the drop-down.
 
       ![](../media/15-gpt-d1.png)
 
-5. In the Select a model page, search for **gpt-image-1.5 (1)**, select **gpt-image-1.5 (2)** model, and click on **Confirm (3)**.
+1. It takes you to Discover tab and **Models (1)** in left pane side and Search for **gpt-image-1.5** **(2)** and select the **gpt-image-1.5 (3)**
 
-      ![](../media/igsr.png)
+      ![](../media/l5-gpt-d3-2.png)
+
+1. In the model page under **Models (1)** click on **Deploy (2)** dropdown to select the **Custom settings (3)**.
+
+      ![](../media/l5-gpd-d2.png)
+
+1. It opens the Deploy pop-up to select the custom model values. 
+        - Deployment name **(1)**: **gpt-image-model**
+        - Deployment type **(2)**: **Global Standard**
+        - Request per Minute Rate Limit: **1/9 (4)** (use **slider to adjust the values)
+      ![](../media/l5-gpt-d3.png)
+
+      ![](../media/l5-gpt-d4.png)
 
 6. Within the **Deploy model** pop-up interface, enter the **Deployment name** as **gpt-image-model (1)** and Click on **Customize (2)** and make the **Request per Minute Rate Limit** to **`1` (3)** and click on **Create resource and deploy (4)**.
 
