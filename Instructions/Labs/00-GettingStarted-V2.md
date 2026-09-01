@@ -34,7 +34,7 @@ The architecture flow for this task begins with provisioning a Microsoft Foundry
 
 ## 🖼️ Architecture Diagram
 
- ![Architecture Diagram](../media/lab-architecture-gs.png)
+ ![Architecture Diagram](../media/architect-gs-foundry.png)
 
 ## 🔍  Explanation of Components
 
