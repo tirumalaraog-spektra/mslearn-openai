@@ -2,6 +2,10 @@
 
 ### Estimated Duration: 120 Minutes
 
+## Lab Scenario
+
+Now that a model is deployed, your team wants the same capability available inside an application instead of the portal. Acting as the software developer on that task, you return to the Microsoft Foundry resource you provisioned earlier to collect its endpoint, key, and deployment name, then open Azure Cloud Shell and clone the sample C# and Python apps into the built-in code editor. You add the Azure OpenAI SDK to the project, store the credentials in `appsettings.json` or `.env`, and complete the client and chat-completion code that sends a system and user message to your model. You then run the app and work through a series of prompts for a wildlife rescue, changing the system message and user message each round to observe how format, content, and tone instructions reshape the generated output.
+
 ## Lab Overview
 
 In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Azure OpenAI APIs.
@@ -12,32 +16,36 @@ With the Azure OpenAI Service, developers can create chatbots, language models, 
 
 In this lab, you will complete the following tasks:
 
-- Task 1: Review the Azure OpenAI resource provisioned earlier.
+- Task 1: Review the Microsoft Foundry resource provisioned earlier.
 - Task 2: Set up an application in Cloud Shell
 - Task 3: Configure your application
 - Task 4: Test your application
 
-## Task 1: Review the Azure OpenAI resource provisioned earlier.
+## Task 1: Review the Microsoft Foundry resource provisioned earlier.
 
-In this task, you will review the provisioned Azure OpenAI resource within your Azure subscription. This step is essential to access OpenAI models and retrieve the endpoint and API key required to authenticate your application.
+In this task, you will review the provisioned Microsoft Foundry resource within your Azure subscription. This step is essential to access OpenAI models and retrieve the endpoint and API key required to authenticate your application.
 
-1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)** from Services section.
+1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
-   ![](../media/azoai.png)
+   ![](../media/l1-nf-foundry-1.png)
 
-1. On the **Microsoft Foundry | Azure OpenAI** page, select **Azure OpenAI (1)**, and then choose **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+1. On the **Microsoft Foundry | Foundry** page, select **Foundry (1)**, and then choose **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
 
-   ![](../media/sloai.png)
+   ![](../media/l2-nf-foundry-select.png)
 
-1. To capture the Keys and Endpoints values, on **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
+1. To capture the Keys and Endpoints values, on **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"></inject>** blade:
 
-      - Expand **Resource Management (1)** and select **Keys and Endpoint (2)**.
+      - Expand **Resource Management ** and select **Keys and Endpoint (1)**.
 
-      - Copy **Key 1 (3)**, and save it securely in a text editor (e.g., Notepad) for use in later steps.
+      - Copy **Key 1 (2)**, and save it securely in a text editor (e.g., Notepad) for use in later steps.
 
-      - Next, copy the **Endpoint (4)** by clicking the copy icon, and save it in the same location.
+      - Next, copy the **Endpoint (4)** under **OpenAI (3)** tab by clicking the copy icon, and save it in the same location.
 
-        ![](../media/oikey.png)
+        ![](../media/l2-nf-openai-cred.png)
+
+1. In the Foundry portal, select **Build (1)**, then select **Deployments** or **Models (2)**, depending on your portal experience. Under **Deployed models**, locate your deployed gpt model, copy its **Name**, and save it in a notepad for later use.
+
+    ![](../media/l1-nf-model-name.png)
 
 ## Task 2: Set up an application in Cloud Shell
 
@@ -75,10 +83,6 @@ In this task, you will set up a development environment using Azure Cloud Shell.
         ![](../media/csacreate.png)
 
 6. Note that you can resize the cloud shell by dragging the separator bar at the top of the page, or by using the **&#8212;**, **&#9723;**, and **X** icons at the top right of the page to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview). 
-
-7. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
-
-    ![](../media/gtcv.png)
 
 8. Once the terminal starts, enter the below-mentioned command to download the sample application and save it to a folder called `azure-openai`.
 
@@ -145,13 +149,15 @@ In this task, you will configure the application to connect with the Azure OpenA
     </Project> 
    ```
 
-1. Open the configuration file for your language
+1. Open the configuration file for your language 
 
     - C#: `appsettings.json`
     
     - Python: `.env`
     
-1. Update the configuration values to include the **endpoint** and **key** from the Azure OpenAI resource you created, as well as the model name that you deployed, `my-gpt-model`. Then save the file by right-clicking on the blank space in the file text editor and hit **Save**.
+1. Update the configuration values to include the **endpoint** and **key** from the Microsoft Foundry resource you created, as well as the model name that you deployed can copy by following instruction in `Task - 1 > Step - 4` as `gpt-5-mini` or `my-gpt-model`. Then save the file by right-clicking on the blank space in the file text editor and hit **Save**.
+    
+    > **Note**: The portal displays the endpoint as `https://<resource-name>.openai.azure.com/openai/v1/`. Remove the `/openai/v1/` part before saving it, so only the base resource endpoint remains as shown above.
 
     - **C#:**
      
@@ -544,7 +550,7 @@ In this task, you will run the application and interact with the Azure OpenAI mo
 
 1. Close the Cloudshell.
 
-    ![](../media/new/w2.png)
+    ![](../media/l2-close-cloudshell.png)
 
 ## Summary
 

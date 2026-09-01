@@ -2,6 +2,11 @@
 
 ## Estimated Duration: 60 Minutes
 
+## Lab Scenario
+
+Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt` — and see why AI-generated code still needs a developer's verification.
+
+
 ## Lab Overview
 
 In this lab, you will learn how to use Azure OpenAI Service to generate, explain, and improve code using natural language prompts. You will explore code generation in the chat playground and integrate OpenAI into your app to automate code tasks. This will help you enhance productivity by simplifying coding and debugging processes.
@@ -21,28 +26,30 @@ In this lab, you will complete the following tasks:
 
 In this task, you will examine how Azure OpenAI can generate and explain code in the Chat playground before using it in your app.
 
-1. Navigate back to [Microsoft Foundry](https://ai.azure.com/) portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
+1. Navigate back to Microsoft Foundry portal, from the left navigation pane, select **Deployments or Models (1)** based on foundry portal experience and verify that the your deployed **model (2)** is selected in the Deployment.
 
-   ![](../media/MDV.png)
+   ![](../media/l4-gpt-model.png)
    
-1. In the **Chat session** section, enter the following prompt and press *Enter*.
+1. In the **Chat session** section, enter the following **prompt (1)** and press *Enter*.
 
     ```code
     Write a function in Python that takes a character and a string as input, and returns how many times that character appears in the string
     ```
-    
-   ![](../media/charstr.png)
 
-1. Observe the output. The model will likely respond with a function, with some explanation of what the function does and how to call it.
+1. Observe the **output (2)**. The model will likely respond with a function, with some explanation of what the function does and how to call it.
 
-1. Next, send the prompt:
+    ![](../media/l4-gpt-inst-2.png)
+
+    >**Note** The response may be vary from the image.
+
+1. Next, send the **user prompt (1)**:
    ```
    Do the same thing, but this time write it in C#.
    ```
 
-   ![](../media/cop.png)
+   ![](../media/l4-gpt-inst-3.png)
 
-1. Observe the output. The model likely responded very similarly as the first time, but this time coding in C#. You can ask it again for a different language of your choice, or a function to complete a different task, such as reversing the input string.
+1. Observe the **output (2)** above. The model likely responded very similarly as the first time, but this time coding in C#. You can ask it again for a different language of your choice, or a function to complete a different task, such as reversing the input string.
 
 1. Next, let's explore using AI to understand code with this example of a random function you saw written in Ruby. Send the following prompt as the user query.
 
@@ -60,9 +67,9 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
     end
     ```
 
-   ![](../media/funcdo.png)
+1. Observe the **output (2)** above, which explains what the function does.
 
-1. Observe the output, which explains what the function does.
+   ![](../media/l4-gpt-inst-4.png)
 
 1. Submit the following prompt to get a simpler version of the function.
 
@@ -70,17 +77,19 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
    Can you simplify the function?
    ```   
 
-   ![](../media/fnsimp.png)
+   ![](../media/l4-gpt-inst-5.png)
+
+   >**Note**: The model may ask follow-up questions to gather additional information before responding, so that it can give you a more accurate answer.
 
 1. Submit the below-mentioned prompt to add comments to the code.
 
       ```
-      Add some comments to the function.
+      Add some comments to the function for fibonocci code.
       ```
 
-      ![](../media/comnts.png)
+      ![](../media/l4-gpt-inst-6.png)     
 
-1. Observe the output, which includes comments explaining what each part of the function does. 
+1. Observe the **user prompt (1)** and **output response (2)**, which includes comments explaining what each part of the function does. 
 
 ## Task 2: Set up an application in Cloud Shell
 
@@ -92,11 +101,7 @@ In this task, you will use a short command-line application running in Cloud She
 
 2. If you see the previously opened shell, click on the top right **X** button to close it and open Cloudshell again.
 
-   ![](../media/L4T2S2-1707.png)
-
-3. Once the terminal opens, click on **Settings (1)** and select **Go to Classic version (2)**.
-
-   ![](../media/gtcv.png)
+   ![](../media/l4-code-1.png)
 
 5. The files are downloaded to a folder named **mslearn-openai**. Navigate to the lab files for this task using the following command.
 
@@ -112,11 +117,11 @@ In this task, you will use a short command-line application running in Cloud She
     code .
     ```
 
-   ![](../media/labfilecodegen.png)
+   ![](../media/l4-code-2.png)
 
 ## Task 3: Configure your application
 
-In this task, you will complete key parts of the application to enable it to use your Azure OpenAI resource.
+In this task, you will complete key parts of the application to enable it to use your Azure OpenAI model.
 
 1. In the code editor, expand the language folder for your preferred language.
 
@@ -125,14 +130,14 @@ In this task, you will complete key parts of the application to enable it to use
     - **C#:** `appsettings.json`
     - **Python:** `.env`
 
-1. In the configuration file, enter the following values for your Azure OpenAI service:
+1. In the configuration file, enter the following values for your Microsoft Foundry service:
 
     - **Endpoint**: The endpoint URL from your Azure OpenAI resource.
     - **Key1**: The primary key from your Azure OpenAI resource.
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the Azure OpenAI endpoint and key values from the Azure OpenAI resource's **Key and Endpoint** section under **Resource Management**.
+   > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
 
    - **C#:**
 
@@ -171,7 +176,7 @@ In this task, you will run your configured app to generate code for each use cas
 
 1. In the code editor, expand the `sample-code` folder and briefly observe the function and the app for your language. The OpenAI tool will use these files to generate the responses. 
    
-   ![](../media/samplecode.png)
+   ![](../media/l4-code-3.png)
 
 1. In the Cloud Shell bash terminal, navigate to the folder for your preferred language.
 
