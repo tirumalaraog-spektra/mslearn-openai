@@ -1,23 +1,21 @@
-# Lab 07: Explore content filters in Azure OpenAI
+# Lab 07: Explore Guardrails in Microsoft Foundry
 
 ## Estimated Duration: 40 Minutes
 
 ## Lab Scenario
 
-Before the solutions you have built go to users, your organization requires a responsible AI review, and you are asked to verify how the deployment handles harmful content. In the Playground, you send a harmless prompt about the characteristics of Scottish people and review the response, then deliberately replace the system message with racist, derogatory instructions and resubmit the same prompt to see the default content filters block the offensive output. You then open the **Guardrail** section for your model deployment and create a new guardrail, reviewing the **Jailbreak** control that blocks prompt-injection attempts at user input and the optional indirect prompt injection and spotlighting protections. Finally, you examine the **Content harms** controls for hate, sexual, self-harm, and violence, where severity thresholds, intervention points, and blocklists let you tighten filtering to match your own responsible AI requirements.
+Before the solutions you have built go to users, your organization requires a responsible AI review, and you are asked to verify how the deployment handles harmful content. In the Playground, you send a harmless prompt about the characteristics of Scottish people and review the response, then deliberately replace the system message with racist, derogatory instructions and resubmit the same prompt to see the default guardrails block the offensive output. You then open the **Guardrail** section for your model deployment and create a new guardrail, reviewing the **Jailbreak** control that blocks prompt-injection attempts at user input and the optional indirect prompt injection and spotlighting protections. Finally, you examine the **Content harms** controls for hate, sexual, self-harm, and violence, where severity thresholds, intervention points, and blocklists let you tighten filtering to match your own responsible AI requirements.
 
 ## Lab Overview
 
-In this lab, you'll explore the effect of the default content filters in Azure OpenAI.
-
-Azure OpenAI includes default content filters to help ensure that potentially harmful prompts and completions are identified and removed from interactions with the service. Additionally, you can apply for permission to define custom content filters for your specific needs to ensure your model deployments enforce the appropriate responsible AI principles for your generative AI scenario. Content filtering is one element of an effective approach to responsible AI when working with generative AI models.
+In this lab, you'll explore the effect of Microsoft Foundry Guardrails on a model deployment. You'll begin by generating natural language output in the Playground to see how the deployed model responds to a normal prompt, and then to a deliberately harmful system message, so you can observe the default guardrails identify and block potentially harmful prompts and completions.
 
 ## Lab Objectives
 
 In this lab, you will complete the following tasks:
 
 - Task 1: Generate natural language output
-- Task 2: Explore content filters
+- Task 2: Explore guardrail control filters
 
 ## Task 1: Generate natural language output
 
@@ -63,7 +61,7 @@ In this task, you will observe how the model behaves in a conversational interac
     
     ![](../media/l7-gpt-4.png)
 
-1. Observe the output, which should hopefully indicate that the request to be racist and derogatory is not supported and returned a positive response. This prevention of offensive output is the result of the default content filters in Microsoft Foundry.
+1. Observe the output, which should hopefully indicate that the request to be racist and derogatory is not supported and returned a positive response. This prevention of offensive output is the result of the default guardrails in Microsoft Foundry.
 
 ## Task 2: Explore guardrail control filters
 
@@ -107,8 +105,8 @@ In this task, you will explore the guardrail controls available for a model depl
 
 ## Summary
 
-In this lab, you explored the default Guardrail filters in Microsoft Foundry and observed how they help prevent the generation of potentially harmful or offensive language. You also reviewed how to create and configure custom content filters to meet specific responsible AI requirements for your generative AI applications.
+In this lab, you explored the default Microsoft Foundry Guardrails and observed how they help prevent the generation of potentially harmful or offensive language. You also reviewed how to create and configure custom guardrails — jailbreak and content harm controls — and how to assign a built-in guardrail to meet specific responsible AI requirements for your generative AI applications.
 
 ## You have successfully completed the Hands-on lab.
 
-By completing the **Develop Generative AI solutions with Microsoft Foundry** Hands-on-Lab, you have developed practical skills in building generative AI solutions using the Microsoft Foundry. You learned to configure and integrate Azure OpenAI SDKs, apply prompt engineering techniques, generate and refine both code and images using advanced models like GPT and gpt-image-1.5, and incorporate your own data using Retrieval-Augmented Generation (RAG). Additionally, you explored content filtering to manage AI output responsibly. These hands-on exercises have equipped you to confidently design, deploy, and scale secure, intelligent, and production-ready AI applications in the Azure ecosystem.
+By completing the **Develop Generative AI solutions with Microsoft Foundry** Hands-on-Lab, you have developed practical skills in building generative AI solutions using the Microsoft Foundry. You learned to configure and integrate Azure OpenAI SDKs and Microsoft Foundry SDks, apply prompt engineering techniques, generate and refine both code and images using advanced models like GPT and gpt-image-1.5, and incorporate your own data using Retrieval-Augmented Generation (RAG). Additionally, you explored Microsoft Foundry Guardrails to manage AI output responsibly. These hands-on exercises have equipped you to confidently design, deploy, and scale secure, intelligent, and production-ready AI applications in the Azure ecosystem.

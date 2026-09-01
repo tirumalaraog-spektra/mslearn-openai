@@ -1,4 +1,4 @@
-# Lab 06: Add your data for RAG with Microsoft Foundry
+# Lab 06: Add your data for RAG with a Microsoft Foundry Agent
 
 ## Estimated Duration: 75 Minutes
 
@@ -8,7 +8,7 @@ A travel company wants its assistant to answer from the brochures it publishes r
 
 ## Lab Overview
 
-In this lab, you will learn how to connect your own data to the Microsoft Foundry for Retrieval-Augmented Generation (RAG).
+In this lab, you will learn how to connect your own data to the Microsoft Foundry Agent for Retrieval-Augmented Generation (RAG).
 
 The Microsoft Foundry enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
 
@@ -17,7 +17,7 @@ The Microsoft Foundry enables you to use your own data with the intelligence of 
 In this lab, you will complete the following tasks:
 
 - Task 1: Observe normal chat behavior without adding your own data
-- Task 2: Create an assistant and connect your data
+- Task 2: Create an Agent and connect your data
 - Task 3: Chat with a model grounded in your data
 - Task 4: Set up an application in Cloud Shell
 - Task 5: Configure your application
@@ -147,7 +147,7 @@ In this task, you will ask the same questions as before in the chat section afte
 
 ## Task 4: Set up an application in Cloud Shell
 
-In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate integration with an Azure OpenAI model. Open a new browser tab to access Cloud Shell.
+In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate integration with a Microsoft Foundry model. Open a new browser tab to access Cloud Shell.
 
 1. In the **Azure portal**, select the **[>_] (Cloud Shell)** button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
@@ -180,7 +180,7 @@ In this task, you will use a short command-line application running in Cloud She
 
 ## Task 5: Configure your application
 
-In this task, you will complete key parts of the application to enable it to use your Azure OpenAI resource.
+In this task, you will complete key parts of the application to enable it to use your Microsoft Foundry resource.
 
 1. In the code editor, expand the language folder for your preferred language.
 
@@ -514,7 +514,7 @@ In this task, you will run the reviewed code to generate some images.
 
 ## Summary
 
-In this lab, you began by evaluating how an Azure OpenAI model responds without grounding data to understand its baseline behavior. You then created an assistant with file search capabilities and connected it to a vector store containing your custom data, enabling grounded responses. By comparing outputs before and after grounding, you observed how Retrieval-Augmented Generation (RAG) improves the relevance and accuracy of responses. You also set up a development environment in Azure Cloud Shell, explored the provided application code, and configured it with your Azure OpenAI credentials and assistant details. Finally, you executed the application to interact programmatically with a grounded AI model, completing an end-to-end implementation of a RAG-based solution.
+In this lab, you began by evaluating how a Microsoft Foundry Model responds without grounding data to understand its baseline behavior. You then created an Agent with file search capabilities and connected it to a vector store containing your custom data, enabling grounded responses. By comparing outputs before and after grounding, you observed how Retrieval-Augmented Generation (RAG) improves the relevance and accuracy of responses. You also set up a development environment in Azure Cloud Shell, explored the provided application code, and configured it with your Microsoft Foundary credentials and Agent details. Finally, you executed the application to interact programmatically with a grounded AI model, completing an end-to-end implementation of a RAG-based solution.
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      

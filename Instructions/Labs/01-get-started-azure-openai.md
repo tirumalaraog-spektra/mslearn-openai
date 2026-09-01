@@ -8,7 +8,7 @@ Your organization is starting its generative AI journey, and as the cloud develo
 
 ## Lab overview
 
-In this lab, you'll learn how to get started with Microsoft Foundry by provisioning the service as an Azure resource and using the Azure Microsoft Foundry portal to deploy and explore Microsoft Foundry models. Microsoft Foundry brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
+In this lab, you'll learn how to get started with Microsoft Foundry by provisioning the service as an Azure resource and using the Microsoft Foundry portal to deploy and explore Microsoft Foundry models. Microsoft Foundry brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
 
 ## Lab Objectives
 In this lab, you will complete the following tasks:
