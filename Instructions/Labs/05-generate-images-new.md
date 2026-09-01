@@ -2,11 +2,16 @@
 
 ## Estimated Duration: 75 Minutes
 
+## Lab Scenario
+
+Your team now needs original artwork to accompany the content the text models produce, so you are asked to add image generation to the solution. You return to your Microsoft Foundry resource, deploy the **gpt-image-1.5** model as **gpt-image-model** with a custom request-per-minute rate limit, and open it in the playground to generate an image from a short description before refining the prompt with an artistic style to compare the results. You then work with the same model programmatically by opening the sample C# or Python app in Cloud Shell, storing the endpoint, API key, and deployment name in the configuration file, and installing the required packages. Finally, you review how the code calls the REST API and polls the **operation-location** callback URL, run the app with your own prompt, and download the generated image to view it.
+
+
 ## Lab Overview
 
 In this lab, you'll use a gpt-image-1.5 model to generate images based on natural language prompts.
 
-The Azure OpenAI Service includes an image-generation model named gpt-image-1.5. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
+The Microsoft Foundry includes an image-generation model named gpt-image-1.5. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
 
 ## Lab Objectives
 
@@ -23,25 +28,28 @@ In this lab, you will complete the following tasks:
 
 In this task, you will use the gpt-image-1.5 playground in the Microsoft Foundry portal to experiment with image generation.
 
-> **Note:** This task relies on the gpt-image-1.5 quota limit available in your Azure OpenAI resource. If the model deployment fails, it may be due to quota restrictions on the existing resource. 
+> **Note:** This task relies on the gpt-image-1.5 quota limit available in your Microsoft Foundry the model deployment fails, it may be due to quota restrictions on the existing resource. 
 
-> To resolve this, create a new Azure OpenAI resource (as done in **Lab 01**) in a supported region such as **East US** or **Australia East**, and then attempt to deploy the gpt-image-1.5 model again.
+> To resolve this, create a new Microsoft Foundry (as done in **Lab 01**) in a supported region such as **East US 2** or **West US 3**, **Poland Central** and then attempt to deploy the gpt-image-1.5 model again.
 
-1. In the **Azure portal**, search for **Azure OpenAI (1)** and select **Azure OpenAI (2)** from the results.
+> Add this suffix `-1` to the end of Foundry resource name to be unique. 
 
-   ![](../media/azoai.png)
+1. In the **Azure portal**, search for **Foundry (1)** and select **Microsoft Foundry (2)**.
 
-2. On the **Microsoft Foundry | Azure Open AI** page, ensure that **Azure OpenAI (1)** is selected from the left blade. Then, select **OpenAI-Lab01-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
+   ![](../media/l1-nf-foundry-1.png)
 
-      ![](../media/update07-1.png)
+1. On the **Microsoft Foundry | Foundry** page, select **Foundry (1)**, and then choose **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"></inject> (2)**
 
-3. In the Azure OpenAI resource page, click on **Go to Foundry portal**, which will navigate to the **Microsoft Foundry**.
+   ![](../media/l2-nf-foundry-select.png)
 
-      ![](../media/dev-genai-june-1.png)
 
-4. On the **Microsoft Foundry** portal, from the left navigation pane, select **Deployments (1)**. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)** from the drop-down.
+1. In the Microsoft Foundry resource pane, click on **Go to Foundry portal**, which will navigate to **New Foundry**.
 
-      ![](../media/dbm5.png)
+    ![](../media/l1-nf-gotofoundry.png)
+
+4. On the **Microsoft Foundry** portal, from the top right select **Build*** in left navigation pane, select **Deployments (2) or Models**. Then, click **+ Deploy Model (2)** and choose **Deploy Base Model (3)** from the drop-down.
+
+      ![](../media/15-gpt-d1.png)
 
 5. In the Select a model page, search for **gpt-image-1.5 (1)**, select **gpt-image-1.5 (2)** model, and click on **Confirm (3)**.
 

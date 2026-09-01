@@ -2,13 +2,17 @@
 
 ## Estimated Duration: 8 Hours
 
+## Lab Scenario
+
+You are the developer responsible for bringing generative AI into your organization's applications, and you build the solution end to end across this lab series. You start by provisioning a Microsoft Foundry resource, deploying a **gpt-5-mini** model, and exploring it in the Playground with system instructions, few-shot examples, and parameters such as max completion tokens and reasoning effort. You then move the model into code, using the Azure OpenAI SDKs in a Cloud Shell application, and apply prompt engineering techniques so the same model returns the format, content, and tone your campaign needs. Next, you put the model to work on developer tasks — generating, explaining, commenting, unit-testing, and debugging code — and add visuals by deploying the **gpt-image-1.5** model and generating images from both the playground and the REST API. Finally, you ground the model in your own documents by creating a Foundry agent backed by a vector index for Retrieval-Augmented Generation, and close the series with a responsible AI review of the default content filters and guardrail controls that keep the deployment safe.
+
 ## Overview
 
-This hands-on lab offers a comprehensive introduction to the Azure OpenAI Service. You will begin by configuring the service and integrating Azure OpenAI SDKs into your application. Techniques in prompt engineering will refine interactions, and you'll also gain skills in generating and enhancing code. The gpt-image-1.5 model will be utilized for image generation, and you will explore the use of your own data for retrieval-augmented generation (RAG). Additionally, you will delve into content filtering to manage and regulate generated outputs. Throughout the labs, you'll gain practical experience with real-world AI applications, learn best practices for deploying and scaling these services in a production environment, and understand how to integrate various Azure services to develop resilient, scalable, and secure AI-powered applications.
+This hands-on lab offers a comprehensive introduction to the Azure OpenAI Service. You will begin by configuring the service and integrating Azure OpenAI SDKs and Foundry SDKs into your application. Techniques in prompt engineering will refine interactions, and you'll also gain skills in generating and enhancing code. The gpt-image-1.5 model will be utilized for image generation, and you will explore the use of your own data for retrieval-augmented generation (RAG). Additionally, you will delve into content filtering to manage and regulate generated outputs. Throughout the labs, you'll gain practical experience with real-world AI applications, learn best practices for deploying and scaling these services in a production environment, and understand how to integrate various Azure services to develop resilient, scalable, and secure AI-powered applications.
 
 ## Objective 
 
-This lab is aimed at giving learners hands-on experience with Azure OpenAI resources, deploying and exploring models using the Completions and Chat playgrounds, and experimenting with prompts, parameters, and code generation. By completing this lab
+This lab is aimed at giving learners hands-on experience with Microsoft Foundry resources, deploying and exploring models using the Completions and Chat playgrounds, and experimenting with prompts, parameters, and code generation. By completing this lab
 
 Participants will learn:
 
@@ -18,11 +22,11 @@ Participants will learn:
 
 - **Utilize prompt engineering in your app:** This hands-on exercise demonstrates how to use prompt engineering methods to improve AI interactions in your application. Participants will use prompt engineering strategies to enhance the performance and relevance of AI.
 
-- **Generate and improve code with Azure OpenAI Service:** The goal of this hands-on exercise is to demonstrate how to effectively generate and refine code using Azure OpenAI. Participants will improve their abilities to create and refine code with Azure OpenAI Service tools and approaches.
+- **Generate and improve code with :** The goal of this hands-on exercise is to demonstrate how to effectively generate and refine code using Azure OpenAI. Participants will improve their abilities to create and refine code with Azure OpenAI Service tools and approaches.
 
 - **Generate images with a gpt-image-1.5 model:** The goal of this hands-on activity is to produce and alter images using the gpt-image-1.5 model. To attain the intended visual results, participants will develop and alter images using the gpt-image-1.5 model.
 
-- **Add your data for RAG using Azure OpenAI Service:** This hands-on exercise will help you integrate your data with the Azure OpenAI Service for Retrieval-Augmented Generation (RAG) to improve AI responses. Participants will integrate data into the Azure OpenAI Service to boost AI-powered retrieval and generation.
+- **Add your data for RAG using Microsoft Foundry Service:** This hands-on exercise will help you integrate your data with the Azure OpenAI Service for Retrieval-Augmented Generation (RAG) to improve AI responses. Participants will integrate data into the Azure OpenAI Service to boost AI-powered retrieval and generation.
 
 - **Explore content filters in Azure OpenAI:** This hands-on exercise demonstrates how to construct and maintain content filters in Azure OpenAI to control and refine generated outputs. Participants will learn about and implement content filters in Azure OpenAI to control and refine the created material.
 
@@ -73,7 +77,7 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-   ![](../media/envt.png)
+   ![](../media/gs-env-img.png)
  
 ## Utilizing the Split Window Feature
  
@@ -89,9 +93,9 @@ Feel free to **Start, Stop,** or **Restart (2)** your virtual machine as needed 
 
 ## Lab Guide Zoom In/Zoom Out
 
-To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
+To adjust the zoom level for the environment page, click the **A↕** icon located next to the timer in the lab environment.
 
-   ![](../media/zoom.png)
+   ![](../media/gs-font-size.png)
 
 ## Let's Get Started with Azure Portal
 

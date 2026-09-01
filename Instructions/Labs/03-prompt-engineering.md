@@ -2,6 +2,10 @@
 
 ## Estimated Duration: 60 Minutes
 
+## Lab Scenario
+
+The marketing team supporting a wildlife rescue campaign wants more predictable output from the model, so you take on the role of the developer responsible for its prompts. In the Playground, you first ask the model to categorize a news article with a plain system message, then rewrite the instructions as a news aggregator and add few-shot examples so the model answers with a single category, and switch the instructions again to make it return Python code instead of prose. You then move the same techniques into an application by cloning the sample project in Cloud Shell, configuring it with your Microsoft Foundry endpoint, key, and deployment name, and completing the client and request code for C# or Python. Finally, you run the app and select each of the four supplied prompt files in turn, comparing a basic prompt against prompts that add formatting, specific content, and a light, joke-filled tone.
+
 ## Lab Overview
 
 In this lab, you will perform the role of a software developer working on a wildlife marketing campaign. You are exploring how to use generative AI to improve advertising emails and categorize articles that might apply to your team. The prompt engineering techniques used in the lab can be applied similarly for a variety of use cases.
@@ -18,25 +22,21 @@ In this lab, you will complete the following tasks:
 
 ## Task 1: Apply prompt engineering in chat playground
 
-In this task, you'll explore how prompt engineering influences model behavior by experimenting with different instructions and examples in the Chat playground. You'll learn to guide the model's responses—ranging from article categorization to code generation—by modifying system prompts and adding few-shot examples.
+In this task, you'll explore how prompt engineering influences model behavior by experimenting with different instructions and examples in the Playground. You'll learn to guide the model's responses—ranging from article categorization to code generation—by modifying system prompts and adding few-shot examples.
 
-1. Navigate back to **Microsoft Foundry** portal, from the left navigation pane, select **Chat (1)** and verify that the **my-gpt-model (2)** model is selected in the Deployment.
+1. In the Microsoft Foundry portal, select the **Build (1)** tab in the top bar, then select **Deployments (2)** or **Models**, depending on your portal experience. Under **Deployed models (3)**, select your deployed model by clicking on the model name **(4)** `gpt-5-mini`.
 
-      ![](../media/MDV.png) 
+    ![](../media/l3-model-nav.png)
 
-1. Update the  **Give the model instructions and context (1)** with the text mentioned below, and click on **Apply changes (2)**. 
+1. You are taken to the model page under the **Deployments** or **Models** **(1)** tab in the left pane. Make sure the correct **model deployment (3)** is selected under **Playground (2)** tab. In the **Instructions (4)** box, you can provide a system message that tells the model how to behave in response to the prompts you send.
 
-   ```
-   You are an AI assistant that helps people find information.
-   ```
+    ![](../media/l1-nf-model-page.png)
 
-   ![](../media/hihlp.png)
+1. On the model page, make sure the **Playground** tab is selected. The playground lets you experiment with the model and test its capabilities. In the **Instructions** box, you can provide a system message that tells the model how to behave in response to the prompts you send.
 
-1. In the **Update system message?** window, click on **Continue**.
+      - Existing text - `You are an AI assistant that helps people find informations`. 
 
-      ![](../media/new/19.png)
-
-1. In the **Chat session**, submit the following query:
+1. In the **Chat session**, **submit (2)** the following query **(1)**:
 
     ```prompt
     What kind of article is this?
@@ -50,25 +50,21 @@ In this task, you'll explore how prompt engineering influences model behavior by
     Much remains to be determined about how daily life will change as people adjust to a drier normal. But officials are warning that the situation is dire and could lead to even more severe limits later in the year.
     ```
 
-1. The response describes the article. However, suppose you want a more specific format for article categorization.
-  
-   ![](../media/artcl.png)
+    ![](../media/l3-gpt-inst-2.png)
 
-1. In the **Setup** section, change the **Give the model instructions and context (1)** to the below text and click on **Apply changes (2)**. 
+1. The **User query (1)** and **response (2)** describes the article. However, suppose you want a more specific format for article categorization.
+  
+   ![](../media/l3-gpt-inst-3.png)
+
+1. In the **Instructions** box, replace the existing system message with the following:
 
    ```
    You are a news aggregator that categorizes news articles.
    ```
 
-   ![](../media/nwsagr.png)
+   ![](../media/l3-gpt-inst-4.png)
 
-1. In the **Update system message?** window, click on **Continue**.
-
-      ![](../media/new/19.png)
-
-1. Under the new system message, select the **Add section(1)** button, and choose **Examples(2)**. Then add the following example.
-
-   ![](../media/addsectioneg.png)
+1. Under the new **Instructions** system message add the following examples **(1)**.
 
    **User:**
     
@@ -88,9 +84,10 @@ In this task, you'll explore how prompt engineering influences model behavior by
     
     ```prompt
     Sports
-      ```
+    ```
+     ![](../media/l3-gpt-inst-5.png)
 
-1. Add another example with the following text.
+1. Add another example with the following text **(2)**.
 
     **User:**
     
@@ -112,16 +109,16 @@ In this task, you'll explore how prompt engineering influences model behavior by
     ```prompt
     Entertainment
     ```
+    ![](../media/l3-gpt-inst-5.png)
+
 
 1. Click on the **Apply changes** button to save your changes.
 
    ![](../media/new/w3.png)
 
-1. In the **Update system message?** window, click on **Continue**.
-
-      ![](../media/new/19.png)
-
 1. In the **Chat session** section, resubmit the following prompt:
+
+    ![](../media/l3-gpt-inst-6.png)
 
     ```prompt
     What kind of article is this?
@@ -135,16 +132,18 @@ In this task, you'll explore how prompt engineering influences model behavior by
     Much remains to be determined about how daily life will change as people adjust to a drier normal. But officials are warning that the situation is dire and could lead to even more severe limits later in the year.
     ```
 
-    The combination of a more specific system message and some examples of expected queries and responses results in a consistent format for the results.
+    The instructions include example pairs of a user query and its expected output. When you send a similar query in the chat, the model follows the same response pattern as the examples you provided.
 
-   ![](../media/envtart2.png)
+    ![](../media/l3-gpt-inst-7.png)
 
-1. Set the **Give the model instructions and context (1)** to the text mentioned below. Save the changes by clicking on **Apply changes (2)**.
+
+1. In the **Instructions** change the system message to below message.
+
    ```
    You are an AI assistant that helps people find information.
    ```
 
-   ![](../media/hihlp.png)
+   ![](../media/l3-gpt-ins-1.png)
 
 1. In the **Update system message?** window, click on **Continue**.
 
@@ -158,31 +157,27 @@ In this task, you'll explore how prompt engineering influences model behavior by
     # 3. Combine them randomly into a list of 25 animal and name pairs
     ```
 
-    The model will likely respond with an answer to satisfy the prompt, split into a numbered list. This is an appropriate response, but suppose what you wanted was for the model to write a Python program that performs the tasks you described?
+    The model will likely respond with an answer to satisfy the **prompt (1)**, split into a numbered list. This is an appropriate **response (2)**, but suppose what you wanted was for the model to write a Python program that performs the tasks you described?
 
-   ![](../media/anmllst.png)
+    ![](../media/l3-gpt-inst-8.png)
 
-1. Change the **Give the model instructions and context(1)** to the text mentioned below, and **Apply changes(2)** the changes.
+1. Replace the system message in the **Instructions**. 
 
    ```
    You are a coding assistant helping write Python code.
    ```
 
-   ![](../media/cdas.png)
+   ![](../media/l3-gpt-inst-9.png)
 
-1. In the **Update system message?** window, click on **Continue**.
-
-      ![](../media/new/19.png)
-
-1. Submit the following prompt to the model:
+1. Submit the following **prompt (1)** to the model in the chat interface:
 
       ```
       Write a Python function named Multiply that multiplies two numeric parameters.
       ```
 
-1. Review the response, which should include sample Python code that meets the requirement in the prompt.
+1. Review the **response (2)**, which should include sample Python code that meets the requirement in the prompt.
 
-      ![](../media/pyopfn.png)
+      ![](../media/l3-gpt-inst-10.png)
 
 ## Task 2: Set up an application in Cloud Shell
 
@@ -200,10 +195,6 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 
     ![](../media/bash.png)
 
-1. Once the terminal opens, click on **Settings(1)** and select **Go to Classic version(2)**.
-
-   ![](../media/gtcv.png)
-
 1. Once the terminal starts, enter the following command to download the sample application and save it to a folder called `mslearn-openai`.
 
     ```bash
@@ -217,7 +208,7 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
     cd mslearn-openai/Labfiles/03-prompt-engineering
     ```
 
-    Applications for both C# and Python have been provided, as well as a text files that provide the prompts. Both apps feature the same functionality.
+1. Applications for both C# and Python have been provided, as well as a text files that provide the prompts. Both apps feature the same functionality.
 
 1. Open the built-in code editor, and you can observe the prompt files that you'll be using in `prompts`. Use the following command to open the lab files in the code editor.
 
@@ -238,14 +229,14 @@ In this task, you will complete key parts of the provided C# or Python applicati
     - C#: `appsettings.json`
     - Python: `.env`
     
-1. In the configuration file, enter the following values for your Azure OpenAI service:
+1. In the configuration file, enter the following values for your Microsoft Foundry resource:
 
-    - **Endpoint**: The endpoint URL from your Azure OpenAI resource.
-    - **Key1**: The primary key from your Azure OpenAI resource.
+    - **Endpoint**: The endpoint URL from your Microsoft Foundry OpenAI value.
+    - **Key1**: The primary key from your  resource.
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the Azure OpenAI endpoint and key values from the Azure OpenAI resource's **Key and Endpoint** section under **Resource Management**.
+   > **Note:** You can get the OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
     
     - **C#:**
      
@@ -262,7 +253,7 @@ In this task, you will complete key parts of the provided C# or Python applicati
 
     <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -309,7 +300,7 @@ In this task, you will complete key parts of the provided C# or Python applicati
     ``` 
 
     ```
-    ./dotnet-install.sh --channel 8.0 --install-dir $DOTNET_ROOT
+    ./dotnet-install.sh --channel 9.0 --install-dir $DOTNET_ROOT
     ```
 
     ```
