@@ -2,17 +2,17 @@
 
 ## Estimated Duration: 60 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 The marketing team supporting a wildlife rescue campaign wants more predictable output from the model, so you take on the role of the developer responsible for its prompts. In the Playground, you first ask the model to categorize a news article with a plain system message, then rewrite the instructions as a news aggregator and add few-shot examples so the model answers with a single category, and switch the instructions again to make it return Python code instead of prose. You then move the same techniques into an application by cloning the sample project in Cloud Shell, configuring it with your Microsoft Foundry endpoint, key, and deployment name, and completing the client and request code for C# or Python. Finally, you run the app and select each of the four supplied prompt files in turn, comparing a basic prompt against prompts that add formatting, specific content, and a light, joke-filled tone.
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you will perform the role of a software developer working on a wildlife marketing campaign. You are exploring how to use generative AI to improve advertising emails and categorize articles that might apply to your team. The prompt engineering techniques used in the lab can be applied similarly for a variety of use cases.
 
-When working with the Azure OpenAI Service, how developers shape their prompts greatly impacts how the generative AI model will respond. Azure OpenAI models are able to tailor and format content, if requested, in a clear and concise way. In this lab, you'll learn how different prompts for similar content help shape the AI model's response to better satisfy your requirements.
+When working with the Microsoft Foundry , how developers shape their prompts greatly impacts how the generative AI model will respond. Microsoft Foundry models are able to tailor and format content, if requested, in a clear and concise way. In this lab, you'll learn how different prompts for similar content help shape the AI model's response to better satisfy your requirements.
 
-## Lab Objectives
+## 🎯 Objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Apply prompt engineering in the chat playground
@@ -22,7 +22,7 @@ In this lab, you will complete the following tasks:
 
 ## Task 1: Apply prompt engineering in chat playground
 
-In this task, you'll explore how prompt engineering influences model behavior by experimenting with different instructions and examples in the Playground. You'll learn to guide the model's responses—ranging from article categorization to code generation—by modifying system prompts and adding few-shot examples.
+In this task, you'll explore how prompt engineering influences model behavior by experimenting with different instructions and examples in the Playground. You'll learn to guide the model's responses ranging from article categorization to code generation by modifying system prompts and adding few-shot examples.
 
 1. In the Microsoft Foundry portal, select the **Build (1)** tab in the top bar, then select **Deployments (2)** or **Models**, depending on your portal experience. Under **Deployed models (3)**, select your deployed model by clicking on the model name **(4)** `gpt-5-mini`.
 
@@ -111,11 +111,6 @@ In this task, you'll explore how prompt engineering influences model behavior by
     ```
     ![](../media/l3-gpt-inst-5.png)
 
-
-1. Click on the **Apply changes** button to save your changes.
-
-   ![](../media/new/w3.png)
-
 1. In the **Chat session** section, resubmit the following prompt:
 
     ![](../media/l3-gpt-inst-6.png)
@@ -144,10 +139,6 @@ In this task, you'll explore how prompt engineering influences model behavior by
    ```
 
    ![](../media/l3-gpt-ins-1.png)
-
-1. In the **Update system message?** window, click on **Continue**.
-
-      ![](../media/new/19.png)
 
 1. In the **Chat session** section, submit the following prompt:
 
@@ -181,7 +172,7 @@ In this task, you'll explore how prompt engineering influences model behavior by
 
 ## Task 2: Set up an application in Cloud Shell
 
-In this task, you will integrate with an Azure OpenAI model by using a short command-line application running in Cloud Shell on Azure. Open a new browser tab to work with Cloud Shell.
+In this task, you will integrate with an Microsoft Foundry model by using a short command-line application running in Cloud Shell on Azure. Open a new browser tab to work with Cloud Shell.
 
 1. Navigate to **Azure portal**, select the **[>_] (Cloud Shell)** button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
@@ -220,9 +211,9 @@ In this task, you will integrate with an Azure OpenAI model by using a short com
 
 ## Task 3: Configure your application
 
-In this task, you will complete key parts of the provided C# or Python application to enable it to use your Azure OpenAI resource with asynchronous API calls, as both apps feature the same functionality.
+In this task, you will complete key parts of the provided C# or Python application to enable it to use your Microsoft Foundry resource with asynchronous Azure OpenAI API calls, as both apps feature the same functionality.
 
-1. In the code editor, expand the **CSharp** or **Python** folder, depending on your language preference. Each folder contains the language-specific files for an app into which you're going to integrate Azure OpenAI functionality.
+1. In the code editor, expand the **CSharp** or **Python** folder, depending on your language preference. Each folder contains the language-specific files for an app into which you're going to integrate Microsoft Foundry functionality.
 
 1. Open the configuration file for your language.
 
@@ -236,7 +227,11 @@ In this task, you will complete key parts of the provided C# or Python applicati
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
+        > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"/>** resource page **Keys and Endpoint** section under **Resource Management**.
+
+        > ![](../media/foundry-v2-keyendpoint.png)
+
+        > **Note**: The Microsoft Foundry portal displays the endpoint as `https://<resource-name>.openai.azure.com/openai/v1/`. Remove the `/openai/v1/` part before saving it, so only the base resource endpoint remains as shown above.
     
     - **C#:**
      
@@ -698,9 +693,9 @@ In this task, you will run your configured app to send a request to your model a
 
 11. Observe the output. This time, you'll likely see the email in a similar format, but with a much more informal tone. You'll likely even see jokes included!
 
-## Summary
+## 🧾 Summary
 
-In this lab, you explored how prompt engineering can influence the behavior of an AI model. You experimented with different system messages and few-shot examples in the chat playground to see how they affected the model's responses. You also set up a simple application in Cloud Shell that interacts with your Azure OpenAI model, allowing you to see how different prompts yield different results while keeping other parameters constant.
+In this lab, you explored how prompt engineering can influence the behavior of an AI model. You experimented with different system messages and few-shot examples in the chat playground to see how they affected the model's responses. You also set up a simple application in Cloud Shell that interacts with your Microsoft Foundry model, allowing you to see how different prompts yield different results while keeping other parameters constant.
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      

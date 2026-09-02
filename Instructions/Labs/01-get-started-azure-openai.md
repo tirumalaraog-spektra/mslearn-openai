@@ -2,15 +2,15 @@
 
 ### Estimated Duration: 120 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 Your organization is starting its generative AI journey, and as the cloud developer on the AI team you have been asked to set up the platform the rest of the team will build on. You begin by provisioning a Microsoft Foundry resource in the Azure portal and deploying the **gpt-5-mini** model with your own deployment type, rate limit, and guardrail settings. You then open the Playground to test the deployment, shaping its behavior with system instructions and few-shot examples, and adjust parameters such as **max completion tokens** and **reasoning effort** to see how they change the length and depth of responses. Finally, you switch the model into a developer role and have it generate a Python function, confirming the deployment is ready for the application work in the labs that follow
 
-## Lab overview
+## 📖 overview
 
-In this lab, you'll learn how to get started with Microsoft Foundry by provisioning the service as an Azure resource and using the Azure Microsoft Foundry portal to deploy and explore Microsoft Foundry models. Microsoft Foundry brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
+In this lab, you'll learn how to get started with Microsoft Foundry by provisioning the service as an Azure resource and using the Microsoft Foundry portal to deploy and explore Microsoft Foundry models. Microsoft Foundry brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
 
-## Lab Objectives
+## 🎯 Objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Provision a Microsoft Foundry resource
@@ -39,13 +39,13 @@ In this task, you'll create a Microsoft Foundry in the Azure portal, selecting t
     - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
-      ![](../media/l1-nf-foundry-basic.png "Create foundry resource")
+      ![](../media/foundry-v2-1.png "Create foundry resource")
 
 4. Click **Review + create (6)** tab.
 
 5. Finally on the **Review + create** tab, Verify the **Basics values (1)** and click **Create (2)** to start the deployment.
 
-     ![](../media/l1-nf-foundry-review.png "Create a foundry resource")
+     ![](../media/foundry-v2-2.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
@@ -55,7 +55,7 @@ In this task, you'll create a Microsoft Foundry in the Azure portal, selecting t
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="9ab1a143-84ef-420e-8713-2cacb6c0a63a" />
+<validation step="c441612f-1977-44cb-832a-796990d2ff0c" />
 
 ## Task 2: Deploy a model 
 
@@ -84,7 +84,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
       - **Tokens per Minute Rate Limit (3)**: **10K** (use the **slider (4)** to adjust the value)
       - **Guardrails (5)**: **DefaultV2**
 
-      ![](../media/l1-nf-gpt-3.png)
+        ![](../media/l1-nf-gpt-3.png)
 
       > **Note:** You can ignore any error related to the assignment of roles to view the quota limits.
    
@@ -97,7 +97,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="f0c29243-24d0-4f47-a237-0e8982262203" />
+<validation step="70feac4b-7ee0-42a0-9c82-384c63b69f6e" />
    
 ## Task 3: Use the Playground
 
@@ -176,11 +176,11 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
 3. Review the chat, which shows your **user prompt (1)** and the model's **response (2)**. Although you asked for a 500-word explanation, the response is cut short because you set **max completion tokens** to **400** in the previous step.
 
-   >**Note**: **Max completion tokens** caps how long the model's reply can be — it's an upper bound on the number of tokens the model is allowed to generate for a single response.
+   >**Note**: **Max completion tokens** caps how long the model's reply can be  it's an upper bound on the number of tokens the model is allowed to generate for a single response.
 
       ![](../media/lab1-aoai-f-mxt-2.png)
 
-4. Generation stops early and the playground displays a **Token limit reached (1)** message, because the reply hit the **max completion tokens** limit. Now raise **max completion tokens** above **500** and resubmit the same prompt — this time the model has enough room to finish the full explanation. 
+4. Generation stops early and the playground displays a **Token limit reached (1)** message, because the reply hit the **max completion tokens** limit. Now raise **max completion tokens** above **500** and resubmit the same prompt  this time the model has enough room to finish the full explanation. 
 
    - Click **New chat (2)** to start a fresh chat session. This clears the current conversation, so the previous messages are no longer available.
 
@@ -192,7 +192,7 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
       - The parameters include *Max completion tokens*, which sets an upper limit on how many tokens the model can generate in a single response. Because 400 tokens is roughly 300 words, the limit was reached before the model could deliver the 500 words the prompt asked for.
 
-      - When a parameter and a prompt disagree, the parameter wins. No matter how the prompt is worded, the model cannot produce more output than *Max completion tokens* allows — which is why raising the limit was necessary to get the complete explanation.
+      - When a parameter and a prompt disagree, the parameter wins. No matter how the prompt is worded, the model cannot produce more output than *Max completion tokens* allows which is why raising the limit was necessary to get the complete explanation.
 
 6. We add another value called **Reasoning Effort (1)** with high,medium,low  you can change this values and give the prompt **(2)** and click **Send (3)** to check Reasoning skills of AI model. 
 
@@ -239,7 +239,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
      ![](../media/lab1-aoai-f-python-output.png)
 
 
-## Summary
+## 🧾 Summary
 
 In this lab, you provisioned an Microsoft Foundry resource, deployed a model using Azure Microsoft Foundry, and explored its capabilities in the Playground, including testing prompts, adjusting parameters, and evaluating the model’s ability to generate code for your applications.
 

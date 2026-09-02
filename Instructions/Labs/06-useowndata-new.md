@@ -1,23 +1,23 @@
-# Lab 06: Add your data for RAG with Microsoft Foundry
+# Lab 06: Add your data for RAG with a Microsoft Foundry Agent
 
 ## Estimated Duration: 75 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 A travel company wants its assistant to answer from the brochures it publishes rather than from whatever the model picked up during training, and you are asked to build that grounding. You start in the Playground by asking where to stay in New York and what facts the model knows about the city, establishing how the ungrounded model responds. You then create an agent named `my-gpt-agent` in Microsoft Foundry, turn off web search so it can only draw on your documents, and upload the lab's city brochure PDFs into a new vector index, saving the configuration as a new agent version. Asking the same two questions again, you get specific hotels along with inline citations pointing back to the source PDFs. Finally, you set up the sample application in Cloud Shell, configure it with your Microsoft Foundry endpoint, key, and agent details, and run it to ask `Tell me about London` from code.
 
-## Lab Overview
+## 📖 Overview
 
-In this lab, you will learn how to connect your own data to the Microsoft Foundry for Retrieval-Augmented Generation (RAG).
+In this lab, you will learn how to connect your own data to the Microsoft Foundry Agent for Retrieval-Augmented Generation (RAG).
 
 The Microsoft Foundry enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 
 - Task 1: Observe normal chat behavior without adding your own data
-- Task 2: Create an assistant and connect your data
+- Task 2: Create an Agent and connect your data
 - Task 3: Chat with a model grounded in your data
 - Task 4: Set up an application in Cloud Shell
 - Task 5: Configure your application
@@ -83,13 +83,13 @@ In this task, you will create an agent that will  responds to queries with groun
 
     ![](../media/l6-agent-4-3.png)
 
-1. In the **Attach files** pop-up, leave **Index option (1)** set to **Create a new index**. A **Vector index name (2)** is generated automatically — for example, `index_green_bear_drhrz2jl9r`. The name in your environment will differ from the one shown here; leave it as is.
+1. In the **Attach files** pop-up, leave **Index option (1)** set to **Create a new index**. A **Vector index name (2)** is generated automatically  for example, `index_green_bear_drhrz2jl9r`. The name in your environment will differ from the one shown here; leave it as is.
 
 1. Then click **browse for files (3)** to select documents from your local machine, or drag and drop them into the upload area.
 
     ![](../media/l6-agent-4.png)
 
-    > **Note:** **The vector index** is what allows the agent to answer from your documents. When you attach files, Foundry splits them into chunks, converts each chunk into a numeric vector using a text embedding model, and stores those vectors in the index. At query time, your question is embedded the same way and the closest matching chunks are retrieved and passed to the model as grounding context — so answers come from your documents rather than the public web.
+    > **Note:** **The vector index** is what allows the agent to answer from your documents. When you attach files, Foundry splits them into chunks, converts each chunk into a numeric vector using a text embedding model, and stores those vectors in the index. At query time, your question is embedded the same way and the closest matching chunks are retrieved and passed to the model as grounding context so answers come from your documents rather than the public web.
     >
     > **A text embedding model** deployment is created automatically as part of this process, so you don't need to deploy one separately.
 
@@ -130,7 +130,7 @@ In this task, you will ask the same questions as before in the chat section afte
    I'd like to take a trip to New York. Where should I stay?
    ```
 
-1. The agent generates a response **(2)** using the content from your uploaded document rather than the web. Each fact includes an inline reference number, and the source files are listed as citations **(3)** below the response — for example, `New York Brochure.pdf`. Click a citation to view the exact passage the answer was drawn from.
+1. The agent generates a response **(2)** using the content from your uploaded document rather than the web. Each fact includes an inline reference number, and the source files are listed as citations **(3)** below the response for example, `New York Brochure.pdf`. Click a citation to view the exact passage the answer was drawn from.
 
 
    ![](../media/l6-agent-11.png) 
@@ -147,7 +147,7 @@ In this task, you will ask the same questions as before in the chat section afte
 
 ## Task 4: Set up an application in Cloud Shell
 
-In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate integration with an Azure OpenAI model. Open a new browser tab to access Cloud Shell.
+In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate integration with a Microsoft Foundry model. Open a new browser tab to access Cloud Shell.
 
 1. In the **Azure portal**, select the **[>_] (Cloud Shell)** button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
@@ -180,7 +180,7 @@ In this task, you will use a short command-line application running in Cloud She
 
 ## Task 5: Configure your application
 
-In this task, you will complete key parts of the application to enable it to use your Azure OpenAI resource.
+In this task, you will complete key parts of the application to enable it to use your Microsoft Foundry resource.
 
 1. In the code editor, expand the language folder for your preferred language.
 
@@ -208,10 +208,14 @@ In this task, you will complete key parts of the application to enable it to use
 
 1. Update the configuration file for your chosen language with the following values:
 
-    - **Microsoft Foundry project endpoint**: Paste the project endpoint URL from your Microsoft Foundry project.
-    - **Agent name**: Enter the name of the agent you created in Task 2.
-    - **Agent version**: Enter the version of the agent you created in Task 2.
+    - **Microsoft Foundry project endpoint**: Paste the project endpoint URL from your Microsoft Foundry portal.
+    - **Agent name**: Enter the name of the agent you created in `Task 2 > step 2`.
+    - **Agent version**: Enter the version of the agent you created in `Task 2 > step 13`.
     - Save your changes after updating these values.
+
+        > You can get the project endpoint in Microsoft Foundry portal.
+
+        > ![](../media/foundry-v2-projectendpoint.png)
 
         ![](../media/l6-code-c1.png)
 
@@ -512,9 +516,9 @@ In this task, you will run the reviewed code to generate some images.
 
     ![](../media/optown.png)
 
-## Summary
+## 🧾 Summary
 
-In this lab, you began by evaluating how an Azure OpenAI model responds without grounding data to understand its baseline behavior. You then created an assistant with file search capabilities and connected it to a vector store containing your custom data, enabling grounded responses. By comparing outputs before and after grounding, you observed how Retrieval-Augmented Generation (RAG) improves the relevance and accuracy of responses. You also set up a development environment in Azure Cloud Shell, explored the provided application code, and configured it with your Azure OpenAI credentials and assistant details. Finally, you executed the application to interact programmatically with a grounded AI model, completing an end-to-end implementation of a RAG-based solution.
+In this lab, you began by evaluating how a Microsoft Foundry Model responds without grounding data to understand its baseline behavior. You then created an Agent with file search capabilities and connected it to a vector store containing your custom data, enabling grounded responses. By comparing outputs before and after grounding, you observed how Retrieval-Augmented Generation (RAG) improves the relevance and accuracy of responses. You also set up a development environment in Azure Cloud Shell, explored the provided application code, and configured it with your Microsoft Foundary credentials and Agent details. Finally, you executed the application to interact programmatically with a grounded AI model, completing an end-to-end implementation of a RAG-based solution.
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      

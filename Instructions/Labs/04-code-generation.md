@@ -1,19 +1,19 @@
-# Lab 04: Generate and improve code with Azure OpenAI Service
+# Lab 04: Generate and improve code with Microsoft Foundry Model
 
 ## Estimated Duration: 60 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
-Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt` — and see why AI-generated code still needs a developer's verification.
+Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt`  and see why AI-generated code still needs a developer's verification.
 
 
-## Lab Overview
+## 📖 Overview
 
-In this lab, you will learn how to use Azure OpenAI Service to generate, explain, and improve code using natural language prompts. You will explore code generation in the chat playground and integrate OpenAI into your app to automate code tasks. This will help you enhance productivity by simplifying coding and debugging processes.
+In this lab, you will learn how to use Microsoft Foundry to generate, explain, and improve code using natural language prompts. You will explore code generation in the chat playground and integrate Microsoft Foundry Model into your app to automate code tasks. This will help you enhance productivity by simplifying coding and debugging processes.
 
-The Azure OpenAI Service models can generate code for you using natural language prompts, fixing bugs in completed code, and providing code comments. These models can also explain and simplify existing code, helping you understand what it does and how to improve it.
+The Microsoft Foundry models can generate code for you using natural language prompts, fixing bugs in completed code, and providing code comments. These models can also explain and simplify existing code, helping you understand what it does and how to improve it.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 
@@ -24,7 +24,7 @@ In this lab, you will complete the following tasks:
 
 ## Task 1: Generate code in chat playground
 
-In this task, you will examine how Azure OpenAI can generate and explain code in the Chat playground before using it in your app.
+In this task, you will examine how Microsoft Foundry model can generate and explain code in the Chat playground before using it in your app.
 
 1. Navigate back to Microsoft Foundry portal, from the left navigation pane, select **Deployments or Models (1)** based on foundry portal experience and verify that the your deployed **model (2)** is selected in the Deployment.
 
@@ -93,7 +93,7 @@ In this task, you will examine how Azure OpenAI can generate and explain code in
 
 ## Task 2: Set up an application in Cloud Shell
 
-In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate how to integrate with an Azure OpenAI model. Open a new browser tab to access Cloud Shell.
+In this task, you will use a short command-line application running in Cloud Shell on Azure to demonstrate how to integrate with a Microsoft Foundry model. Open a new browser tab to access Cloud Shell.
 
 1. In the **Azure portal**, select the **[>_] (Cloud Shell)** button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
 
@@ -121,7 +121,7 @@ In this task, you will use a short command-line application running in Cloud She
 
 ## Task 3: Configure your application
 
-In this task, you will complete key parts of the application to enable it to use your Azure OpenAI model.
+In this task, you will complete key parts of the application to enable it to use your Microsoft Foundry model.
 
 1. In the code editor, expand the language folder for your preferred language.
 
@@ -132,12 +132,16 @@ In this task, you will complete key parts of the application to enable it to use
 
 1. In the configuration file, enter the following values for your Microsoft Foundry service:
 
-    - **Endpoint**: The endpoint URL from your Azure OpenAI resource.
-    - **Key1**: The primary key from your Azure OpenAI resource.
+    - **Endpoint**: The Azure OpenAI endpoint URL from your Microsoft Foundry in **Home** page.
+    - **API**: The API key from your Microsoft Foundry in **Home**.
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
+      > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"/>** resource page **Keys and Endpoint** section under **Resource Management**.
+
+        > ![](../media/foundry-v2-keyendpoint.png)
+
+        > **Note**: The Microsoft Foundry portal displays the endpoint as `https://<resource-name>.openai.azure.com/openai/v1/`. Remove the `/openai/v1/` part before saving it, so only the base resource endpoint remains as shown above.
 
    - **C#:**
 
@@ -226,15 +230,15 @@ In this task, you will run your configured app to generate code for each use cas
 
       ![](../media/cat.png)
 
-The app for Go Fish in `sample-code` can be run if you replace the lines with bugs with the response from Azure OpenAI. If you run it without the fixes, it will not work correctly.
+1. The app for Go Fish in `sample-code` can be run if you replace the lines with bugs with the response from Microsoft Foundry model. If you run it without the fixes, it will not work correctly.
 
-It's important to note that even though the code for this Go Fish app was corrected for some syntax, it's not a strictly accurate representation of the game. If you look closely, there are issues with not checking if the deck is empty when drawing cards, not removing pairs from the player's hand when they get a pair, and a few other bugs that require an understanding of card games to realize. This is a great example of how useful generative AI models can be to assist with code generation, but they can't be trusted as correct and need to be verified by the developer.
+1. It's important to note that even though the code for this Go Fish app was corrected for some syntax, it's not a strictly accurate representation of the game. If you look closely, there are issues with not checking if the deck is empty when drawing cards, not removing pairs from the player's hand when they get a pair, and a few other bugs that require an understanding of card games to realize. This is a great example of how useful generative AI models can be to assist with code generation, but they can't be trusted as correct and need to be verified by the developer.
 
-If you would like to see the full response from Azure OpenAI, you can set the `printFullResponse` variable to `True` and re-run the app.
+If you would like to see the full response from Microsoft Foundry model, you can set the `printFullResponse` variable to `True` and re-run the app.
 
-## Summary
+## 🧾 Summary
 
-In this lab, you explored how to use Azure OpenAI Service to generate, explain, and improve code using natural language prompts. You generated code in different programming languages, explained existing code, and simplified functions using the chat playground. You also set up a command-line application in Cloud Shell, configured it to use your Azure OpenAI resource, and ran the application to automate code tasks such as adding comments, writing unit tests, and fixing bugs.
+In this lab, you explored how to use Microsoft Foundry to generate, explain, and improve code using natural language prompts. You generated code in different programming languages, explained existing code, and simplified functions using the chat playground. You also set up a command-line application in Cloud Shell, configured it to use your Microsoft Foundry resource, and ran the application to automate code tasks such as adding comments, writing unit tests, and fixing bugs.
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next lab.
      
