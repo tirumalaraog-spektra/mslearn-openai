@@ -167,7 +167,9 @@ In this task, you will configure the application to connect with the Azure OpenA
      
       ![](../media/new/q3.png) 
 
-       > **Note:** You can get the Azure OpenAI endpoint and key values from the Azure OpenAI resource's **Key and Endpoint** section under **Resource Management**.
+       > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"/>** resource page **Keys and Endpoint** section under **Resource Management**.
+
+       >![](../media/foundry-v2-keyendpoint.png)
 
 1. Navigate back to the Cloudshell and install the necessary packages for your preferred language:
 
@@ -552,7 +554,7 @@ In this task, you will run the application and interact with the Azure OpenAI mo
 
     ![](../media/l2-close-cloudshell.png)
 
-## Summary
+## 🧾 Summary
 
 In this lab, you used your Azure OpenAI resource to build and test an application with the Azure OpenAI SDK by configuring the development environment, integrating required credentials, and running the sample app to observe how different prompts influence AI-generated responses.
 

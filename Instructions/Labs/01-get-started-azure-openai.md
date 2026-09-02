@@ -39,13 +39,13 @@ In this task, you'll create a Microsoft Foundry in the Azure portal, selecting t
     - Region: Select **<inject key="Region" enableCopy="false" /> (4)**
     - Default project name: **proj-default (5)**
   
-      ![](../media/l1-nf-foundry-basic.png "Create foundry resource")
+      ![](../media/foundry-v2-1.png "Create foundry resource")
 
 4. Click **Review + create (6)** tab.
 
 5. Finally on the **Review + create** tab, Verify the **Basics values (1)** and click **Create (2)** to start the deployment.
 
-     ![](../media/l1-nf-foundry-review.png "Create a foundry resource")
+     ![](../media/foundry-v2-2.png "Create a foundry resource")
 
 5. Wait for the deployment to complete, then go to the deployed resource from the notification pane.
 
@@ -239,7 +239,7 @@ In this task, you'll explore code generation by testing the AI model’s ability
      ![](../media/lab1-aoai-f-python-output.png)
 
 
-## Summary
+## 🧾 Summary
 
 In this lab, you provisioned an Microsoft Foundry resource, deployed a model using Azure Microsoft Foundry, and explored its capabilities in the Playground, including testing prompts, adjusting parameters, and evaluating the model’s ability to generate code for your applications.
 

@@ -99,6 +99,12 @@ To adjust the zoom level for the environment page, click the **A↕** icon locat
 
    ![](../media/gs-font-size.png)
 
+## Resize the Virtual Machine View
+
+Use the **slider (three vertical dots)** located between the **Virtual Machine** and the **Lab Guide** panes to adjust the display size, allowing you to customize the layout based on your preference.
+
+   ![](../media/resize-vm-guide-2.png)
+
 ## Let's Get Started with Azure Portal
 
 1. On your **Lab VM**, click on the **Azure Portal** icon as shown below:
@@ -125,7 +131,7 @@ To adjust the zoom level for the environment page, click the **A↕** icon locat
 
    ![](../media/starttour.png)
 
-## Support Contact
+## 📞 Support Contact
 
 The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
  

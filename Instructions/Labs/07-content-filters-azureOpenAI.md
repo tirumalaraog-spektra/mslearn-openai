@@ -4,7 +4,7 @@
 
 ## 📘 Scenario
 
-Before the solutions you have built go to users, your organization requires a responsible AI review, and you are asked to verify how the deployment handles harmful content. In the Playground, you send a harmless prompt about the characteristics of Scottish people and review the response, then deliberately replace the system message with racist, derogatory instructions and resubmit the same prompt to see the default guardrails block the offensive output. You then open the **Guardrail** section for your model deployment and create a new guardrail, reviewing the **Jailbreak** control that blocks prompt-injection attempts at user input and the optional indirect prompt injection and spotlighting protections. Finally, you examine the **Content harms** controls for hate, sexual, self-harm, and violence, where severity thresholds, intervention points, and blocklists let you tighten filtering to match your own responsible AI requirements.
+Your organization requires a responsible AI review, and you are asked to verify how the deployment handles harmful content. In the Playground, you send a harmless prompt about the characteristics of Scottish people and review the response, then deliberately replace the system message with racist, derogatory instructions and resubmit the same prompt to see the default guardrails block the offensive output. You then open the **Guardrail** section for your model deployment and create a new guardrail, reviewing the **Jailbreak** control that blocks prompt-injection attempts at user input and the optional indirect prompt injection and spotlighting protections. Finally, you examine the **Content harms** controls for hate, sexual, self-harm, and violence, where severity thresholds, intervention points, and blocklists let you tighten filtering to match your own responsible AI requirements.
 
 ## 📖 Overview
 
@@ -23,7 +23,7 @@ In this task, you will observe how the model behaves in a conversational interac
 
 1. Navigate to [Microsoft Foundry](https://ai.azure.com/) portal.
 
-1. 1. In the Microsoft Foundry portal, select the **Build (1)** tab in the top bar, then select **Deployments (2)** or **Models**, depending on your portal experience. Under **Deployed models (3)**, select your deployed model by clicking on the model name **(4)** `gpt-5-mini`.
+1. In the Microsoft Foundry portal, select the **Build (1)** tab in the top bar, then select **Deployments (2)** or **Models**, depending on your portal experience. Under **Deployed models (3)**, select your deployed model by clicking on the model name **(4)** `gpt-5-mini`.
 
     ![](../media/l3-model-nav.png)
 
@@ -103,7 +103,7 @@ In this task, you will explore the guardrail controls available for a model depl
 
 
 
-## Summary
+## 🧾 Summary
 
 In this lab, you explored the default Microsoft Foundry Guardrails and observed how they help prevent the generation of potentially harmful or offensive language. You also reviewed how to create and configure custom guardrails — jailbreak and content harm controls — and how to assign a built-in guardrail to meet specific responsible AI requirements for your generative AI applications.
 

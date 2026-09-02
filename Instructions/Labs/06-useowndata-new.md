@@ -208,10 +208,14 @@ In this task, you will complete key parts of the application to enable it to use
 
 1. Update the configuration file for your chosen language with the following values:
 
-    - **Microsoft Foundry project endpoint**: Paste the project endpoint URL from your Microsoft Foundry project.
-    - **Agent name**: Enter the name of the agent you created in Task 2.
-    - **Agent version**: Enter the version of the agent you created in Task 2.
+    - **Microsoft Foundry project endpoint**: Paste the project endpoint URL from your Microsoft Foundry portal.
+    - **Agent name**: Enter the name of the agent you created in `Task 2 > step 2`.
+    - **Agent version**: Enter the version of the agent you created in `Task 2 > step 13`.
     - Save your changes after updating these values.
+
+        > You can get the project endpoint in Microsoft Foundry portal.
+
+        > ![](../media/foundry-v2-projectendpoint.png)
 
         ![](../media/l6-code-c1.png)
 
@@ -512,7 +516,7 @@ In this task, you will run the reviewed code to generate some images.
 
     ![](../media/optown.png)
 
-## Summary
+## 🧾 Summary
 
 In this lab, you began by evaluating how a Microsoft Foundry Model responds without grounding data to understand its baseline behavior. You then created an Agent with file search capabilities and connected it to a vector store containing your custom data, enabling grounded responses. By comparing outputs before and after grounding, you observed how Retrieval-Augmented Generation (RAG) improves the relevance and accuracy of responses. You also set up a development environment in Azure Cloud Shell, explored the provided application code, and configured it with your Microsoft Foundary credentials and Agent details. Finally, you executed the application to interact programmatically with a grounded AI model, completing an end-to-end implementation of a RAG-based solution.
 

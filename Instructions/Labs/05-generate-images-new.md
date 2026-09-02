@@ -148,7 +148,7 @@ In this task, you will use a configuration file in the application to store the 
 
     >**Note:** To find the values you need, select the **Home (1)** tab in the top bar of the Microsoft Foundry portal. At the bottom of the page, use the copy icons to copy the **Azure OpenAI endpoint (2)** and the **API key (3)**, and paste them into a notepad.
 
-    ![](../media/l5-openai-values.png)
+    > ![](../media/l5-openai-values.png)
 
 1. Now update the following values in the file from notepad which you copied:
 
@@ -300,7 +300,7 @@ In this task, you will run the reviewed code to generate some images.
 
 5. Close the tab containing the generated image and re-run the app to generate a new image with a different prompt.
 
-## Summary
+## 🧾 Summary
 
 In this lab, you explored the gpt-image-1.5 playground in the Azure Microsoft Foundry portal to generate images based on natural language prompts. You also examined a simple application that uses the REST API to generate images with a gpt-image-1.5 model and ran the application in the Cloud Shell console within the Azure portal.
 

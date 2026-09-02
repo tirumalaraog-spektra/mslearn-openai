@@ -111,11 +111,6 @@ In this task, you'll explore how prompt engineering influences model behavior by
     ```
     ![](../media/l3-gpt-inst-5.png)
 
-
-1. Click on the **Apply changes** button to save your changes.
-
-   ![](../media/new/w3.png)
-
 1. In the **Chat session** section, resubmit the following prompt:
 
     ![](../media/l3-gpt-inst-6.png)
@@ -232,7 +227,11 @@ In this task, you will complete key parts of the provided C# or Python applicati
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
+        > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"/>** resource page **Keys and Endpoint** section under **Resource Management**.
+
+        > ![](../media/foundry-v2-keyendpoint.png)
+
+        > **Note**: The Microsoft Foundry portal displays the endpoint as `https://<resource-name>.openai.azure.com/openai/v1/`. Remove the `/openai/v1/` part before saving it, so only the base resource endpoint remains as shown above.
     
     - **C#:**
      
@@ -694,7 +693,7 @@ In this task, you will run your configured app to send a request to your model a
 
 11. Observe the output. This time, you'll likely see the email in a similar format, but with a much more informal tone. You'll likely even see jokes included!
 
-## Summary
+## 🧾 Summary
 
 In this lab, you explored how prompt engineering can influence the behavior of an AI model. You experimented with different system messages and few-shot examples in the chat playground to see how they affected the model's responses. You also set up a simple application in Cloud Shell that interacts with your Azure OpenAI model, allowing you to see how different prompts yield different results while keeping other parameters constant.
 

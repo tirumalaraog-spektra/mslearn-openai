@@ -137,7 +137,11 @@ In this task, you will complete key parts of the application to enable it to use
     - **Deployment Name**: Set this to **my-gpt-model** (the name of your model deployment).
     After updating these values, save the file by right-clicking it in the left pane.
 
-   > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Key and Endpoint** section under **Resource Management**.
+      > **Note:** You can get the Azure OpenAI endpoint and key values from the Microsoft Foundry resource's **Foundry-Lab-<inject key="DeploymentID" enableCopy="false"/>** resource page **Keys and Endpoint** section under **Resource Management**.
+
+        > ![](../media/foundry-v2-keyendpoint.png)
+
+        > **Note**: The Microsoft Foundry portal displays the endpoint as `https://<resource-name>.openai.azure.com/openai/v1/`. Remove the `/openai/v1/` part before saving it, so only the base resource endpoint remains as shown above.
 
    - **C#:**
 
@@ -232,7 +236,7 @@ It's important to note that even though the code for this Go Fish app was correc
 
 If you would like to see the full response from Microsoft Foundry model, you can set the `printFullResponse` variable to `True` and re-run the app.
 
-## Summary
+## 🧾 Summary
 
 In this lab, you explored how to use Microsoft Foundry to generate, explain, and improve code using natural language prompts. You generated code in different programming languages, explained existing code, and simplified functions using the chat playground. You also set up a command-line application in Cloud Shell, configured it to use your Microsoft Foundry resource, and ran the application to automate code tasks such as adding comments, writing unit tests, and fixing bugs.
 
