@@ -2,18 +2,18 @@
 
 ## Estimated Duration: 60 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt` — and see why AI-generated code still needs a developer's verification.
 
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you will learn how to use Microsoft Foundry to generate, explain, and improve code using natural language prompts. You will explore code generation in the chat playground and integrate Microsoft Foundry Model into your app to automate code tasks. This will help you enhance productivity by simplifying coding and debugging processes.
 
 The Microsoft Foundry models can generate code for you using natural language prompts, fixing bugs in completed code, and providing code comments. These models can also explain and simplify existing code, helping you understand what it does and how to improve it.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 

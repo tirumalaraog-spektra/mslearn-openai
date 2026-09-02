@@ -2,17 +2,17 @@
 
 ## Estimated Duration: 75 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 A design team wants concept art drafted straight from written briefs instead of waiting on a stock library, and you are asked to prove that a generative model can do the job. You deploy the gpt-image-1.5 model with custom settings in Microsoft Foundry, then open the image playground and generate a picture from the prompt *An elephant on a skateboard*, before adding style guidance to the same prompt to see how *in the style of Picasso* changes the result. Moving from the portal into code, you open Cloud Shell, configure the sample C# or Python app with your Azure OpenAI endpoint, key, and the `gpt-image-model` deployment name, and review how the app submits a generation request and then polls the **operation-location** callback URL until the image is ready. Finally, you run the app, describe an image such as *A giraffe flying a kite*, and download the generated file to view it.
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you'll use a gpt-image-1.5 model to generate images based on natural language prompts.
 
 The Microsoft Foundry includes an image-generation model named gpt-image-1.5. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 

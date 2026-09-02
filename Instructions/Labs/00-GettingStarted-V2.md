@@ -1,16 +1,16 @@
 # Develop Generative AI solutions with Microsoft Foundry 
 
-## Estimated Duration: 8 Hours
+## Overall Estimated Duration: 8 Hours
 
-## Lab Scenario
+## 📘 Lab Scenario
 
 You are the developer responsible for bringing generative AI into your organization's applications, and you build the solution end to end across this lab series. You start by provisioning a Microsoft Foundry resource, deploying a **gpt-5-mini** model, and exploring it in the Playground with system instructions, few-shot examples, and parameters such as max completion tokens and reasoning effort. You then move the model into code, using the Azure OpenAI SDKs & Microsoft Foundry SDKs in a Cloud Shell application, and apply prompt engineering techniques so the same model returns the format, content, and tone your campaign needs. Next, you put the model to work on developer tasks — generating, explaining, commenting, unit-testing, and debugging code — and add visuals by deploying the **gpt-image-1.5** model and generating images from both the playground and the REST API. Finally, you ground the model in your own documents by creating a Foundry agent backed by a vector index for Retrieval-Augmented Generation, and close the series with a responsible AI review of the default content filters and guardrail controls that keep the deployment safe.
 
-## Overview
+## 📖 Lab Overview
 
 This hands-on lab offers a comprehensive introduction to the Microsoft Foundry. You will begin by configuring the service and integrating Azure OpenAI SDKs and Foundry SDKs into your application. Techniques in prompt engineering will refine interactions, and you'll also gain skills in generating and enhancing code. The gpt-image-1.5 model will be utilized for image generation, and you will explore the use of your own data for retrieval-augmented generation (RAG). Additionally, you will delve into content filtering to manage and regulate generated outputs. Throughout the labs, you'll gain practical experience with real-world AI applications, learn best practices for deploying and scaling these services in a production environment, and understand how to integrate various Azure services to develop resilient, scalable, and secure AI-powered applications.
 
-## Objective 
+## 🎯 Lab Objective 
 
 This lab is aimed at giving learners hands-on experience with Microsoft Foundry resources, deploying and exploring models using the Completions and Chat playgrounds, and experimenting with prompts, parameters, and code generation. By completing this lab
 
@@ -30,7 +30,7 @@ Participants will learn:
 
 - **Explore content filters in Microsoft Foundry:** This hands-on exercise demonstrates how to construct and maintain content filters in Microsoft Foundry portal to control and refine generated outputs. Participants will learn about and implement content filters in Microsoft Foundry Guardrails to control and refine the created material.
 
-## Prerequisites
+## ⚙️ Prerequisites
 
 Participants should have:
 
@@ -39,17 +39,17 @@ Participants should have:
 - **AI Concepts:** Understanding prompt engineering, code development, and image generation using models such as gpt-image-1.5.
 - **Content Management:** Understanding data integration for RAG and content filtering techniques.
    
-## Architecture
+## 🏗️ Architecture
 
 This lab provides robust functionalities for leveraging AI within Azure. Microsoft Foundry integrates your data with large language models, enabling customized and secure interactions tailored to your needs. Microsoft Foundry Models offer pre-trained and customizable models for various applications, such as text generation and language translation. Azure CloudShell provides an online, browser-based shell for managing Azure resources and running scripts, streamlining cloud management. gpt-image-1.5 generates images from textual descriptions using advanced AI technology, enhancing creative capabilities. Finally, prompt engineering refines input prompts to optimize AI model responses, ensuring accuracy and relevance in outputs.
 
-## Architecture Diagram
+## 🖼️ Architecture Diagram
 
 ![](../media/DevgenAI-Arch-1-3.png "Lab Environment")
 
 ![](../media/DevgenAI-Arch-4-7.png "Lab Environment")
 
-## Explanation of Components
+## 🔍 Explanation of Components
 
 The architecture for this lab involves the following key components:
 
@@ -61,9 +61,9 @@ The architecture for this lab involves the following key components:
 - **gpt-image-1.5:** gpt-image-1.5 uses artificial intelligence technology to generate visuals from written descriptions. Enhances creativity by translating word inputs into distinct and coherent pictures.
 - **Prompt Engineering:** Prompt engineering fine-tunes input prompts to improve AI model replies, ensuring accurate and relevant outputs by optimizing how prompts are produced and delivered to AI models.
 
-# Getting Started with the lab environment
+# 🚀 Getting Started with the lab environment
  
-We've prepared a seamless environment for you to explore and learn about the connection between artificial intelligence (AI), Responsible AI, and text, code, and image generation. Let's begin by making the most of this experience:
+Welcome to your **Develop Generative AI solutions with Microsoft Foundry!**. We've prepared a seamless environment for you to explore and learn about the connection between artificial intelligence (AI), Responsible AI, and text, code, and image generation. Let's begin by making the most of this experience:
  
 ## Accessing Your Lab Environment
  

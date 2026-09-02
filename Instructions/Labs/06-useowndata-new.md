@@ -2,17 +2,17 @@
 
 ## Estimated Duration: 75 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 A travel company wants its assistant to answer from the brochures it publishes rather than from whatever the model picked up during training, and you are asked to build that grounding. You start in the Playground by asking where to stay in New York and what facts the model knows about the city, establishing how the ungrounded model responds. You then create an agent named `my-gpt-agent` in Microsoft Foundry, turn off web search so it can only draw on your documents, and upload the lab's city brochure PDFs into a new vector index, saving the configuration as a new agent version. Asking the same two questions again, you get specific hotels along with inline citations pointing back to the source PDFs. Finally, you set up the sample application in Cloud Shell, configure it with your Microsoft Foundry endpoint, key, and agent details, and run it to ask `Tell me about London` from code.
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you will learn how to connect your own data to the Microsoft Foundry Agent for Retrieval-Augmented Generation (RAG).
 
 The Microsoft Foundry enables you to use your own data with the intelligence of the underlying LLM. You can limit the model to only use your data for pertinent topics or blend it with results from the pre-trained model.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 

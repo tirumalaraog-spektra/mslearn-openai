@@ -2,15 +2,15 @@
 
 ## Estimated Duration: 40 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 Before the solutions you have built go to users, your organization requires a responsible AI review, and you are asked to verify how the deployment handles harmful content. In the Playground, you send a harmless prompt about the characteristics of Scottish people and review the response, then deliberately replace the system message with racist, derogatory instructions and resubmit the same prompt to see the default guardrails block the offensive output. You then open the **Guardrail** section for your model deployment and create a new guardrail, reviewing the **Jailbreak** control that blocks prompt-injection attempts at user input and the optional indirect prompt injection and spotlighting protections. Finally, you examine the **Content harms** controls for hate, sexual, self-harm, and violence, where severity thresholds, intervention points, and blocklists let you tighten filtering to match your own responsible AI requirements.
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you'll explore the effect of Microsoft Foundry Guardrails on a model deployment. You'll begin by generating natural language output in the Playground to see how the deployed model responds to a normal prompt, and then to a deliberately harmful system message, so you can observe the default guardrails identify and block potentially harmful prompts and completions.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 

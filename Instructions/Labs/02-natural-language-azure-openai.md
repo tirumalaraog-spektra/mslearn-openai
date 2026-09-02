@@ -2,17 +2,17 @@
 
 ### Estimated Duration: 120 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 Now that a model is deployed, your team wants the same capability available inside an application instead of the portal. Acting as the software developer on that task, you return to the Microsoft Foundry resource you provisioned earlier to collect its endpoint, key, and deployment name, then open Azure Cloud Shell and clone the sample C# and Python apps into the built-in code editor. You add the Azure OpenAI SDK to the project, store the credentials in `appsettings.json` or `.env`, and complete the client and chat-completion code that sends a system and user message to your model. You then run the app and work through a series of prompts for a wildlife rescue, changing the system message and user message each round to observe how format, content, and tone instructions reshape the generated output.
 
-## Lab Overview
+## 📖 Overview
 
 In the lab, you will perform the role of a software developer who has been tasked to implement an app that can use generative AI to help provide hiking recommendations. The techniques used in the exercise can be applied to any app that utilizes Microsoft Foundry APIs.
 
 With the  Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Microsoft Foundry provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. In this exercise, you'll learn how to deploy a model in Microsoft Foundry and use it in your application.
 
-## Lab Objectives
+## 🎯 Objectives
 
 In this lab, you will complete the following tasks:
 
@@ -114,7 +114,7 @@ In this task, you will set up a development environment using Azure Cloud Shell.
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="fc003b3d-0ba1-468e-9271-917c42e5eabb" />
+<validation step="15118cbe-23d9-41b9-8f4b-87472afe89a6" />
 
 ## Task 3: Configure your application
 

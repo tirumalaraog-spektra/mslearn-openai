@@ -2,17 +2,17 @@
 
 ## Estimated Duration: 60 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 The marketing team supporting a wildlife rescue campaign wants more predictable output from the model, so you take on the role of the developer responsible for its prompts. In the Playground, you first ask the model to categorize a news article with a plain system message, then rewrite the instructions as a news aggregator and add few-shot examples so the model answers with a single category, and switch the instructions again to make it return Python code instead of prose. You then move the same techniques into an application by cloning the sample project in Cloud Shell, configuring it with your Microsoft Foundry endpoint, key, and deployment name, and completing the client and request code for C# or Python. Finally, you run the app and select each of the four supplied prompt files in turn, comparing a basic prompt against prompts that add formatting, specific content, and a light, joke-filled tone.
 
-## Lab Overview
+## 📖 Overview
 
 In this lab, you will perform the role of a software developer working on a wildlife marketing campaign. You are exploring how to use generative AI to improve advertising emails and categorize articles that might apply to your team. The prompt engineering techniques used in the lab can be applied similarly for a variety of use cases.
 
 When working with the Microsoft Foundry , how developers shape their prompts greatly impacts how the generative AI model will respond. Microsoft Foundry models are able to tailor and format content, if requested, in a clear and concise way. In this lab, you'll learn how different prompts for similar content help shape the AI model's response to better satisfy your requirements.
 
-## Lab Objectives
+## 🎯 Objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Apply prompt engineering in the chat playground

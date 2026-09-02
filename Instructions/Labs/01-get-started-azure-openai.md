@@ -2,15 +2,15 @@
 
 ### Estimated Duration: 120 Minutes
 
-## Lab Scenario
+## 📘 Scenario
 
 Your organization is starting its generative AI journey, and as the cloud developer on the AI team you have been asked to set up the platform the rest of the team will build on. You begin by provisioning a Microsoft Foundry resource in the Azure portal and deploying the **gpt-5-mini** model with your own deployment type, rate limit, and guardrail settings. You then open the Playground to test the deployment, shaping its behavior with system instructions and few-shot examples, and adjust parameters such as **max completion tokens** and **reasoning effort** to see how they change the length and depth of responses. Finally, you switch the model into a developer role and have it generate a Python function, confirming the deployment is ready for the application work in the labs that follow
 
-## Lab overview
+## 📖 overview
 
 In this lab, you'll learn how to get started with Microsoft Foundry by provisioning the service as an Azure resource and using the Microsoft Foundry portal to deploy and explore Microsoft Foundry models. Microsoft Foundry brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
 
-## Lab Objectives
+## 🎯 Objectives
 In this lab, you will complete the following tasks:
 
 - Task 1: Provision a Microsoft Foundry resource
@@ -55,7 +55,7 @@ In this task, you'll create a Microsoft Foundry in the Azure portal, selecting t
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="9ab1a143-84ef-420e-8713-2cacb6c0a63a" />
+<validation step="c441612f-1977-44cb-832a-796990d2ff0c" />
 
 ## Task 2: Deploy a model 
 
@@ -97,7 +97,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
 - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="f0c29243-24d0-4f47-a237-0e8982262203" />
+<validation step="70feac4b-7ee0-42a0-9c82-384c63b69f6e" />
    
 ## Task 3: Use the Playground
 
