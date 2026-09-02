@@ -75,7 +75,7 @@ In this task, you will explore the guardrail controls available for a model depl
 
     ![](../media/l7-gpt-guardrail-2.png)
 
-1. Scroll down to the **Content harms (4)** section. Four risk types — **Hate**, **Sexual**, **Self-harm**, and **Violence** — are enabled by default, each set to **Medium blocking** with the **User input, Output** intervention point and the **Block** action. Use the sliders to adjust the severity threshold for each risk type as needed. The **Blocklists** option below lets you apply a custom blocklist of terms.
+1. Scroll down to the **Content harms (4)** section. Four risk types  **Hate**, **Sexual**, **Self-harm**, and **Violence** are enabled by default, each set to **Medium blocking** with the **User input, Output** intervention point and the **Block** action. Use the sliders to adjust the severity threshold for each risk type as needed. The **Blocklists** option below lets you apply a custom blocklist of terms.
 
     ![](../media/l7-gpt-guardrail-3.png)
 
@@ -83,13 +83,13 @@ In this task, you will explore the guardrail controls available for a model depl
 
     ![](../media/l7-gpt-guardrail-4.png)
 
-1. The **Assign guardrail** pane opens with the available guardrails listed on the left. Select **Microsoft.Default (1)** to preview its controls. The right pane shows the **Content safety (4)** section with the risk types it covers — **Hate** and **Self-harm** are visible here, both set to **Medium blocking** with the **User input, Output** intervention point and the **Block** action. Scroll the panel to review the remaining risk types, then select **Assign (3)**.
+1. The **Assign guardrail** pane opens with the available guardrails listed on the left. Select **Microsoft.Default (1)** to preview its controls. The right pane shows the **Content safety (4)** section with the risk types it covers **Hate** and **Self-harm** are visible here, both set to **Medium blocking** with the **User input, Output** intervention point and the **Block** action. Scroll the panel to review the remaining risk types, then select **Assign (3)**.
 
     ![](../media/l7-gpt-guardrail-5.png)
 
     > **Note**: Assigning a guardrail can take up to 15 minutes to take effect. You can continue using the playground while the assignment completes.
 
-1. Once the assignment completes, the **Guardrail** section on the model page shows the assigned guardrail and a summary of its coverage. Confirm that **Name** is set to **Microsoft.Default**, with **Risks with controls** listing only Content safety (4). Note that **Risks without controls** lists jailbreak, indirect prompt injections, sensitive data leakage, task drift, and protected materials — these risks are not covered by this guardrail.
+1. Once the assignment completes, the **Guardrail** section on the model page shows the assigned guardrail and a summary of its coverage. Confirm that **Name** is set to **Microsoft.Default**, with **Risks with controls** listing only Content safety (4). Note that **Risks without controls** lists jailbreak, indirect prompt injections, sensitive data leakage, task drift, and protected materials  these risks are not covered by this guardrail.
 
     ![](../media/l7-gpt-guardrail-8.png)
 
@@ -105,7 +105,7 @@ In this task, you will explore the guardrail controls available for a model depl
 
 ## 🧾 Summary
 
-In this lab, you explored the default Microsoft Foundry Guardrails and observed how they help prevent the generation of potentially harmful or offensive language. You also reviewed how to create and configure custom guardrails — jailbreak and content harm controls — and how to assign a built-in guardrail to meet specific responsible AI requirements for your generative AI applications.
+In this lab, you explored the default Microsoft Foundry Guardrails and observed how they help prevent the generation of potentially harmful or offensive language. You also reviewed how to create and configure custom guardrails  jailbreak and content harm controls and how to assign a built-in guardrail to meet specific responsible AI requirements for your generative AI applications.
 
 ## You have successfully completed the Hands-on lab.
 

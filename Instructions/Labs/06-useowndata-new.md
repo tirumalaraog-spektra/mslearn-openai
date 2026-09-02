@@ -83,13 +83,13 @@ In this task, you will create an agent that will  responds to queries with groun
 
     ![](../media/l6-agent-4-3.png)
 
-1. In the **Attach files** pop-up, leave **Index option (1)** set to **Create a new index**. A **Vector index name (2)** is generated automatically — for example, `index_green_bear_drhrz2jl9r`. The name in your environment will differ from the one shown here; leave it as is.
+1. In the **Attach files** pop-up, leave **Index option (1)** set to **Create a new index**. A **Vector index name (2)** is generated automatically  for example, `index_green_bear_drhrz2jl9r`. The name in your environment will differ from the one shown here; leave it as is.
 
 1. Then click **browse for files (3)** to select documents from your local machine, or drag and drop them into the upload area.
 
     ![](../media/l6-agent-4.png)
 
-    > **Note:** **The vector index** is what allows the agent to answer from your documents. When you attach files, Foundry splits them into chunks, converts each chunk into a numeric vector using a text embedding model, and stores those vectors in the index. At query time, your question is embedded the same way and the closest matching chunks are retrieved and passed to the model as grounding context — so answers come from your documents rather than the public web.
+    > **Note:** **The vector index** is what allows the agent to answer from your documents. When you attach files, Foundry splits them into chunks, converts each chunk into a numeric vector using a text embedding model, and stores those vectors in the index. At query time, your question is embedded the same way and the closest matching chunks are retrieved and passed to the model as grounding context so answers come from your documents rather than the public web.
     >
     > **A text embedding model** deployment is created automatically as part of this process, so you don't need to deploy one separately.
 
@@ -130,7 +130,7 @@ In this task, you will ask the same questions as before in the chat section afte
    I'd like to take a trip to New York. Where should I stay?
    ```
 
-1. The agent generates a response **(2)** using the content from your uploaded document rather than the web. Each fact includes an inline reference number, and the source files are listed as citations **(3)** below the response — for example, `New York Brochure.pdf`. Click a citation to view the exact passage the answer was drawn from.
+1. The agent generates a response **(2)** using the content from your uploaded document rather than the web. Each fact includes an inline reference number, and the source files are listed as citations **(3)** below the response for example, `New York Brochure.pdf`. Click a citation to view the exact passage the answer was drawn from.
 
 
    ![](../media/l6-agent-11.png) 

@@ -4,7 +4,7 @@
 
 ## 📘 Scenario
 
-Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt` — and see why AI-generated code still needs a developer's verification.
+Your development team wants to know how much routine coding work can be handed to a generative AI model, and you have been asked to evaluate it. In the Playground, you prompt the model to write a function in Python and then in C#, ask it to explain an unfamiliar Ruby function, and have it simplify that function and add explanatory comments. You then move from the portal into code by opening Cloud Shell, navigating to the sample application, and configuring it with your Microsoft Foundry endpoint, key, and deployment name. Running the app, you select each option in turn to add comments to a function, generate unit tests for it, and fix bugs in a Go Fish app, then review the corrected output in `result/app.txt`  and see why AI-generated code still needs a developer's verification.
 
 
 ## 📖 Overview
@@ -230,9 +230,9 @@ In this task, you will run your configured app to generate code for each use cas
 
       ![](../media/cat.png)
 
-The app for Go Fish in `sample-code` can be run if you replace the lines with bugs with the response from Microsoft Foundry model. If you run it without the fixes, it will not work correctly.
+1. The app for Go Fish in `sample-code` can be run if you replace the lines with bugs with the response from Microsoft Foundry model. If you run it without the fixes, it will not work correctly.
 
-It's important to note that even though the code for this Go Fish app was corrected for some syntax, it's not a strictly accurate representation of the game. If you look closely, there are issues with not checking if the deck is empty when drawing cards, not removing pairs from the player's hand when they get a pair, and a few other bugs that require an understanding of card games to realize. This is a great example of how useful generative AI models can be to assist with code generation, but they can't be trusted as correct and need to be verified by the developer.
+1. It's important to note that even though the code for this Go Fish app was corrected for some syntax, it's not a strictly accurate representation of the game. If you look closely, there are issues with not checking if the deck is empty when drawing cards, not removing pairs from the player's hand when they get a pair, and a few other bugs that require an understanding of card games to realize. This is a great example of how useful generative AI models can be to assist with code generation, but they can't be trusted as correct and need to be verified by the developer.
 
 If you would like to see the full response from Microsoft Foundry model, you can set the `printFullResponse` variable to `True` and re-run the app.
 

@@ -84,7 +84,7 @@ In this task, you'll deploy a specific AI model instance within your Microsoft F
       - **Tokens per Minute Rate Limit (3)**: **10K** (use the **slider (4)** to adjust the value)
       - **Guardrails (5)**: **DefaultV2**
 
-      ![](../media/l1-nf-gpt-3.png)
+        ![](../media/l1-nf-gpt-3.png)
 
       > **Note:** You can ignore any error related to the assignment of roles to view the quota limits.
    
@@ -176,11 +176,11 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
 3. Review the chat, which shows your **user prompt (1)** and the model's **response (2)**. Although you asked for a 500-word explanation, the response is cut short because you set **max completion tokens** to **400** in the previous step.
 
-   >**Note**: **Max completion tokens** caps how long the model's reply can be — it's an upper bound on the number of tokens the model is allowed to generate for a single response.
+   >**Note**: **Max completion tokens** caps how long the model's reply can be  it's an upper bound on the number of tokens the model is allowed to generate for a single response.
 
       ![](../media/lab1-aoai-f-mxt-2.png)
 
-4. Generation stops early and the playground displays a **Token limit reached (1)** message, because the reply hit the **max completion tokens** limit. Now raise **max completion tokens** above **500** and resubmit the same prompt — this time the model has enough room to finish the full explanation. 
+4. Generation stops early and the playground displays a **Token limit reached (1)** message, because the reply hit the **max completion tokens** limit. Now raise **max completion tokens** above **500** and resubmit the same prompt  this time the model has enough room to finish the full explanation. 
 
    - Click **New chat (2)** to start a fresh chat session. This clears the current conversation, so the previous messages are no longer available.
 
@@ -192,7 +192,7 @@ In this task, you'll explore prompts and parameters by experimenting with differ
 
       - The parameters include *Max completion tokens*, which sets an upper limit on how many tokens the model can generate in a single response. Because 400 tokens is roughly 300 words, the limit was reached before the model could deliver the 500 words the prompt asked for.
 
-      - When a parameter and a prompt disagree, the parameter wins. No matter how the prompt is worded, the model cannot produce more output than *Max completion tokens* allows — which is why raising the limit was necessary to get the complete explanation.
+      - When a parameter and a prompt disagree, the parameter wins. No matter how the prompt is worded, the model cannot produce more output than *Max completion tokens* allows which is why raising the limit was necessary to get the complete explanation.
 
 6. We add another value called **Reasoning Effort (1)** with high,medium,low  you can change this values and give the prompt **(2)** and click **Send (3)** to check Reasoning skills of AI model. 
 
